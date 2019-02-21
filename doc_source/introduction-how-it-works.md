@@ -1,0 +1,11 @@
+# How AWS Global Accelerator Works<a name="introduction-how-it-works"></a>
+
+AWS Global Accelerator provides you with a set of static IP addresses that are anycast from the AWS edge network\. The IP addresses serve as single fixed entry points for your clients\. When you set up your accelerator with Global Accelerator, you associate your static IP addresses to regional endpoints—such as Elastic IP addresses, Network Load Balancers, and Application Load Balancers—in one or more AWS Regions\. The static IP addresses accept incoming traffic onto the AWS global network from the edge location that is closest to your users\. From there, traffic for your application is routed to the optimal AWS endpoint based on several factors, including the user’s location, the health of the endpoint, and the endpoint weights that you configure\.
+
+Traffic travels over the well\-monitored, congestion\-free, redundant AWS global network to the endpoint\. By maximizing the time that traffic is on the AWS network, Global Accelerator ensures that traffic is always routed over the optimum network path\. Global Accelerator continuously monitors the health of all endpoints, and instantly begins directing traffic to another available endpoint when it determines that an active endpoint is unhealthy\. This allows you to create a high availability architecture for your applications on AWS\.
+
+Global Accelerator static IP addresses serve as a single, fixed entry point for clients that connect to your applications\. This gives you the flexibility to move traffic between Availability Zones or Regions when you’re doing performance testing, stack upgrades, or failover, without having to update your applications or DNS entries\. 
+
+If you want fine\-grained control over your global traffic, you can configure weights for your endpoints\. You can also increase \(dial up\) or decrease \(dial down\) the percentage of traffic to a particular endpoint group, for example, for performance testing or stack upgrades\. 
+
+Global Accelerator supports both TCP and UDP protocols\.
