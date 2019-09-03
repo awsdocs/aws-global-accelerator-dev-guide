@@ -1,6 +1,6 @@
 # Endpoints in AWS Global Accelerator<a name="about-endpoints"></a>
 
-Endpoints in AWS Global Accelerator can be Elastic IP addresses, Network Load Balancers, or Application Load Balancers\. A static IP address serves as a single point of contact for clients, and Global Accelerator then distributes incoming traffic across healthy endpoints\. Global Accelerator directs traffic to endpoints by using the port that you specify for the listener that the endpoint group for the endpoint belongs to\. Each endpoint group can have multiple endpoints\.
+Endpoints in AWS Global Accelerator can be Elastic IP addresses, Network Load Balancers, or Application Load Balancers\. \(An Application Load Balancer endpoint can be an internet\-facing Application Load Balancer or an internal Application Load Balancer\.\) A static IP address serves as a single point of contact for clients, and Global Accelerator then distributes incoming traffic across healthy endpoints\. Global Accelerator directs traffic to endpoints by using the port that you specify for the listener that the endpoint group for the endpoint belongs to\. Each endpoint group can have multiple endpoints\.
 
 **Note**  
 You can add each endpoint to multiple endpoint groups, but the endpoint groups must be associated with different listeners\.
@@ -16,3 +16,4 @@ Global Accelerator continually monitors the health of all endpoints that are inc
 **Topics**
 + [Adding, Editing, or Removing an Endpoint](about-endpoints-adding-endpoints.md)
 + [Endpoint Weights](about-endpoints-endpoint-weights.md)
++ [Transitioning Your ALB Endpoints to Use Client IP Address Preservation](about-endpoints.transition-to-IP-preservation.md)

@@ -185,7 +185,8 @@ To enable flow logs in AWS Global Accelerator,follow the steps in this procedure
    ```
    aws globalaccelerator update-accelerator-attributes 
           --accelerator-arn arn:aws:globalaccelerator::012345678901:accelerator/1234abcd-abcd-1234-abcd-1234abcdefgh 
-          --flow-logs-enabled 
+          --region us-west-2
+          --flow-logs-enabled
           --flow-logs-s3-bucket s3-bucket 
           --flow-logs-s3-prefix bucket-prefix
    ```

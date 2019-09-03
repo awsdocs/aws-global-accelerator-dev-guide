@@ -20,6 +20,8 @@ This section explains how to work with endpoints on the AWS Global Accelerator c
 
 1. Optionally, for **Weight**, enter a number from 0 to 255 to set a weight for routing traffic to this endpoint\. When you add weights to endpoints, you configure Global Accelerator to route traffic based on proportions that you specify\. By default, all endpoints have a weight of 128\. For more information, see [Endpoint Weights](about-endpoints-endpoint-weights.md)\.
 
+1. Optionally, enable client IP address preservation for an Application Load Balancer endpoint\. Under **Preserve client IP address**, select **Preserve address**\. For more information, see [ Viewing Client IP Addresses in AWS Global Accelerator](introduction-how-it-works-client-ip.md)\.
+
 1. Choose **Add endpoint**\.
 
 # To edit an endpoint

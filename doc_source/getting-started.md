@@ -19,10 +19,12 @@ Before you create an accelerator, create at least one resource that you can add 
 
 ## Step 1: Create an Accelerator<a name="getting-started-accelerator"></a>
 
-To create your accelerator, you enter a name\. 
+To create your accelerator, follow the steps in the Global Accelerator console in the AWS management console\. 
 
-**Note**  
 To complete this task by using an API operation instead of the console, see [https://docs.aws.amazon.com/global-accelerator/latest/api/API_CreateAccelerator.html](https://docs.aws.amazon.com/global-accelerator/latest/api/API_CreateAccelerator.html) in the *AWS Global Accelerator API Reference*\.
+
+**Important**  
+Make sure that you’re in the US\-West\-2 \(Oregon\) Region\. You must be in this Region to create or update accelerators\.
 
 1. Open the Global Accelerator console at [ https://us\-west\-2\.console\.aws\.amazon\.com/ec2/v2/home?region=us\-west\-2\#Global Accelerator:](https://us-west-2.console.aws.amazon.com/ec2/v2/home?region=us-west-2#GlobalAccelerator:)\. 
 
@@ -47,7 +49,7 @@ To complete this task by using an API operation instead of the console, see [htt
 
    The default is **None**, which means that client affinity is not enabled and Global Accelerator distributes traffic equally between the endpoints in the endpoint groups for the listener\.
 
-   For more information, see [Client Affinity](about-listeners-client-affinity.md)\.
+   For more information, see [Client Affinity](about-listeners.md#about-listeners-client-affinity)\.
 
 1. Optionally, choose **Add listener** to add an additional listener\.
 
@@ -89,7 +91,13 @@ After you choose **Next**, on the Global Accelerator dashboard you'll see a mess
 
 ## Step 5: Test Your Accelerator<a name="getting-started-create-and-test"></a>
 
-Take steps to test your accelerator to make sure that traffic is being directed to your endpoints\.
+Take steps to test your accelerator to make sure that traffic is being directed to your endpoints\. For example, run a curl command such as the following, substituting one of your accelerator's static IP addresses, to show the AWS Regions where requests are processed\. The command calls the IP address 100 times, and then outputs a count of where each request was processed\.
+
+```
+for ((i=0;i<100;i++)); do  curl http://198.51.100.0/ >> output.txt; done; cat output.txt | sort | uniq -c ; rm output.txt;
+```
+
+If you've adjusted the traffic dial on any endpoint groups, this command can help you confirm that your accelerator is directing the correct percentages of traffic to different groups\. For more information, see the detailed examples in the following blog post, [ Traffic management with AWS Global Accelerator](https://aws.amazon.com/blogs/networking-and-content-delivery/traffic-management-with-aws-global-accelerator/)\.
 
 ## Step 6: Delete Your Accelerator<a name="getting-started-delete-accelerator"></a>
 

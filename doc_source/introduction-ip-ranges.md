@@ -5,3 +5,5 @@ Amazon Web Services \(AWS\) publishes its current IP address ranges in JSON form
 To find the IP address ranges that are associated with AWS Global Accelerator edge servers, search `ip-ranges.json` for the following string:
 
 `"service": "GLOBALACCELERATOR"`
+
+Global Accelerator entries that include `"region": "GLOBAL"` refer to the static IP addresses that are allocated to customer accelerators\. If you want to filter for traffic through your accelerator that comes from points of presence \(POPs\) in one area, filter for entries that include a specific geographical area, such as `us-*` or `eu-*`\. So, for example, if you filter for `us-*`, you will see only traffic coming through POPs in the United States \(U\.S\.\)\.

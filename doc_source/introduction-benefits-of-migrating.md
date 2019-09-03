@@ -1,6 +1,6 @@
-# Benefits of Using AWS Global Accelerator<a name="introduction-benefits-of-migrating"></a>
+# AWS Global Accelerator Use Cases<a name="introduction-benefits-of-migrating"></a>
 
-AWS Global Accelerator provides the following benefits:
+Using AWS Global Accelerator can help you accomplish a variety of goals\. This section lists some of them, to give you an idea how you can use Global Accelerator to meet your needs\.
 
 **Instant regional failover**  
 Global Accelerator automatically checks the health of the endpoints that are associated with your static IP addresses, and then directs user traffic only to healthy endpoints\. If the health status changes for an endpoint or you change the configuration, Global Accelerator reacts instantly to direct your users to the next healthy endpoint\.
@@ -19,3 +19,6 @@ The IP addresses that you provision in Global Accelerator are static and provide
 
 **Fine\-grained control**  
 Global Accelerator gives you control so that you can choose exactly how you want to adjust incoming traffic\. You can configure a traffic dial for regional endpoint groups, so that you can increase or decrease traffic for a specific Region, for performance testing, or for application updates\. For each endpoint, you can set a weight that determines the proportion of traffic that Global Accelerator directs to it\. In addition, if you have stateful applications, you can choose to direct all requests from a user to the same backend target, regardless of the source port, to maintain client affinity\. These options give you ongoing fine\-grained control over how Global Accelerator directs your traffic\.
+
+**Origin cloaking**  
+Global Accelerator allows you to add an Application Load Balancer as an endpoint for an accelerator even if the load balancer is not internet accessible\. This lets you use Global Accelerator as the single internet\-facing access point, through the Global Accelerator global edge locations, which helps to protect your applications running on AWS from distributed denial of service \(DDoS\) attacks\. Global Accelerator enables origin cloaking by creating a VPC peering connection between the Global Accelerator and your virtual private cloud \(VPC\), within which traffic between the two VPCs uses private IP addresses\.
