@@ -3,9 +3,9 @@
 AWS Global Accelerator uses an AWS Identity and Access Management \(IAM\)[ service\-linked role](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_terms-and-concepts.html#iam-term-service-linked-role)\. A service\-linked role is a unique type of IAM role that is linked directly to a service\. Service\-linked roles are predefined by the service and include all of the permissions that the service requires to call other AWS services on your behalf\.
 
 Global Accelerator uses the following IAM service\-linked role:
-+ **AWSServiceRoleForGlobalAccelerator**–Global Accelerator uses this role to allow Global Accelerator to create and manage resources required for source IP preservation\.
++ **AWSServiceRoleForGlobalAccelerator**–Global Accelerator uses this role to allow Global Accelerator to create and manage resources required for client IP address preservation\.
 
-When you first create an accelerator in Global Accelerator and add an endpoint group, a role named AWSServiceRoleForGlobalAccelerator is automatically created to allow Global Accelerator create and manage resources necessary for source IP preservation\. This role is required for using accelerators in Global Accelerator\. The ARN for the AWSServiceRoleForGlobalAccelerator role looks like this:
+When you first create an accelerator in Global Accelerator and add an endpoint group, a role named AWSServiceRoleForGlobalAccelerator is automatically created to allow Global Accelerator create and manage resources necessary for client IP address preservation\. This role is required for using accelerators in Global Accelerator\. The ARN for the AWSServiceRoleForGlobalAccelerator role looks like this:
 
 `arn:aws:iam::123456789012:role/aws-service-role/globalaccelerator.amazonaws.com/AWSServiceRoleForGlobalAccelerator`
 

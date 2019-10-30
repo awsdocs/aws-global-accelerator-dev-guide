@@ -13,18 +13,22 @@ This tutorial provides the steps for getting started with AWS Global Accelerator
 
 ## Before You Begin<a name="getting-started-before-you-begin"></a>
 
-Before you create an accelerator, create at least one resource that you can add as an endpoint to direct traffic to\. Do one of the following:
-+ Launch at least one Amazon EC2 instance, and then create a Network Load Balancer or Application Load Balancer for it\. For more information, see [Getting Started with Amazon EC2](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EC2_GetStarted.html) and [Create a Network Load Balancer](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/create-network-load-balancer.html)\. 
-+ Create an Elastic IP address, and then attach it to an Amazon EC2 instance or network interface\. For more information, see [Elastic IP Addresses](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html)\.
+Before you create an accelerator, create at least one resource that you can add as an endpoint to direct traffic to\. For example, create one of the following:
++ Launch at least one Amazon EC2 instance to add as an endpoint\. For more information, see [Create Your EC2 Resources and Launch Your EC2 Instance](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/gs-step-one-create-ec2-resources.html) in the *Amazon EC2 User Guide for Linux Instances*\. 
++ Optionally, create one or more Network Load Balancers or Application Load Balancers that includes EC2 instances\. For more information, see [Create a Network Load Balancer Application Load Balancer](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/create-network-load-balancer.html) in the *User Guide for Network Load Balancers*\.
+
+When you create a resource to add to Global Accelerator, be aware of the following:
++ When you add an internal Application Load Balancer or an EC2 instance endpoint in Global Accelerator, you enable internet traffic to flow directly to and from the endpoint in Virtual Private Clouds \(VPCs\) by targeting it in a private subnet\. The VPC that contains the load balancer or EC2 instance must have an [internet gateway](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Internet_Gateway.html) attached to it, to indicate that the VPC accepts internet traffic\. For more information, see [Secure VPC Connections in AWS Global Accelerator](secure-vpc-connections.md)\.
++ Global Accelerator requires your router and firewall rules to allow inbound traffic from the IP addresses associated with Route 53 health checkers to complete health checks for Application Load Balancer, EC2 instance, or Elastic IP address endpoints\. You can find information about the IP address ranges associated with Amazon Route 53 health checkers in [Health Checks for Your Target Groups](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/route-53-ip-addresses.html) in the *Amazon Route 53 Developer Guide*\.
 
 ## Step 1: Create an Accelerator<a name="getting-started-accelerator"></a>
 
-To create your accelerator, follow the steps in the Global Accelerator console in the AWS management console\. 
+To create your accelerator, you enter a name\. 
 
-To complete this task by using an API operation instead of the console, see [https://docs.aws.amazon.com/global-accelerator/latest/api/API_CreateAccelerator.html](https://docs.aws.amazon.com/global-accelerator/latest/api/API_CreateAccelerator.html) in the *AWS Global Accelerator API Reference*\.
+**Note**  
+To complete this task by using an API operation instead of the console, see [CreateAccelerator](https://docs.aws.amazon.com/global-accelerator/latest/api/API_CreateAccelerator.html) in the *AWS Global Accelerator API Reference*\.
 
-**Important**  
-Make sure that you’re in the US\-West\-2 \(Oregon\) Region\. You must be in this Region to create or update accelerators\.
+## To create an accelerator
 
 1. Open the Global Accelerator console at [ https://us\-west\-2\.console\.aws\.amazon\.com/ec2/v2/home?region=us\-west\-2\#Global Accelerator:](https://us-west-2.console.aws.amazon.com/ec2/v2/home?region=us-west-2#GlobalAccelerator:)\. 
 
@@ -39,7 +43,9 @@ Make sure that you’re in the US\-West\-2 \(Oregon\) Region\. You must be in th
 Create a listener to process inbound connections from your users to Global Accelerator\.
 
 **Note**  
-To complete this task by using an API operation instead of the console, see [https://docs.aws.amazon.com/global-accelerator/latest/api/API_CreateListener.html](https://docs.aws.amazon.com/global-accelerator/latest/api/API_CreateListener.html) in the *AWS Global Accelerator API Reference*\.
+To complete this task by using an API operation instead of the console, see [CreateListener](https://docs.aws.amazon.com/global-accelerator/latest/api/API_CreateListener.html) in the *AWS Global Accelerator API Reference*\.
+
+## To create a listener
 
 1. On the **Add listener** page, enter the ports or port ranges that you want to associate with the listener\. Listeners support ports 1\-65535\.
 
@@ -60,13 +66,15 @@ To complete this task by using an API operation instead of the console, see [htt
 Add one or more endpoint groups, each of which is associated with a specific AWS Region\.
 
 **Note**  
-To complete this task by using an API operation instead of the console, see [https://docs.aws.amazon.com/global-accelerator/latest/api/API_CreateEndpointGroup.html](https://docs.aws.amazon.com/global-accelerator/latest/api/API_CreateEndpointGroup.html) in the *AWS Global Accelerator API Reference*\.
+To complete this task by using an API operation instead of the console, see [CreateEndpointGroup](https://docs.aws.amazon.com/global-accelerator/latest/api/API_CreateEndpointGroup.html) in the *AWS Global Accelerator API Reference*\.
+
+## To add an endpoint group
 
 1. On the **Add endpoint groups** page, in the section for a listener, choose a **Region** from the dropdown list\.
 
 1. Optionally, for **Traffic dial**, enter a number from 0 to 100 to set a percentage of traffic for this endpoint group\. The percentage is applied only to the traffic already directed to this endpoint group, not all listener traffic\. By default, the traffic dial for an endpoint group is set to 100 \(that is, 100%\)\. 
 
-1. Optionally, for custom health check values, choose **Configure health checks**\. When you configure health check settings, Global Accelerator uses the settings for health checks for Elastic IP address endpoints\. For Network Load Balancer and Application Load Balancer endpoints, Global Accelerator uses the health check settings that you've already configured for the load balancers themselves\. For more information, see [Health Check Options](about-endpoint-groups-health-check-options.md)\.
+1. Optionally, for custom health check values, choose **Configure health checks**\. When you configure health check settings, Global Accelerator uses the settings for health checks for EC2 instance and Elastic IP address endpoints\. For Network Load Balancer and Application Load Balancer endpoints, Global Accelerator uses the health check settings that you've already configured for the load balancers themselves\. For more information, see [Health Check Options](about-endpoint-groups-health-check-options.md)\. 
 
 1. Optionally, choose **Add endpoint group** to add additional endpoint groups for this listener or other listeners\.
 
@@ -77,11 +85,15 @@ To complete this task by using an API operation instead of the console, see [htt
 Add one or more endpoints that are associated with specific endpoint groups\. This step isn't required, but no traffic is directed to endpoints in a Region unless the endpoints are included in an endpoint group\.
 
 **Note**  
-If you're creating your accelerator programmatically, you add endpoints as part of adding endpoint groups\. For more information, see [https://docs.aws.amazon.com/global-accelerator/latest/api/API_CreateEndpointGroup.html](https://docs.aws.amazon.com/global-accelerator/latest/api/API_CreateEndpointGroup.html) in the *AWS Global Accelerator API Reference*\.
+If you're creating your accelerator programmatically, you add endpoints as part of adding endpoint groups\. For more information, see [CreateEndpointGroup](https://docs.aws.amazon.com/global-accelerator/latest/api/API_CreateEndpointGroup.html) in the *AWS Global Accelerator API Reference*\.
+
+## To add endpoints
 
 1. On the **Create endpoints** page, in the section for an endpoint, choose an endpoint from the dropdown list\.
 
 1. Optionally, for **Weight**, enter a number from 0 to 255 to set a weight for routing traffic to this endpoint\. When you add weights to endpoints, you configure Global Accelerator to route traffic based on proportions that you specify\. By default, all endpoints have a weight of 128\. For more information, see [Endpoint Weights](about-endpoints-endpoint-weights.md)\.
+
+1. Optionally, for an Application Load Balancer endpoint, under **Preserve client IP address**, select **Preserve address**\. For more information, see [Preserve Client IP Addresses in AWS Global Accelerator](preserve-client-ip-address.md)\.
 
 1. Optionally, choose **Add endpoint** to add more endpoints\.
 
@@ -91,23 +103,38 @@ After you choose **Next**, on the Global Accelerator dashboard you'll see a mess
 
 ## Step 5: Test Your Accelerator<a name="getting-started-create-and-test"></a>
 
-Take steps to test your accelerator to make sure that traffic is being directed to your endpoints\. For example, run a curl command such as the following, substituting one of your accelerator's static IP addresses, to show the AWS Regions where requests are processed\. The command calls the IP address 100 times, and then outputs a count of where each request was processed\.
+Take steps to test your accelerator to make sure that traffic is being directed to your endpoints\. For example, run a curl command such as the following, substituting one of your accelerator's static IP addresses, to show the AWS Regions where requests are processed\. This is especially helpful if you set different weights for endpoints or adjust the traffic dial on endpoint groups\.
+
+Run a curl command like the following, substituting one of your accelerator's static IP addresses, to call the IP address 100 times and then output a count of where each request was processed\.
 
 ```
 for ((i=0;i<100;i++)); do  curl http://198.51.100.0/ >> output.txt; done; cat output.txt | sort | uniq -c ; rm output.txt;
 ```
 
-If you've adjusted the traffic dial on any endpoint groups, this command can help you confirm that your accelerator is directing the correct percentages of traffic to different groups\. For more information, see the detailed examples in the following blog post, [ Traffic management with AWS Global Accelerator](https://aws.amazon.com/blogs/networking-and-content-delivery/traffic-management-with-aws-global-accelerator/)\.
+If you've adjusted the traffic dial on any endpoint groups, this command can help you confirm that your accelerator is directing the correct percentages of traffic to different groups\. For more information, see the detailed examples in the following blog post, [ Traffic management with AWS Global Accelerator](https://aws.amazon.com/      blogs/networking-and-content-delivery/traffic-management-with-aws-global-accelerator/)\.
 
 ## Step 6: Delete Your Accelerator<a name="getting-started-delete-accelerator"></a>
 
 If you created an accelerator as a test or if you're no longer using an accelerator, you can delete it\. On the console, disable the accelerator, and then you can delete it\. You don't have to remove listeners and endpoint groups from the accelerator\.
 
-To delete an accelerator by using an API operation instead of the console, you must first remove all listeners and endpoint groups that are associated with the accelerator as well as disable it\. For more information, see the [https://docs.aws.amazon.com/global-accelerator/latest/api/API_DeleteAccelerator.html](https://docs.aws.amazon.com/global-accelerator/latest/api/API_DeleteAccelerator.html) operation in the *AWS Global Accelerator API Reference*\.
-+ Open the Global Accelerator console at [ https://us\-west\-2\.console\.aws\.amazon\.com/ec2/v2/home?region=us\-west\-2\#Global Accelerator:](https://us-west-2.console.aws.amazon.com/ec2/v2/home?region=us-west-2#GlobalAccelerator:)\. 
-+ Choose the accelerator that you want to delete\.
-+ Choose **Edit**\.
-+ Choose **Disable accelerator**, and then choose **Save**\.
-+ Choose the accelerator that you want to delete\.
-+ Choose **Delete accelerator**\.
-+ In the confirmation dialog box, choose **Delete**\.
+To delete an accelerator by using an API operation instead of the console, you must first remove all listeners and endpoint groups that are associated with the accelerator as well as disable it\. For more information, see the [DeleteAccelerator](https://docs.aws.amazon.com/global-accelerator/latest/api/API_DeleteAccelerator.html) operation in the *AWS Global Accelerator API Reference*\.
+
+Be aware of the following when you remove endpoints or endpoint groups, or delete an accelerator:
++ When you create an accelerator, Global Accelerator provides you with a set of two static IP addresses\. The IP addresses are assigned to your accelerator for as long as it exists, even if you disable the accelerator and it no longer accepts or routes traffic\. However, when you *delete* an accelerator, you lose the static IP addresses that are assigned to the accelerator, so you can no longer route traffic by using them\. As a best practice, ensure that you have permissions in place to avoid inadvertently deleting accelerators\. You can use IAM policies with Global Accelerator to limit the users who have permissions to delete an accelerator\. For more information, see [Authentication and Access Control for AWS Global Accelerator](auth-and-access-control.md)\.
++ If you terminate an EC2 instance before you remove it from an endpoint group in Global Accelerator, and then you create another instance with the same private IP address, and health checks pass, Global Accelerator will route traffic to the new endpoint\. If you don't want this to happen, remove the EC2 instance from the endpoint group before you terminate the instance\.
+
+## To delete an accelerator
+
+1. Open the Global Accelerator console at [ https://us\-west\-2\.console\.aws\.amazon\.com/ec2/v2/home?region=us\-west\-2\#Global Accelerator:](https://us-west-2.console.aws.amazon.com/ec2/v2/home?region=us-west-2#GlobalAccelerator:)\. 
+
+1. Choose the accelerator that you want to delete\.
+
+1. Choose **Edit**\.
+
+1. Choose **Disable accelerator**, and then choose **Save**\.
+
+1. Choose the accelerator that you want to delete\.
+
+1. Choose **Delete accelerator**\.
+
+1. In the confirmation dialog box, choose **Delete**\.

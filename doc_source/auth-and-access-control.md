@@ -85,11 +85,11 @@ To access the AWS Global Accelerator console, you must have a minimum set of per
 To ensure that those entities can still use the Global Accelerator console or API actions, also attach one of the following AWS managed policies to the user, as described in [Creating Policies on the JSON Tab](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_create.html#access_policies_create-json-editor):
 
 ```
-GlobalAcceleratorReadOnlyAccess
-GlobalAcceleratorFullAccess
+        GlobalAcceleratorReadOnlyAccess
+        GlobalAcceleratorFullAccess
 ```
 
-Attach the first policy, `GlobalAcceleratorReadOnlyAccess`, to users who only need to view information in the console or make calls to the AWS CLI or the API that use `List*` or `Describe*` operations\.
+Attach the first policy, `GlobalAcceleratorReadOnlyAccess`, if users only need to view information in the console or make calls to the AWS CLI or the API that use `List*` or `Describe*` operations\.
 
 Attach the second policy, `GlobalAcceleratorFullAccess`, to users who need to create or make updates to accelerators\. The full access policy includes *full* permissions for Global Accelerator as well as *describe* permissions for Amazon EC2 and Elastic Load Balancing\.
 
@@ -100,26 +100,53 @@ The following is the full access policy:
 
 ```
 {
-  "Version": "2012-10-17",
-  "Statement": [
-    {
-      "Action": [
-        "globalaccelerator:*"
-      ],
-      "Effect": "Allow",
-      "Resource": "*"
-    },
-    {
-      "Action": "elasticloadbalancing:DescribeLoadBalancers",
-      "Effect": "Allow",
-      "Resource": "*"
-    },
-    {
-      "Action": "ec2:DescribeAddresses",
-      "Effect": "Allow",
-      "Resource": "*"
-    }
-  ]
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Action": [
+                "ec2:CreateNetworkInterface",
+                "ec2:DescribeNetworkInterfaces",
+                "ec2:DescribeInstances",
+                "ec2:DescribeInternetGateways",
+                "ec2:DescribeSubnets",
+                "ec2:ModifyNetworkInterfaceAttribute",
+                "ec2:DeleteNetworkInterface"
+            ],
+            "Resource": "*"
+        },
+        {
+            "Effect": "Allow",
+            "Action": "ec2:DeleteSecurityGroup",
+            "Resource": "*",
+            "Condition": {
+                "StringEquals": {
+                    "ec2:ResourceTag/AWSServiceName": "GlobalAccelerator"
+                }
+            }
+        },
+        {
+            "Effect": "Allow",
+            "Action": [
+                "ec2:CreateSecurityGroup",
+                "ec2:DescribeSecurityGroups"
+            ],
+            "Resource": "*"
+        },
+        {
+            "Effect": "Allow",
+            "Action": "elasticloadbalancing:DescribeLoadBalancers",
+            "Resource": "*"
+        },
+        {
+            "Effect": "Allow",
+            "Action": "ec2:CreateTags",
+            "Resource": [
+                "arn:aws:ec2:*:*:security-group/*",
+                "arn:aws:ec2:*:*:network-interface/*"
+            ]
+        }
+    ]
 }
 ```
 
@@ -199,7 +226,7 @@ The following example policy allows a user to perform the `CreateAccelerator` op
 ```
 
 **Resource\-level permissions**  
-Global Accelerator does not support resource\-level permissions\. Resource\-level permissions allow you to use [ARNs](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) to specify individual resources in the policy\.  Because Global Accelerator does not support this feature, you must choose **All resources** in the [policy visual editor](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_create.html#access_policies_create-visual-editor)\. In a JSON policy document, you must use `*` in the `Resource` element\. 
+Global Accelerator supports resource\-level permissions\.  Resource\-level permissions allow you to use [ARNs](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) to specify individual resources in the policy\.  
 
 **Resource\-based policies**  
 Global Accelerator does not support resource\-based policies\. With resource\-based policies, you can attach a policy to a resource within the service\. Resource\-based policies include a `Principal` element to specify which IAM identities can access that resource\. 

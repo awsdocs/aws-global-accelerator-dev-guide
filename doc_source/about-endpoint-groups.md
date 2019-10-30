@@ -4,7 +4,7 @@ An endpoint group routes requests to one or more registered endpoints in AWS Glo
 
 Global Accelerator directs traffic to endpoint groups based on the location of the client and the health of the endpoint group\. If you like, you can also set the percentage of traffic to send to an endpoint group\. You do that by using the traffic dial to increase \(dial up\) or decrease \(dial down\) traffic to the group\. The percentage is applied only to the traffic that Global Accelerator is already directing to the endpoint group, not all traffic coming to a listener\. 
 
-You can define health check settings for Global Accelerator for each endpoint group\. By updating health check settings, you can change your requirements for polling and verifying the health of Elastic IP address endpoints\. For Network Load Balancer and Application Load Balancer endpoints, configure health check settings on the Elastic Load Balancing console\. 
+You can define health check settings for Global Accelerator for each endpoint group\. By updating health check settings, you can change your requirements for polling and verifying the health of EC2 instance and Elastic IP address endpoints\. For Network Load Balancer and Application Load Balancer endpoints, configure health check settings on the Elastic Load Balancing console\. 
 
 Global Accelerator continually monitors the health of all endpoints that are included in an endpoint group, and routes requests only to the active endpoints that are healthy\. If there aren't any healthy endpoints to route traffic to, Global Accelerator routes requests to all endpoints\.
 

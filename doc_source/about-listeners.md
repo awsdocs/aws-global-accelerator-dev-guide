@@ -14,6 +14,8 @@ This section explains how to work with listeners on the AWS Global Accelerator c
 
 1. Open the Global Accelerator console at [ https://us\-west\-2\.console\.aws\.amazon\.com/ec2/v2/home?region=us\-west\-2\#Global Accelerator:](https://us-west-2.console.aws.amazon.com/ec2/v2/home?region=us-west-2#GlobalAccelerator:)\. 
 
+1. On the **accelerators** page, choose an accelerator\.
+
 1. Choose **Add listener**\.
 
 1. On the **Add listener** page, enter the ports or port ranges that you want to associate with the listener\. Listeners support ports 1\-65535\.
@@ -32,7 +34,9 @@ This section explains how to work with listeners on the AWS Global Accelerator c
 
 1. Open the Global Accelerator console at [ https://us\-west\-2\.console\.aws\.amazon\.com/ec2/v2/home?region=us\-west\-2\#Global Accelerator:](https://us-west-2.console.aws.amazon.com/ec2/v2/home?region=us-west-2#GlobalAccelerator:)\. 
 
-1. Choose **Edit listener**\.
+1. On the **accelerators** page, choose an accelerator\.
+
+1. Choose a listener, and then choose **Edit listener**\.
 
 1. On the **Edit listener** page, change the ports, port ranges, or protocols that you want to associate with the listener\.
 
@@ -48,7 +52,9 @@ This section explains how to work with listeners on the AWS Global Accelerator c
 
 1. Open the Global Accelerator console at [ https://us\-west\-2\.console\.aws\.amazon\.com/ec2/v2/home?region=us\-west\-2\#Global Accelerator:](https://us-west-2.console.aws.amazon.com/ec2/v2/home?region=us-west-2#GlobalAccelerator:)\. 
 
-1. Choose **Remove listener**\.
+1. On the **accelerators** page, choose an accelerator\.
+
+1. Choose a listener, and then choose **Remove**\.
 
 1. In the confirmation dialog box, choose **Remove**\.
 

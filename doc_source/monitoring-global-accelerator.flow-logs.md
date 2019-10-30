@@ -28,7 +28,7 @@ The maximum file size for a log file is 75 MB\. If the log file reaches the file
 Log files are saved to the specified Amazon S3 bucket using a folder structure that is determined by the flow log's ID, Region, and the date on which they are created\. The bucket folder structure uses the following format:
 
 ```
-bucket_name/flow-log-prefix/AWSLogs/aws_account_id/globalaccelerator/region/yyyy/mm/dd/
+s3-bucket_name/s3-bucket-prefix/AWSLogs/aws_account_id/globalaccelerator/region/yyyy/mm/dd/
 ```
 
 Similarly, the log file name is determined by the flow log's ID, Region, and the date and time it was created\. File names use the following format:
@@ -37,10 +37,15 @@ Similarly, the log file name is determined by the flow log's ID, Region, and the
 aws_account_id_globalaccelerator_accelerator_id_flow_log_id_timestamp_hash.log.gz
 ```
 
-**Note**  
-The timestamp uses the `YYYYMMDDTHHmmZ` format\.
+Note the following about the folder and file name structure for log files:
++ The timestamp uses the `YYYYMMDDTHHmmZ` format\.
++ If you specify slash \(/\) for the S3 bucket prefix, the log file bucket folder structure will include a double slash \(//\), like the following:
 
-The following example shows the folder structure and file name of a log file for a flow log created by AWS account `123456789012` for a Global Accelerator with an ID of `1234abcd-abcd-1234-abcd-1234abcdefgh`, on November 23, 2018 at 00:05 UTC:
+  ```
+  s3-bucket_name//AWSLogs/aws_account_id
+  ```
+
+The following example shows the folder structure and file name of a log file for a flow log created by AWS account `123456789012` for an accelerator with an ID of `1234abcd-abcd-1234-abcd-1234abcdefgh`, on November 23, 2018 at 00:05 UTC:
 
 ```
 my-s3-bucket/prefix1/AWSLogs/123456789012/globalaccelerator/us-west-2/2018/11/23/123456789012_globalaccelerator_1234abcd-abcd-1234-abcd-1234abcdefgh_20181123T0005Z_1fb1234.log.gz
@@ -172,13 +177,13 @@ In addition to the required bucket policies, Amazon S3 uses access control lists
 
 ### Enable Publishing Flow Logs to Amazon S3<a name="monitoring-global-accelerator.flow-logs-publishing-S3.enable"></a>
 
-To enable flow logs in AWS Global Accelerator,follow the steps in this procedure\.
+To enable flow logs in AWS Global Accelerator, follow the steps in this procedure\.
 
 ### To enable flow logs in AWS Global Accelerator
 
 1. Create an Amazon S3 bucket for your flow logs in your AWS account\.
 
-1. Add the following IAM policy for the AWS user who is enabling the flow logs\. For more information, see [IAM Roles for Publishing Flow Logs to Amazon S3](#monitoring-global-accelerator.flow-logs-publishing-S3.roles)\.
+1. Add the required IAM policy for the AWS user who is enabling the flow logs\. For more information, see [IAM Roles for Publishing Flow Logs to Amazon S3](#monitoring-global-accelerator.flow-logs-publishing-S3.roles)\.
 
 1. Run the following AWS CLI command, with the Amazon S3 bucket name and prefix that you want to use for your log files:
 
@@ -187,8 +192,8 @@ To enable flow logs in AWS Global Accelerator,follow the steps in this procedure
           --accelerator-arn arn:aws:globalaccelerator::012345678901:accelerator/1234abcd-abcd-1234-abcd-1234abcdefgh 
           --region us-west-2
           --flow-logs-enabled
-          --flow-logs-s3-bucket s3-bucket 
-          --flow-logs-s3-prefix bucket-prefix
+          --flow-logs-s3-bucket s3-bucket-name 
+          --flow-logs-s3-prefix s3-bucket-prefix
    ```
 
 ### Processing Flow Log Records in Amazon S3<a name="monitoring-global-accelerator.flow-logs-publishing-S3.processing"></a>
@@ -210,7 +215,9 @@ If no users connect to your accelerator during the time period, you don't receiv
 
 A flow log record is a space\-separated string that has the following format:
 
- `<version> <aws_account_id> <accelerator_id> <client_ip> <client_port> <accelerator_ip> <accelerator_port> <endpoint_ip> <endpoint_port> <protocol> <ip_address_type> <packets> <bytes> <start_time> <end_time> <action> <log-status> <globalaccelerator_source_ip> <globalaccelerator_source_port> <endpoint_region> <globalaccelerator_region> <direction>` 
+ `<version> <aws_account_id> <accelerator_id> <client_ip> <client_port> <accelerator_ip> <accelerator_port> <endpoint_ip> <endpoint_port> <protocol> <ip_address_type> <packets> <bytes> <start_time> <end_time> <action> <log-status> <globalaccelerator_source_ip> <globalaccelerator_source_port> <endpoint_region> <globalaccelerator_region> <direction> <vpc_id>` 
+
+The Version 1\.0 format does not include the VPC identifier, `vpc_id`\. The Version 2\.0 format, which includes `vpc_id`, is generated when Global Accelerator sends traffic to an endpoint with client IP address preservation\.
 
 The following table describes the fields of a flow log record\.
 
@@ -241,5 +248,6 @@ The following table describes the fields of a flow log record\.
 | `endpoint_region` | The AWS Region where the endpoint is located\. | 
 | `globalaccelerator_region` | The edge location \(point of presence\) that served the request\. Each edge location has a three\-letter code and an arbitrarily assigned number, for example, DFW3\. The three\-letter code typically corresponds with the International Air Transport Association airport code for an airport near the edge location\. \(These abbreviations might change in the future\.\) | 
 | `direction` | The direction of the traffic\. Denotes traffic coming into the Global Accelerator network \(`INGRESS`\) or returning to the client \(`EGRESS`\)\. | 
+| `vpc_id` | The VPC identifier\. Included with Version 2\.0 flow logs when Global Accelerator sends traffic to an endpoint with client IP address preservation\. | 
 
 If a field does not apply for a specific record, the record displays a '\-' symbol for that entry\.

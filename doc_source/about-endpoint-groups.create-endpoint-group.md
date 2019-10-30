@@ -8,7 +8,7 @@ This section explains how to work with endpoint groups on the AWS Global Acceler
 
 1. Open the Global Accelerator console at [ https://us\-west\-2\.console\.aws\.amazon\.com/ec2/v2/home?region=us\-west\-2\#Global Accelerator:](https://us-west-2.console.aws.amazon.com/ec2/v2/home?region=us-west-2#GlobalAccelerator:)\. 
 
-1. In the **Accelerators** section, choose an accelerator\.
+1. On the **accelerators** page, choose an accelerator\.
 
 1. In the **Listeners** section, for **Listener ID**, choose the ID of the listener that you want to add an endpoint group to\.
 
@@ -18,7 +18,7 @@ This section explains how to work with endpoint groups on the AWS Global Acceler
 
 1. Optionally, for **Traffic dial**, enter a number from 0 to 100 to set a percentage of traffic for this endpoint group\. The percentage is applied only to the traffic that is already directed to this endpoint group, not all listener traffic\. By default, the traffic dial is set to 100\.
 
-1. Optionally, to specify custom health check values to be applied to Elastic IP address endpoints, choose **Configure health checks**\. For more information, see [Health Check Options](about-endpoint-groups-health-check-options.md)\.
+1. Optionally, to specify custom health check values to be applied to EC2 instance and Elastic IP address endpoints, choose **Configure health checks**\. For more information, see [Health Check Options](about-endpoint-groups-health-check-options.md)\.
 
 1. Optionally, choose **Add endpoint group** to add additional endpoint groups for this listener or other listeners\.
 
@@ -27,6 +27,8 @@ This section explains how to work with endpoint groups on the AWS Global Acceler
 # To edit an endpoint group
 
 1. Open the Global Accelerator console at [ https://us\-west\-2\.console\.aws\.amazon\.com/ec2/v2/home?region=us\-west\-2\#Global Accelerator:](https://us-west-2.console.aws.amazon.com/ec2/v2/home?region=us-west-2#GlobalAccelerator:)\. 
+
+1. On the **accelerators** page, choose an accelerator\.
 
 1. In the **Listeners** section, for **Listener ID**, choose the ID of the listener that the endpoint group is associated with\.
 
@@ -40,8 +42,10 @@ This section explains how to work with endpoint groups on the AWS Global Acceler
 
 1. Open the Global Accelerator console at [ https://us\-west\-2\.console\.aws\.amazon\.com/ec2/v2/home?region=us\-west\-2\#Global Accelerator:](https://us-west-2.console.aws.amazon.com/ec2/v2/home?region=us-west-2#GlobalAccelerator:)\. 
 
-1. Choose **Remove listener**\.
+1. On the **accelerators** page, choose an accelerator\.
 
-1. In the **Listeners** section, for **Listener ID**, choose the ID of the listener that the endpoint group is associated with\.
+1. In the **Listeners** section, choose a listener, and then choose **Remove**\.
 
-1. On the confirmation dialog box, choose **Remove endpoint group**\.
+1. In the **Endpoint groups** section, choose an endpoint group, and then choose **Remove**\.
+
+1. On the confirmation dialog box, choose **Remove**\.
