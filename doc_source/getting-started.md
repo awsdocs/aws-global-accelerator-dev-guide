@@ -21,6 +21,9 @@ When you create a resource to add to Global Accelerator, be aware of the followi
 + When you add an internal Application Load Balancer or an EC2 instance endpoint in Global Accelerator, you enable internet traffic to flow directly to and from the endpoint in Virtual Private Clouds \(VPCs\) by targeting it in a private subnet\. The VPC that contains the load balancer or EC2 instance must have an [internet gateway](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Internet_Gateway.html) attached to it, to indicate that the VPC accepts internet traffic\. For more information, see [Secure VPC Connections in AWS Global Accelerator](secure-vpc-connections.md)\.
 + Global Accelerator requires your router and firewall rules to allow inbound traffic from the IP addresses associated with Route 53 health checkers to complete health checks for Application Load Balancer, EC2 instance, or Elastic IP address endpoints\. You can find information about the IP address ranges associated with Amazon Route 53 health checkers in [Health Checks for Your Target Groups](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/route-53-ip-addresses.html) in the *Amazon Route 53 Developer Guide*\.
 
+**Important**  
+Make sure that you’re in the AWS Region US West \(Oregon\)\. You must be in this Region to create or update accelerators\.
+
 ## Step 1: Create an Accelerator<a name="getting-started-accelerator"></a>
 
 To create your accelerator, you enter a name\. 
@@ -111,7 +114,7 @@ Run a curl command like the following, substituting one of your accelerator's st
 for ((i=0;i<100;i++)); do  curl http://198.51.100.0/ >> output.txt; done; cat output.txt | sort | uniq -c ; rm output.txt;
 ```
 
-If you've adjusted the traffic dial on any endpoint groups, this command can help you confirm that your accelerator is directing the correct percentages of traffic to different groups\. For more information, see the detailed examples in the following blog post, [ Traffic management with AWS Global Accelerator](https://aws.amazon.com/      blogs/networking-and-content-delivery/traffic-management-with-aws-global-accelerator/)\.
+If you've adjusted the traffic dial on any endpoint groups, this command can help you confirm that your accelerator is directing the correct percentages of traffic to different groups\. For more information, see the detailed examples in the following blog post, [ Traffic management with AWS Global Accelerator](https://aws.amazon.com/blogs/networking-and-content-delivery/traffic-management-with-aws-global-accelerator/)\.
 
 ## Step 6: Delete Your Accelerator<a name="getting-started-delete-accelerator"></a>
 

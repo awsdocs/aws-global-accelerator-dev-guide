@@ -52,7 +52,7 @@ Global Accelerator does not allow you to edit the AWSServiceRoleForGlobalAcceler
 
 If you no longer need to use Global Accelerator, we recommend that you delete the service\-linked role\. That way you don’t have unused entities that are not actively monitored or maintained\. However, you must clean up the Global Accelerator resources in your account before you can manually delete the roles\.
 
-After you have disabled and deleted your accelerators, then you can delete the service\-linked role\. For more information about deleting accelerators, see [](about-accelerators.md#about-accelerators.creating-editing)\.
+After you have disabled and deleted your accelerators, then you can delete the service\-linked role\. For more information about deleting accelerators, see [ Creating, Editing, or Deleting an Accelerator](about-accelerators.md#about-accelerators.creating-editing)\.
 
 **Note**  
 If you have disabled and deleted your accelerators but Global Accelerator hasn't finished updating, service\-linked role deletion might fail\. If that happens, wait for a few minutes, and then try the service\-linked role deletion steps again\.

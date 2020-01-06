@@ -105,6 +105,13 @@ The following is the full access policy:
         {
             "Effect": "Allow",
             "Action": [
+                "globalaccelerator:*"
+            ],
+            "Resource": "*"
+        },
+        {
+            "Effect": "Allow",
+            "Action": [
                 "ec2:CreateNetworkInterface",
                 "ec2:DescribeNetworkInterfaces",
                 "ec2:DescribeInstances",

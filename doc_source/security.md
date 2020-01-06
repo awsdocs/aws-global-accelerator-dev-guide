@@ -10,5 +10,8 @@ This documentation will help you understand how to apply the shared responsibili
 
 **Topics**
 + [Authentication and Access Control for AWS Global Accelerator](auth-and-access-control.md)
-+ [Monitoring in AWS Global Accelerator](monitoring-global-accelerator.md)
 + [Secure VPC Connections in AWS Global Accelerator](secure-vpc-connections.md)
++ [Logging and Monitoring in AWS Global Accelerator](logging-and-monitoring.md)
++ [Compliance Validation for AWS Global Accelerator](compliance-validation.md)
++ [Resilience in AWS Global Accelerator](disaster-recovery-resiliency.md)
++ [Infrastructure Security in AWS Global Accelerator](infrastructure-security.md)

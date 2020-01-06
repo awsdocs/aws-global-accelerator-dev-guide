@@ -2,7 +2,7 @@
 
 The following table describes the documentation for this release of AWS Global Accelerator\.
 + **API version: latest**
-+ **Latest documentation update: **October 29, 2019
++ **Latest documentation update: **December 20, 2019
 
 
 ****  

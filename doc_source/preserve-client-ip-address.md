@@ -6,7 +6,9 @@ Your options for preserving and accessing the client IP address for AWS Global A
 
 Global Accelerator does not support client IP address preservation for Network Load Balancer and Elastic IP address endpoints\.
 
-When you plan for adding client IP address preservation, be aware that client IP address preservation is supported only in specific AWS Regions\. For more information, see [ Supported Regions for Client IP Address Preservation](preserve-client-ip-address.regions.md)\.
+When you plan for adding client IP address preservation, be aware of the following:
++ Before you add and begin to route traffic to endpoints that preserve the client IP address, make sure that all your required security configurations, for example, security groups, are updated to whitelist the user client IP address\. 
++ Client IP address preservation is supported only in specific AWS Regions\. For more information, see [ Supported Regions for Client IP Address Preservation](preserve-client-ip-address.regions.md)\.
 
 **Topics**
 + [How To Enable Client IP Address Preservation](preserve-client-ip-address.how-to-enable-preservation.md)

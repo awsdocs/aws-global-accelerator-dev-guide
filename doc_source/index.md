@@ -1,7 +1,7 @@
 # AWS Global Accelerator Developer Guide
 
 -----
-*****Copyright &copy; 2019 Amazon Web Services, Inc. and/or its affiliates. All rights reserved.*****
+*****Copyright &copy; 2020 Amazon Web Services, Inc. and/or its affiliates. All rights reserved.*****
 
 -----
 Amazon's trademarks and trade dress may not be used in 
@@ -41,14 +41,20 @@ Amazon's trademarks and trade dress may not be used in
    + [How the Client IP Address is Preserved in AWS Global Accelerator](preserve-client-ip-address.headers.md)
    + [Best Practices for Client IP Address Preservation](best-practices-aga.md)
    + [Supported Regions for Client IP Address Preservation](preserve-client-ip-address.regions.md)
++ [Logging and Monitoring in AWS Global Accelerator](monitoring-global-accelerator.md)
+   + [Flow Logs in AWS Global Accelerator](monitoring-global-accelerator.flow-logs.md)
+   + [Using Amazon CloudWatch with AWS Global Accelerator](cloudwatch-monitoring.md)
+   + [Using AWS CloudTrail to Log AWS Global Accelerator API Calls](logging-using-cloudtrail.md)
 + [AWS Global Accelerator Security](security.md)
    + [Authentication and Access Control for AWS Global Accelerator](auth-and-access-control.md)
       + [Service-Linked Role for Global Accelerator](using-service-linked-roles.md)
       + [Overview of Access and Authentication](auth_access_overview.md)
-   + [Monitoring in AWS Global Accelerator](monitoring-global-accelerator.md)
-      + [Flow Logs in AWS Global Accelerator](monitoring-global-accelerator.flow-logs.md)
-      + [Logging AWS Global Accelerator API Calls with AWS CloudTrail](logging-using-cloudtrail.md)
    + [Secure VPC Connections in AWS Global Accelerator](secure-vpc-connections.md)
+   + [Logging and Monitoring in AWS Global Accelerator](logging-and-monitoring.md)
+   + [Compliance Validation for AWS Global Accelerator](compliance-validation.md)
+   + [Resilience in AWS Global Accelerator](disaster-recovery-resiliency.md)
+   + [Infrastructure Security in AWS Global Accelerator](infrastructure-security.md)
++ [Quotas for AWS Global Accelerator](limits-global-accelerator.md)
 + [AWS Global Accelerator Related Information](Resources.md)
 + [Document History](WhatsNew.md)
 + [AWS Glossary](glossary.md)
