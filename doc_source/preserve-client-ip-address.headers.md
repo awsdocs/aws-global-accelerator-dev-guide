@@ -1,7 +1,7 @@
 # How the Client IP Address is Preserved in AWS Global Accelerator<a name="preserve-client-ip-address.headers"></a>
 
 AWS Global Accelerator preserves the source IP address of the client differently for EC2 instances and Application Load Balancers:
-+ For an EC2 instance endpoint, the client’s IP address is preserved in the TCP packet header\.
++ For an EC2 instance endpoint, the client’s IP address is preserved for all traffic\.
 + For an Application Load Balancer endpoint with client IP address preservation, Global Accelerator works together with the Application Load Balancer to provide an `X-Forwarded` header, `X-Forwarded-For`, that includes the IP address of the original client so that your web tier can access it\.
 
 HTTP requests and HTTP responses use header fields to send information about the HTTP messages\. Header fields are colon\-separated name\-value pairs that are separated by a carriage return \(CR\) and a line feed \(LF\)\. A standard set of HTTP header fields is defined in RFC 2616, [ Message Headers](https://tools.ietf.org/html/rfc2616#section-4.2)\. There are also non\-standard HTTP headers available that are widely used by the applications\. Some of the non\-standard HTTP headers have an `X-Forwarded` prefix\.

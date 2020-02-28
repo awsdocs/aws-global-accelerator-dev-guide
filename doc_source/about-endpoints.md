@@ -26,8 +26,8 @@ To support client IP address preservation, Global Accelerator creates elastic ne
 **Endpoints in private subnets**  
 You can target an Application Load Balancer or an EC2 instance in a private subnet using AWS Global Accelerator but you must have an [internet gateway](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Internet_Gateway.html) attached to the VPC that contains the endpoints\. For more information, see [Secure VPC Connections in AWS Global Accelerator](secure-vpc-connections.md)\.
 
-**Whitelist client IP address**  
-Before you add and begin to route traffic to endpoints that preserve the client IP address, make sure that all your required security configurations, for example, security groups, are updated to whitelist the user client IP address\. 
+**Whitelist the client IP address**  
+Before you add and begin to route traffic to endpoints that preserve the client IP address, make sure that all your required security configurations, for example, security groups, are updated to whitelist the user client IP address\. Network access control lists \(ACLs\) only apply to egress \(outbound\) traffic\. If you need to filter ingress \(inbound\) traffic, you must use security groups\. 
 
 **Topics**
 + [Adding, Editing, or Removing an Endpoint](#about-endpoints-adding-endpoints)

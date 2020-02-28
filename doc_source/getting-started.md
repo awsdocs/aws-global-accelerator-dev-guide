@@ -39,6 +39,8 @@ To complete this task by using an API operation instead of the console, see [Cre
 
 1. Provide a name for your accelerator\.
 
+1. Optionally, add one or more tags to help you identify your Global Accelerator resources\.
+
 1. Choose **Next**\.
 
 ## Step 2: Add Listeners<a name="getting-started-create-listeners"></a>

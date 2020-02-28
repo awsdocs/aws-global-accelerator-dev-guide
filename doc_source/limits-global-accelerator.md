@@ -7,6 +7,7 @@ Your AWS account has the following quotas, also known as limits, related to AWS 
 + Number of listeners for each accelerator – 10
 + Number of port ranges for each listener – 10
 + Number of endpoints for each endpoint group – 10
++ Number of tags for each accelerator – 50
 
 In addition, there are quotas for Network Load Balancers, Application Load Balancers, EC2 instances, or Elastic IP addresses that are used as endpoints for an accelerator\. For more information, see the following:
 + [Elastic IP Address Quota](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html#using-instance-addressing-limit) in the *Amazon EC2 User Guide*\.

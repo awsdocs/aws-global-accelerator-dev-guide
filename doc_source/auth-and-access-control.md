@@ -239,7 +239,7 @@ Global Accelerator supports resource\-level permissions\.  Resource\-level permi
 Global Accelerator does not support resource\-based policies\. With resource\-based policies, you can attach a policy to a resource within the service\. Resource\-based policies include a `Principal` element to specify which IAM identities can access that resource\. 
 
 **Authorization based on tags**  
-Global Accelerator does not support authorization\-based tags\. This feature allows you to use [resource tags](https://docs.aws.amazon.com/awsconsolehelpdocs/latest/gsg/tag-editor.html) in the condition of a policy\. 
+Global Accelerator supports authorization\-based tags\. This feature allows you to use [resource tags](https://docs.aws.amazon.com/awsconsolehelpdocs/latest/gsg/tag-editor.html) in the condition of a policy\. 
 
 **Temporary credentials**  
 Global Accelerator supports temporary credentials\. With temporary credentials, you can sign in with federation, assume an IAM role, or assume a cross\-account role\. You obtain temporary security credentials by calling AWS STS API operations such as [https://docs.aws.amazon.com/STS/latest/APIReference/API_AssumeRole.html](https://docs.aws.amazon.com/STS/latest/APIReference/API_AssumeRole.html) or [https://docs.aws.amazon.com/STS/latest/APIReference/API_GetFederationToken.html](https://docs.aws.amazon.com/STS/latest/APIReference/API_GetFederationToken.html)\. 
@@ -283,3 +283,47 @@ To learn more about IAM terms, concepts, and procedures, see the following topic
 + [What is Authentication?](auth_access_overview.md#auth_access_what-is-authentication)
 + [What is Access Control?](auth_access_overview.md#auth_access_what-is-access-control)
 + [What are Policies?](auth_access_overview.md#auth_access_what-are-policies)
+
+## Tag\-Based Policies<a name="access-control-manage-access-tag-policies"></a>
+
+When you design IAM policies, you might set granular permissions by granting access to specific resources\. As the number of resources that you manage grows, this task becomes more difficult\. Tagging accelerators and using tags in policy statement conditions can make this task easier\. You grant access in bulk to any accelerator with a certain tag\. Then you repeatedly apply this tag to relevant accelerators, when you create the accelerator or by updating the accelerator later\.
+
+**Note**  
+Using tags in conditions is one way to control access to resources and requests\. For information about tagging in Global Accelerator, see [Tagging in AWS Global Accelerator](tagging-in-global-accelerator.md)\.
+
+Tags can be attached to a resource or passed in the request to services that support tagging\. In Global Accelerator, only accelerators can include tags\. When you create an IAM policy, you can use tag condition keys to control:
++ Which users can perform actions on an accelerator, based on tags that it already has\.
++ What tags can be passed in an action's request\.
++ Whether specific tag keys can be used in a request\.
+
+For the complete syntax and semantics of tag condition keys, see [ Control Access Using IAM Tags](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_iam-tags.html) in the *IAM User Guide*\.
+
+For example, the Global Accelerator `GlobalAcceleratorFullAccess` managed user policy gives users unlimited permission to perform any Global Accelerator action on any resource\. The following policy limits this power and denies unauthorized users permission to perform any Global Accelerator action on any *production* accelerators\. A customer's administrator must attach this IAM policy to unauthorized IAM users, in addition to the managed user policy\.
+
+```
+{ 
+   "Version":"2012-10-17",
+   "Statement":[ 
+      { 
+         "Effect":"Deny",
+         "Action":"*",
+         "Resource":"*",
+         "Condition":{ 
+            "ForAnyValue:StringEquals":{ 
+               "aws:RequestTag/stage":"prod"
+            }
+         }
+      },
+      { 
+         "Effect":"Deny",
+         "Action":"*",
+         "Resource":"*",
+         "Condition":{ 
+            "ForAnyValue:StringEquals":{ 
+               "aws:ResourceTag/stage":"prod"
+            }
+         }
+      }
+   ]
+}
+```
