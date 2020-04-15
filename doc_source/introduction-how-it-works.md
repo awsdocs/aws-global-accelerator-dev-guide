@@ -10,7 +10,9 @@ The timeout is 300 seconds for TCP connections to endpoints *with* client IP add
 The timeout is 90 seconds for TCP connections to endpoints *without* client IP address preservation \(Network Load Balancers and Elastic IP addresses\)\.
 The timeout is 30 seconds for UDP connections\.
 
-From the edge location, traffic for your application is routed to the optimal AWS endpoint based on several factors, including the user’s location, the health of the endpoint, and the endpoint weights that you configure\. Traffic travels over the well\-monitored, congestion\-free, redundant AWS global network to the endpoint\. By maximizing the time that traffic is on the AWS network, Global Accelerator ensures that traffic is always routed over the optimum network path\. 
+From the edge location, traffic for your application is routed to the optimal AWS endpoint based on several factors, including the user’s location, the health of the endpoint, and the endpoint weights that you configure\. Traffic travels over the well\-monitored, congestion\-free, redundant AWS global network to the endpoint\. By maximizing the time that traffic is on the AWS network, Global Accelerator ensures that traffic is always routed over the optimum network path\.
+
+For endpoints that have client IP address preservation enabled, Global Accelerator terminates TCP connections from clients at AWS edge locations\. Almost concurrently, Global Accelerator establishes a new TCP connection with your endpoints that have client IP address preservation enabled, in supported AWS Regions\. This gives clients faster response times \(lower latency\) and increased throughput\.
 
 Global Accelerator continuously monitors the health of all endpoints, and instantly begins directing traffic to another available endpoint when it determines that an active endpoint is unhealthy\. This allows you to create a high\-availability architecture for your applications on AWS\.
 
@@ -37,6 +39,8 @@ In addition, using static IP addresses makes it easier to add your application t
 If you like, you can associate your own custom domain name with the static IP addresses for your accelerator\. For more information, see [Route Custom Domain Traffic to Your Accelerator](about-accelerators.mapping-your-custom-domain.md)\.
 
 Global Accelerator provides the static IP addresses for you from the Amazon pool of IP addresses, unless you bring your own IP address range to AWS and specify the static IP addresses from that pool\. For more information, see [Bring Your Own IP Addresses \(BYOIP\) in AWS Global Accelerator](using-byoip.md)\. To create an accelerator on the console, the first step is to prompt Global Accelerator to provision the static IP addresses by entering a name for your accelerator or choose your own static IP addresses\. To see the steps for creating an accelerator, see [ Creating or Updating an Accelerator](about-accelerators.md#about-accelerators.creating-editing)\.
+
+The static IP addresses remain assigned to your accelerator for as long as it exists, even if you disable the accelerator and it no longer accepts or routes traffic\. However, when you *delete* an accelerator, you lose the static IP addresses that are assigned to it, so you can no longer route traffic by using them\. You can use IAM policies with Global Accelerator, for example, tag\-based permissions, to limit the users who have permissions to delete an accelerator\. For more information, see [ Tag\-Based Policies](auth-and-access-control.md#access-control-manage-access-tag-policies)\.
 
 ## Traffic Flow Management with Traffic Dials and Endpoint Weights<a name="introduction-traffic-dials-weights"></a>
 

@@ -1,9 +1,10 @@
 # Preserve Client IP Addresses in AWS Global Accelerator<a name="preserve-client-ip-address"></a>
 
 Your options for preserving and accessing the client IP address for AWS Global Accelerator depend on the endpoints that you've set up with your accelerator\. There are two types of endpoints that can preserve the source IP address of the client in incoming packets: Application Load Balancers and EC2 instances\.
-+ When you use an internet\-facing Application Load Balancer as an endpoint with Global Accelerator, you can choose to preserve the source IP address of the original client for packets that arrive at the load balancer by enabling client IP address preservation\.
++ When you use an internet\-facing Application Load Balancer as an endpoint with Global Accelerator, client IP address preservation is enabled by default for new accelerators\. This means that the source IP address of the original client is preserved for packets that arrive at the load balancer\. You can choose to disable the option when you create the accelerator or by editing the accelerator later\.
 + When you use an internal Application Load Balancer or an EC2 instance with Global Accelerator, the endpoint always has client IP address preservation enabled\. 
 
+**Note**  
 Global Accelerator does not support client IP address preservation for Network Load Balancer and Elastic IP address endpoints\.
 
 When you plan for adding client IP address preservation, be aware of the following:

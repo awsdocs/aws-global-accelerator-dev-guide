@@ -2,6 +2,8 @@
 
 This tutorial provides the steps for getting started with AWS Global Accelerator using the console\. You can also use AWS Global Accelerator API operations to create and customize your accelerator\. At each step in this tutorial, there's a link to the corresponding API operation for completing the task programmatically\. For more information about working with AWS Global Accelerator API operations, see the [AWS Global Accelerator API Reference](https://docs.aws.amazon.com/global-accelerator/latest/api/Welcome.html)\.
 
+Global Accelerator is a global service that supports endpoints in multiple AWS Regions, which are listed in the [AWS Region Table](https://aws.amazon.com/about-aws/global-infrastructure/regional-product-services/)\.
+
 **Tasks**
 + [ Before You Begin](#getting-started-before-you-begin)
 + [ Step 1: Create an Accelerator](#getting-started-accelerator)
@@ -125,7 +127,7 @@ If you created an accelerator as a test or if you're no longer using an accelera
 To delete an accelerator by using an API operation instead of the console, you must first remove all listeners and endpoint groups that are associated with the accelerator as well as disable it\. For more information, see the [DeleteAccelerator](https://docs.aws.amazon.com/global-accelerator/latest/api/API_DeleteAccelerator.html) operation in the *AWS Global Accelerator API Reference*\.
 
 Be aware of the following when you remove endpoints or endpoint groups, or delete an accelerator:
-+ When you create an accelerator, Global Accelerator provides you with a set of two static IP addresses\. The IP addresses are assigned to your accelerator for as long as it exists, even if you disable the accelerator and it no longer accepts or routes traffic\. However, when you *delete* an accelerator, you lose the static IP addresses that are assigned to the accelerator, so you can no longer route traffic by using them\. As a best practice, ensure that you have permissions in place to avoid inadvertently deleting accelerators\. You can use IAM policies with Global Accelerator to limit the users who have permissions to delete an accelerator\. For more information, see [Authentication and Access Control for AWS Global Accelerator](auth-and-access-control.md)\.
++ When you create an accelerator, Global Accelerator provides you with a set of two static IP addresses\. The IP addresses are assigned to your accelerator for as long as it exists, even if you disable the accelerator and it no longer accepts or routes traffic\. However, when you *delete* an accelerator, you lose the static IP addresses that are assigned to the accelerator, so you can no longer route traffic by using them\. As a best practice, ensure that you have permissions in place to avoid inadvertently deleting accelerators\. You can use IAM policies with Global Accelerator, for example, tag\-based permissions, to limit the users who have permissions to delete an accelerator\. For more information, see [ Tag\-Based Policies](auth-and-access-control.md#access-control-manage-access-tag-policies)\.
 + If you terminate an EC2 instance before you remove it from an endpoint group in Global Accelerator, and then you create another instance with the same private IP address, and health checks pass, Global Accelerator will route traffic to the new endpoint\. If you don't want this to happen, remove the EC2 instance from the endpoint group before you terminate the instance\.
 
 ## To delete an accelerator
