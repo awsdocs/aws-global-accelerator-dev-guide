@@ -8,8 +8,8 @@ Global Accelerator continually monitors the health of all endpoints that are inc
 
 Be aware of the following for specific types of Global Accelerator endpoints:
 
-**Application Load Balancer endpoints**  
-+ An Application Load Balancer endpoint can be internet\-facing or internal\.
+**Load balancer endpoints**  
++ An Application Load Balancer endpoint can be internet\-facing or internal\. An Network Load Balancer endpoint must be internet\-facing\.
 
 **EC2 instance endpoints**  
 + An EC2 instance endpoint can't be one of the following types: C1, CC1, CC2, CG1, CG2, CR1, CS1, G1, G2, HI1, HS1, M1, M2, M3, or T1\.
@@ -28,6 +28,11 @@ You can target an Application Load Balancer or an EC2 instance in a private subn
 
 **Whitelist the client IP address**  
 Before you add and begin to route traffic to endpoints that preserve the client IP address, make sure that all your required security configurations, for example, security groups, are updated to whitelist the user client IP address\. Network access control lists \(ACLs\) only apply to egress \(outbound\) traffic\. If you need to filter ingress \(inbound\) traffic, you must use security groups\. 
+
+**Configure network access control lists \(ACLs\)**  
+Network ACLs associated with your VPC subnets apply to egress \(outbound\) traffic when client IP address preservation is enabled on your accelerator\. However, for traffic to be allowed to exit through Global Accelerator, you must configure the ACL as both an inbound and outbound rule\.   
+For example, to allow TCP and UDP clients using an ephemeral source port to connect to your endpoint through Global Accelerator, associate the subnet of your endpoint with a Network ACL that allows outbound traffic destined to an ephemeral TCP or UDP port \(port range 1024\-65535, destination 0\.0\.0\.0/0\)\. In addition, create a matching inbound rule \(port range 1024\-65535, source 0\.0\.0\.0/0\)\.  
+Security group and AWS WAF rules are an additional set of capabilities that you can apply to protect your resources\. For example, the inbound security group rules associated with your Amazon EC2 instances and Application Load Balancers allow you to control the destination ports that clients can connect to through Global Accelerator, such as port 80 for HTTP or 443 for HTTPS\. You must ensure that these rules are configured appropriately to correctly allow or deny traffic that you intend your applications to accept\.
 
 **Topics**
 + [Adding, Editing, or Removing an Endpoint](#about-endpoints-adding-endpoints)

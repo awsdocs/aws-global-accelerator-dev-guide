@@ -2,13 +2,7 @@
 
 AWS Global Accelerator provides you with a set of static IP addresses that are anycast from the AWS edge network\. If you bring your own IP address range to AWS \(BYOIP\), you can instead assign static IP addresses from your own pool to use with your accelerator\. For more information, see [Bring Your Own IP Addresses \(BYOIP\) in AWS Global Accelerator](using-byoip.md)\.
 
-The static IP addresses serve as single fixed entry points for your clients\. When you set up your accelerator with Global Accelerator, you associate your static IP addresses to regional endpoints—Network Load Balancers, Application Load Balancers, EC2 instances, or Elastic IP addresses—in one or more AWS Regions\. The static IP addresses accept incoming traffic onto the AWS global network from the edge location that is closest to your users\.
-
-**Note**  
-The idle timeout for the network connection depends on the type of connection:  
-The timeout is 300 seconds for TCP connections to endpoints *with* client IP address preservation enabled \(Application Load Balancers and EC2 instances\)\.
-The timeout is 90 seconds for TCP connections to endpoints *without* client IP address preservation \(Network Load Balancers and Elastic IP addresses\)\.
-The timeout is 30 seconds for UDP connections\.
+The static IP addresses serve as single fixed entry points for your clients\. When you set up your accelerator with Global Accelerator, you associate your static IP addresses to regional endpoints—Network Load Balancers, Application Load Balancers, Amazon EC2 instances, or Elastic IP addresses—in one or more AWS Regions\. The static IP addresses accept incoming traffic onto the AWS global network from the edge location that is closest to your users\.
 
 From the edge location, traffic for your application is routed to the optimal AWS endpoint based on several factors, including the user’s location, the health of the endpoint, and the endpoint weights that you configure\. Traffic travels over the well\-monitored, congestion\-free, redundant AWS global network to the endpoint\. By maximizing the time that traffic is on the AWS network, Global Accelerator ensures that traffic is always routed over the optimum network path\.
 
@@ -26,9 +20,21 @@ Global Accelerator supports both TCP and UDP protocols\.
 AWS Direct Connect does not advertise IP address prefixes for AWS Global Accelerator over a public virtual interface\. We recommend that you do not advertise IP addresses that you use to communicate with Global Accelerator over your AWS Direct Connect public virtual interface\. If you advertise IP addresses that you use to communicate with Global Accelerator over your AWS Direct Connect public virtual interface, it will result in an asymmetric traffic flow: your traffic toward Global Accelerator goes to Global Accelerator over the internet, but return traffic coming to your on\-premises network comes over your AWS Direct Connect public virtual interface\.
 
 **Topics**
++ [Idle Timeout in AWS Global Accelerator](#about-idle-timeout)
 + [Static IP Addresses in AWS Global Accelerator](#about-static-ip-addresses)
 + [Traffic Flow Management with Traffic Dials and Endpoint Weights](#introduction-traffic-dials-weights)
 + [Health Checks for AWS Global Accelerator](#about-endpoint-groups-automatic-health-checks)
+
+## Idle Timeout in AWS Global Accelerator<a name="about-idle-timeout"></a>
+
+The idle timeout in AWS Global Accelerator affects how long connections are kept in a flow table and marked as active at edge locations\. In each edge location, for each new network connection, Global Accelerator maintains a record of the connection in the flow table as long as packets continue to come through\. If there's a period of time when Global Accelerator doesn't detect new packets for a connection—that is, the idle timeout period that's been set for each type of connection—Global Accelerator removes the connection entry from the flow table\. If additional packets arrive after the timeout is exceeded for a specific flow, Global Accelerator re\-selects an endpoint target based on health, client location, and policies that you configure\.
+
+The idle timeout for the network connection depends on the type of connection:
++ The timeout is 350 seconds for TCP connections to endpoints *with* client IP address preservation enabled \(Application Load Balancers and EC2 instances\)\.
++ The timeout is 90 seconds for TCP connections to endpoints *without* client IP address preservation \(Network Load Balancers and Elastic IP addresses\)\.
++ The timeout is 30 seconds for UDP connections\.
+
+Global Accelerator continues to direct traffic to an endpoint until the idle timeout is met, even if the endpoint is marked as unhealthy\. Global Accelerator selects a new endpoint, if needed, only when a new connection starts or after an idle timeout\.
 
 ## Static IP Addresses in AWS Global Accelerator<a name="about-static-ip-addresses"></a>
 
@@ -61,6 +67,9 @@ The accelerator calculates the sum of the weights for the endpoints in an endpoi
 Traffic dials and weights affect how the accelerator serves traffic in different ways: 
 + You configure traffic dials for *endpoint groups*\. The traffic dial lets you cut off a percentage of traffic—or all traffic—to the group, by "dialing down" traffic that the accelerator has already directed to it based on other factors, such as proximity\.
 + You use weights, on the other hand, to set values for *individual endpoints* within an endpoint group\. Weights provide a way to divide up traffic within the endpoint group\. For example, you can use weights to do performance testing for specific endpoints in a Region\.
+
+**Note**  
+For more information about how traffic dials and weights affect failover, see [Failover for Unhealthy Endpoints](about-endpoints-endpoint-weights.md#about-endpoints-endpoint-weights.unhealthy-endpoints)\.
 
 ## Health Checks for AWS Global Accelerator<a name="about-endpoint-groups-automatic-health-checks"></a>
 

@@ -60,4 +60,4 @@ Amazon's trademarks and trade dress may not be used in
 + [Quotas for AWS Global Accelerator](limits-global-accelerator.md)
 + [AWS Global Accelerator Related Information](Resources.md)
 + [Document History](WhatsNew.md)
-+ [AWS Glossary](glossary.md)
++ [AWS glossary](glossary.md)
