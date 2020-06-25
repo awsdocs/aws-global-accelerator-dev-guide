@@ -1,4 +1,4 @@
-# Service\-Linked Role for Global Accelerator<a name="using-service-linked-roles"></a>
+# Service\-linked role for Global Accelerator<a name="using-service-linked-roles"></a>
 
 AWS Global Accelerator uses an AWS Identity and Access Management \(IAM\)[ service\-linked role](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_terms-and-concepts.html#iam-term-service-linked-role)\. A service\-linked role is a unique type of IAM role that is linked directly to a service\. Service\-linked roles are predefined by the service and include all of the permissions that the service requires to call other AWS services on your behalf\.
 
@@ -15,11 +15,11 @@ You must remove any associated Global Accelerator resources before you can delet
 
 For information about other services that support service\-linked roles, see [AWS Services That Work with IAM](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.html) and look for the services that have **Yes **in the **Service\-Linked Role** column\.
 
-## Service\-Linked Role Permissions for Global Accelerator<a name="slr-permissions"></a>
+## Service\-linked role permissions for Global Accelerator<a name="slr-permissions"></a>
 
 Global Accelerator uses a service\-linked role named **AWSServiceRoleForGlobalAccelerator**\. The following sections describe the permissions for the role\.
 
-### Service\-Linked Role Permissions<a name="slr-permissions-lambda-replicator"></a>
+### Service\-linked role permissions<a name="slr-permissions-aga"></a>
 
 This service\-linked role allows Global Accelerator to manage EC2 Elastic Network Interfaces and security groups\.
 
@@ -40,19 +40,19 @@ The role permissions policy allows Global Accelerator to complete the following 
 
 You must configure permissions to allow an IAM entity \(such as a user, group, or role\) to delete the Global Accelerator service\-linked role\. For more information, see [Service\-Linked Role Permissions](https://docs.aws.amazon.com/IAM/latest/UserGuide/using-service-linked-roles.html#service-linked-role-permissions) in the *IAM User Guide*\.
 
-## Creating the Service\-Linked Role for Global Accelerator<a name="create-slr"></a>
+## Creating the service\-linked role for Global Accelerator<a name="create-slr"></a>
 
 You don't manually create the service\-linked role for Global Accelerator\. The service creates the role for you automatically the first time that you create an accelerator\. If you remove your Global Accelerator resources and delete the service\-linked role, the service creates the role again automatically when you create a new accelerator\.
 
-## Editing the Global Accelerator Service\-Linked Role<a name="edit-slr"></a>
+## Editing the Global Accelerator service\-linked role<a name="edit-slr"></a>
 
 Global Accelerator does not allow you to edit the AWSServiceRoleForGlobalAccelerator service\-linked role\. After the service has created a service\-linked role, you cannot change the name of the role because various entities might reference the role\. However, you can edit the description of a role by using IAM\. For more information, see [Editing a Service\-Linked Role](https://docs.aws.amazon.com/IAM/latest/UserGuide/using-service-linked-roles.html#edit-service-linked-role) in the *IAM User Guide*\.
 
-## Deleting the Global Accelerator Service\-Linked Role<a name="delete-slr"></a>
+## Deleting the Global Accelerator service\-linked role<a name="delete-slr"></a>
 
 If you no longer need to use Global Accelerator, we recommend that you delete the service\-linked role\. That way you don’t have unused entities that are not actively monitored or maintained\. However, you must clean up the Global Accelerator resources in your account before you can manually delete the roles\.
 
-After you have disabled and deleted your accelerators, then you can delete the service\-linked role\. For more information about deleting accelerators, see [ Creating or Updating an Accelerator](about-accelerators.md#about-accelerators.creating-editing)\.
+After you have disabled and deleted your accelerators, then you can delete the service\-linked role\. For more information about deleting accelerators, see [ Creating or updating an accelerator](about-accelerators.md#about-accelerators.creating-editing)\.
 
 **Note**  
 If you have disabled and deleted your accelerators but Global Accelerator hasn't finished updating, service\-linked role deletion might fail\. If that happens, wait for a few minutes, and then try the service\-linked role deletion steps again\.
@@ -69,7 +69,7 @@ If you have disabled and deleted your accelerators but Global Accelerator hasn't
 
 1. Watch the IAM console notifications to monitor the progress of the service\-linked role deletion\. Because the IAM service\-linked role deletion is asynchronous, after you submit the role for deletion, the deletion task can succeed or fail\. For more information, see [Deleting a Service\-Linked Role](https://docs.aws.amazon.com/IAM/latest/UserGuide/using-service-linked-roles.html#delete-service-linked-role) in the *IAM User Guide*\.
 
-## Supported Regions for Global Accelerator Service\-Linked Roles<a name="slr-regions"></a>
+## Supported Regions for Global Accelerator service\-linked roles<a name="slr-regions"></a>
 
 Global Accelerator supports using service\-linked roles in AWS Regions where Global Accelerator is supported\.
 

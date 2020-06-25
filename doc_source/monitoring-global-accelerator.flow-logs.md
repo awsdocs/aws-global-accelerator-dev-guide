@@ -1,4 +1,4 @@
-# Flow Logs in AWS Global Accelerator<a name="monitoring-global-accelerator.flow-logs"></a>
+# Flow logs in AWS Global Accelerator<a name="monitoring-global-accelerator.flow-logs"></a>
 
 Flow logs enable you to capture information about the IP address traffic going to and from network interfaces in your accelerator in AWS Global Accelerator\. Flow log data is published to Amazon S3, where you can retrieve and view your data after you've created a flow log\.
 
@@ -9,17 +9,17 @@ A flow log record represents a network flow in your flow log\. Each record captu
 CloudWatch Logs charges apply when using flow logs, even when logs are published directly to Amazon S3\. For more information, see *Deliver Logs to S3* at [Amazon CloudWatch Pricing](https://aws.amazon.com/cloudwatch/pricing/)\.
 
 **Topics**
-+ [Publishing Flow Logs to Amazon S3](#monitoring-global-accelerator.flow-logs-publishing-S3)
-+ [Timing of Log File Delivery](#monitoring-global-accelerator.flow-logs.timing)
-+ [Flow Log Record Syntax](#monitoring-global-accelerator.flow-logs.records.syntax)
++ [Publishing flow logs to Amazon S3](#monitoring-global-accelerator.flow-logs-publishing-S3)
++ [Timing of log file delivery](#monitoring-global-accelerator.flow-logs.timing)
++ [Flow log record syntax](#monitoring-global-accelerator.flow-logs.records.syntax)
 
-## Publishing Flow Logs to Amazon S3<a name="monitoring-global-accelerator.flow-logs-publishing-S3"></a>
+## Publishing flow logs to Amazon S3<a name="monitoring-global-accelerator.flow-logs-publishing-S3"></a>
 
 Flow logs for AWS Global Accelerator are published to Amazon S3 to an existing S3 bucket that you specify\. Flow log records are published to a series of log file objects that are stored in the bucket\. 
 
 To create an Amazon S3 bucket for use with flow logs, see [Create a Bucket](https://docs.aws.amazon.com/AmazonS3/latest/gsg/CreatingABucket.html) in the *Amazon Simple Storage Service Getting Started Guide*\.
 
-### Flow Logs Files<a name="monitoring-global-accelerator.flow-logs-publishing-S3.files"></a>
+### Flow logs files<a name="monitoring-global-accelerator.flow-logs-publishing-S3.files"></a>
 
 Flow logs collect flow log records, consolidate them into log files, and then publish the log files to the Amazon S3 bucket at 5\-minute intervals\. Each log file contains flow log records for the IP address traffic recorded in the previous five minutes\.
 
@@ -53,7 +53,7 @@ my-s3-bucket/prefix1/AWSLogs/123456789012/globalaccelerator/us-west-2/2018/11/23
 
 A single flow log file contains interleaved entries with multiple 5\-tuple records; that is, `client_ip`, `client_port`, `accelerator_ip`, `accelerator_port`, `protocol`\. To see all the flow log files for your accelerator, look for entries aggregated by the `accelerator_id` and your `account_id`\.
 
-### IAM Roles for Publishing Flow Logs to Amazon S3<a name="monitoring-global-accelerator.flow-logs-publishing-S3.roles"></a>
+### IAM roles for publishing flow logs to Amazon S3<a name="monitoring-global-accelerator.flow-logs-publishing-S3.roles"></a>
 
 An IAM principal, such as an IAM user, must have sufficient permissions to publish flow logs to the Amazon S3 bucket\. The IAM policy must include the following permissions:
 
@@ -91,7 +91,7 @@ An IAM principal, such as an IAM user, must have sufficient permissions to publi
 }
 ```
 
-### Amazon S3 Bucket Permissions for Flow Logs<a name="monitoring-global-accelerator.flow-logs-publishing-S3.bucket-permissions"></a>
+### Amazon S3 bucket permissions for flow logs<a name="monitoring-global-accelerator.flow-logs-publishing-S3.bucket-permissions"></a>
 
 By default, Amazon S3 buckets and the objects that they contain are private\. Only the bucket owner can access the bucket and the objects stored in it\. The bucket owner, however, can grant access to other resources and users by writing an access policy\.
 
@@ -153,7 +153,7 @@ For example, the following bucket policy allows AWS accounts 123123123123 and 45
 **Note**  
 We recommend that you grant the `AWSLogDeliveryAclCheck` and `AWSLogDeliveryWrite` permissions to the log delivery service principal instead of individual AWS account ARNs\.
 
-### Required CMK Key Policy for Use with SSE\-KMS Buckets<a name="monitoring-global-accelerator.flow-logs-publishing-S3.encrypt-kms"></a>
+### Required CMK key policy for use with SSE\-KMS buckets<a name="monitoring-global-accelerator.flow-logs-publishing-S3.encrypt-kms"></a>
 
 If you enabled server\-side encryption for your Amazon S3 bucket using AWS KMS\-managed keys \(SSE\-KMS\) with a customer\-managed customer master key \(CMK\), you must add the following to the key policy for your CMK so that flow logs can write log files to the bucket:
 
@@ -171,11 +171,11 @@ If you enabled server\-side encryption for your Amazon S3 bucket using AWS KMS\-
 }
 ```
 
-### Amazon S3 Log File Permissions<a name="monitoring-global-accelerator.flow-logs-publishing-S3.log-file-permissions"></a>
+### Amazon S3 log file permissions<a name="monitoring-global-accelerator.flow-logs-publishing-S3.log-file-permissions"></a>
 
 In addition to the required bucket policies, Amazon S3 uses access control lists \(ACLs\) to manage access to the log files created by a flow log\. By default, the bucket owner has `FULL_CONTROL` permissions on each log file\. The log delivery owner, if different from the bucket owner, has no permissions\. The log delivery account has `READ` and `WRITE` permissions\. For more information, see [Access Control List \(ACL\) Overview](https://docs.aws.amazon.com/AmazonS3/latest/gsg/acl-overview.html) in the *Amazon Simple Storage Service Getting Started Guide*\.
 
-### Enable Publishing Flow Logs to Amazon S3<a name="monitoring-global-accelerator.flow-logs-publishing-S3.enable"></a>
+### Enable publishing flow logs to Amazon S3<a name="monitoring-global-accelerator.flow-logs-publishing-S3.enable"></a>
 
 To enable flow logs in AWS Global Accelerator, follow the steps in this procedure\.
 
@@ -183,7 +183,7 @@ To enable flow logs in AWS Global Accelerator, follow the steps in this procedur
 
 1. Create an Amazon S3 bucket for your flow logs in your AWS account\.
 
-1. Add the required IAM policy for the AWS user who is enabling the flow logs\. For more information, see [IAM Roles for Publishing Flow Logs to Amazon S3](#monitoring-global-accelerator.flow-logs-publishing-S3.roles)\.
+1. Add the required IAM policy for the AWS user who is enabling the flow logs\. For more information, see [IAM roles for publishing flow logs to Amazon S3](#monitoring-global-accelerator.flow-logs-publishing-S3.roles)\.
 
 1. Run the following AWS CLI command, with the Amazon S3 bucket name and prefix that you want to use for your log files:
 
@@ -196,11 +196,11 @@ To enable flow logs in AWS Global Accelerator, follow the steps in this procedur
           --flow-logs-s3-prefix s3-bucket-prefix
    ```
 
-### Processing Flow Log Records in Amazon S3<a name="monitoring-global-accelerator.flow-logs-publishing-S3.processing"></a>
+### Processing flow log records in Amazon S3<a name="monitoring-global-accelerator.flow-logs-publishing-S3.processing"></a>
 
 The log files are compressed\. If you open the log files using the Amazon S3 console, they are decompressed and the flow log records are displayed\. If you download the files, you must decompress them to view the flow log records\.
 
-## Timing of Log File Delivery<a name="monitoring-global-accelerator.flow-logs.timing"></a>
+## Timing of log file delivery<a name="monitoring-global-accelerator.flow-logs.timing"></a>
 
 AWS Global Accelerator delivers log files for your configured accelerator up to several times an hour\. In general, a log file contains information about the requests that your accelerator received during a given time period\. Global Accelerator usually delivers the log file for that time period to your Amazon S3 bucket within an hour of the events that appear in the log\. Some or all log file entries for a time period can sometimes be delayed by up to 24 hours\. When log entries are delayed, Global Accelerator saves them in a log file for which the file name includes the date and time of the period in which the requests occurred, not the date and time when the file was delivered\.
 
@@ -211,7 +211,7 @@ Global Accelerator begins to reliably deliver log files about four hours after y
 **Note**  
 If no users connect to your accelerator during the time period, you don't receive any log files for that period\.
 
-## Flow Log Record Syntax<a name="monitoring-global-accelerator.flow-logs.records.syntax"></a>
+## Flow log record syntax<a name="monitoring-global-accelerator.flow-logs.records.syntax"></a>
 
 A flow log record is a space\-separated string that has the following format:
 

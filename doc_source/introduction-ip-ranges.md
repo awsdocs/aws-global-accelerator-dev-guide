@@ -1,4 +1,4 @@
-# Location and IP Address Ranges of Global Accelerator Edge Servers<a name="introduction-ip-ranges"></a>
+# Location and IP address ranges of Global Accelerator edge servers<a name="introduction-ip-ranges"></a>
 
 For a list of Global Accelerator edge server locations, see the *Where is AWS Global Accelerator deployed today?* section on the [ AWS Global Accelerator FAQs](https://aws.amazon.com/global-accelerator/faqs/) page\.
 

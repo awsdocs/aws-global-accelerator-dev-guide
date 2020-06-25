@@ -1,4 +1,4 @@
-# Support for DNS Addressing in Global Accelerator<a name="about-accelerators.dns-addressing"></a>
+# Support for DNS addressing in Global Accelerator<a name="about-accelerators.dns-addressing"></a>
 
 When you create an accelerator, Global Accelerator provisions two static IP addresses for you\. It also assigns a default Domain Name System \(DNS\) name to your accelerator, similar to `a1234567890abcdef.awsglobalaccelerator.com`, that points to the static IP addresses\. The static IP addresses are advertised globally using anycast from the AWS edge network to your endpoints such as Network Load Balancers, Application Load Balancers, EC2 instances, or Elastic IP addresses\. You can use your accelerator's static IP addresses or DNS name to route traffic to your accelerator\. DNS servers and DNS resolvers use a round robin to resolve the DNS name for an accelerator, so the name resolves to the static IP addresses for the accelerator, returned by Amazon Route 53 in random order\. Clients typically use the first IP address that is returned\.
 

@@ -1,4 +1,4 @@
-# Endpoint Groups in AWS Global Accelerator<a name="about-endpoint-groups"></a>
+# Endpoint groups in AWS Global Accelerator<a name="about-endpoint-groups"></a>
 
 An endpoint group routes requests to one or more registered endpoints in AWS Global Accelerator\. When you add a listener, you specify the endpoint groups for Global Accelerator to direct traffic to\. An endpoint group, and all the endpoints in it, must be in one AWS Region\. You can add different endpoint groups for different purposes, for example, for blue/green deployment testing\.
 
@@ -11,6 +11,6 @@ Global Accelerator continually monitors the health of all endpoints that are inc
 This section explains how to work with endpoint groups on the AWS Global Accelerator console\. If you want to use API operations with AWS Global Accelerator, see the [ AWS Global Accelerator API Reference](https://docs.aws.amazon.com/global-accelerator/latest/api/Welcome.html)\.
 
 **Topics**
-+ [Adding, Editing, or Removing an Endpoint Group](about-endpoint-groups.create-endpoint-group.md)
-+ [Adjusting Traffic Flow With Traffic Dials](about-endpoint-groups-traffic-dial.md)
-+ [Health Check Options](about-endpoint-groups-health-check-options.md)
++ [Adding, editing, or removing an endpoint group](about-endpoint-groups.create-endpoint-group.md)
++ [Adjusting traffic flow with traffic dials](about-endpoint-groups-traffic-dial.md)
++ [Health check options](about-endpoint-groups-health-check-options.md)

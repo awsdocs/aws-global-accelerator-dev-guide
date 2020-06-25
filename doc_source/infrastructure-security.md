@@ -1,4 +1,4 @@
-# Infrastructure Security in AWS Global Accelerator<a name="infrastructure-security"></a>
+# Infrastructure security in AWS Global Accelerator<a name="infrastructure-security"></a>
 
 As a managed service, AWS Global Accelerator is protected by the AWS global network security procedures that are described in the [Amazon Web Services: Overview of Security Processes](https://d0.awsstatic.com/whitepapers/Security/AWS_Security_Whitepaper.pdf) whitepaper\.
 

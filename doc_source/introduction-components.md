@@ -1,11 +1,11 @@
-# AWS Global Accelerator Components<a name="introduction-components"></a>
+# AWS Global Accelerator components<a name="introduction-components"></a>
 
 AWS Global Accelerator includes the following components that work together to help you improve the availability and performance of your applications:
 
 **Static IP addresses**  
-Global Accelerator provides you with a set of two static IP addresses that are anycast from the AWS edge network\. If you bring your own IP address range to AWS \(BYOIP\), you can instead assign IP addresses from your own pool to use with your accelerator\. For more information, see [Bring Your Own IP Addresses \(BYOIP\) in AWS Global Accelerator](using-byoip.md)\.  
+Global Accelerator provides you with a set of two static IP addresses that are anycast from the AWS edge network\. If you bring your own IP address range to AWS \(BYOIP\), you can instead assign IP addresses from your own pool to use with your accelerator\. For more information, see [Bring your own IP addresses \(BYOIP\) in AWS Global Accelerator](using-byoip.md)\.  
 The IP addresses serve as single fixed entry points for your clients\. If you already have Elastic Load Balancing load balancers, EC2 instances, or Elastic IP address resources set up for your applications, you can easily add those to Global Accelerator\. This allows Global Accelerator to use static IP addresses to access the resources\.  
-The static IP addresses remain assigned to your accelerator for as long as it exists, even if you disable the accelerator and it no longer accepts or routes traffic\. However, when you *delete* an accelerator, you lose the static IP addresses that are assigned to it, so you can no longer route traffic by using them\. You can use IAM policies with Global Accelerator, for example, tag\-based permissions, to limit the users who have permissions to delete an accelerator\. For more information, see [ Tag\-Based Policies](auth-and-access-control.md#access-control-manage-access-tag-policies)\.
+The static IP addresses remain assigned to your accelerator for as long as it exists, even if you disable the accelerator and it no longer accepts or routes traffic\. However, when you *delete* an accelerator, you lose the static IP addresses that are assigned to it, so you can no longer route traffic by using them\. You can use IAM policies with Global Accelerator, for example, tag\-based permissions, to limit the users who have permissions to delete an accelerator\. For more information, see [ Tag\-based policies](auth-and-access-control.md#access-control-manage-access-tag-policies)\.
 
 **Accelerator**  
 An accelerator directs traffic to optimal endpoints over the AWS global network to improve the availability and performance of your internet applications\. Each accelerator includes one or more listeners\.

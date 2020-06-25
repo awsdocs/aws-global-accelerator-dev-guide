@@ -1,20 +1,20 @@
-# AWS Global Accelerator Related Information<a name="Resources"></a>
+# AWS Global Accelerator Related information<a name="Resources"></a>
 
 The information and resources listed here can help you learn more about Global Accelerator\.
 
 **Topics**
-+ [Additional AWS Global Accelerator Documentation](#related-information.global-accelerator-documentation)
-+ [Getting Support](#related-information.support)
++ [Additional AWS Global Accelerator documentation](#related-information.global-accelerator-documentation)
++ [Getting support](#related-information.support)
 + [Tips from the Amazon Web Services Blog](#resources-aws-blog-tips)
 
-## Additional AWS Global Accelerator Documentation<a name="related-information.global-accelerator-documentation"></a>
+## Additional AWS Global Accelerator documentation<a name="related-information.global-accelerator-documentation"></a>
 
 The following related resources can help you as you work with this service\.
 + [AWS Global Accelerator API Reference](https://docs.aws.amazon.com/global-accelerator/latest/api/) – Gives complete descriptions of the API actions, parameters, and data types, and a list of errors that the service returns\.
 + [AWS Global Accelerator product information](http://aws.amazon.com/global-accelerator/) – The primary web page for information about Global Accelerator, including features and pricing information\.
 + [Terms of Use](http://aws.amazon.com/terms/) – Detailed information about our copyright and trademark; your account, license, and site access; and other topics\.
 
-## Getting Support<a name="related-information.support"></a>
+## Getting support<a name="related-information.support"></a>
 
 Support for Global Accelerator is available in several forms\.
 + [Discussion forums](https://forums.aws.amazon.com/forum.jspa?forumID=312) – A community\-based forum for developers to discuss technical questions related to Global Accelerator\.

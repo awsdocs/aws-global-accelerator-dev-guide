@@ -1,6 +1,6 @@
-# How the Client IP Address is Preserved in AWS Global Accelerator<a name="preserve-client-ip-address.headers"></a>
+# How the client IP address is preserved in AWS Global Accelerator<a name="preserve-client-ip-address.headers"></a>
 
-AWS Global Accelerator preserves the source IP address of the client differently for EC2 instances and Application Load Balancers:
+AWS Global Accelerator preserves the source IP address of the client differently for Amazon EC2 instances and Application Load Balancers:
 + For an EC2 instance endpoint, the client’s IP address is preserved for all traffic\.
 + For an Application Load Balancer endpoint with client IP address preservation, Global Accelerator works together with the Application Load Balancer to provide an `X-Forwarded` header, `X-Forwarded-For`, that includes the IP address of the original client so that your web tier can access it\.
 

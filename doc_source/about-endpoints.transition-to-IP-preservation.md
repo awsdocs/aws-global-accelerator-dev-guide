@@ -1,13 +1,13 @@
-# Transitioning Endpoints to Use Client IP Address Preservation<a name="about-endpoints.transition-to-IP-preservation"></a>
+# Transitioning endpoints to use client IP address preservation<a name="about-endpoints.transition-to-IP-preservation"></a>
 
-Follow the guidance in this section to transition one or more endpoints in your accelerator to endpoints that preserve the user’s client IP address\. You can optionally choose to transition an Application Load Balancer endpoint or an Elastic IP address endpoint to a corresponding endpoint—an Application Load Balancer or an EC2 instance—that has client IP address preservation\. For more information, see [Preserve Client IP Addresses in AWS Global Accelerator](preserve-client-ip-address.md)\.
+Follow the guidance in this section to transition one or more endpoints in your accelerator to endpoints that preserve the user’s client IP address\. You can optionally choose to transition an Application Load Balancer endpoint or an Elastic IP address endpoint to a corresponding endpoint—an Application Load Balancer or an EC2 instance—that has client IP address preservation\. For more information, see [Preserve client IP addresses in AWS Global Accelerator](preserve-client-ip-address.md)\.
 
 We recommend that you transition to using client IP address preservation slowly\. First, add new Application Load Balancer or EC2 instance endpoints that you enable to preserve the client IP address\. Then slowly move traffic from existing endpoints to the new endpoints by configuring weights on the endpoints\. 
 
 **Important**  
-Before you begin to route traffic to endpoints that preserve the client IP address, make sure that all the configurations in which you’ve whitelisted Global Accelerator client IP addresses are updated to whitelist the user client IP address instead\.
+Before you begin to route traffic to endpoints that preserve the client IP address, make sure that all the configurations in which you’ve included Global Accelerator client IP addresses on allow lists are updated to include the user client IP address instead\.
 
-Client IP address preservation is available only in specific AWS Regions\. For more information, see [ Supported Regions for Client IP Address Preservation](preserve-client-ip-address.regions.md)\. 
+Client IP address preservation is available only in specific AWS Regions\. For more information, see [Supported AWS Regions for client IP address preservation](preserve-client-ip-address.regions.md)\. 
 
 This section explains how to work with endpoint groups on the AWS Global Accelerator console\. If you want to use API operations with Global Accelerator, see the [ AWS Global Accelerator API Reference](https://docs.aws.amazon.com/global-accelerator/latest/api/Welcome.html)\.
 
@@ -29,7 +29,7 @@ To transition to endpoints that preserve client IP addresses, start by following
 
 1. On the **Add endpoints** page, in the **Endpoints** dropdown list, choose an Application Load Balancer endpoint or an EC2 instance endpoint\.
 
-1. In the **Weight** field, choose a low number compared to the weights that are set for your existing endpoints\. For example, if the weight for a corresponding Application Load Balancer is 255, you could enter a weight of 5 for the new Application Load Balancer, to start with\. For more information, see [Endpoint Weights](about-endpoints-endpoint-weights.md)\.
+1. In the **Weight** field, choose a low number compared to the weights that are set for your existing endpoints\. For example, if the weight for a corresponding Application Load Balancer is 255, you could enter a weight of 5 for the new Application Load Balancer, to start with\. For more information, see [ Endpoint weights](about-endpoints-endpoint-weights.md)\.
 
 1. For a new external\-facing Application Load Balancer endpoint, under **Preserve client IP address**, select **Preserve address**\. \(This option is always selected for internal Application Load Balancers and EC2 instances\.\)
 

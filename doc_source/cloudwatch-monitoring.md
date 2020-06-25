@@ -9,23 +9,23 @@ Global Accelerator reports metrics to CloudWatch only when requests are flowing 
 For more information, see the [Amazon CloudWatch User Guide](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/)\.
 
 **Topics**
-+ [Global Accelerator Metrics](#cloudwatch-metrics-global-accelerator)
-+ [Metric Dimensions for Accelerators](#cloudwatch-metric-dimensions-aga)
-+ [Statistics for Global Accelerator Metrics](#cloudwatch-metric-statistics)
-+ [View CloudWatch Metrics for Your Accelerators](#view-metric-data)
++ [Global Accelerator metrics](#cloudwatch-metrics-global-accelerator)
++ [Metric dimensions for accelerators](#cloudwatch-metric-dimensions-aga)
++ [Statistics for Global Accelerator metrics](#cloudwatch-metric-statistics)
++ [View CloudWatch metrics for your accelerators](#view-metric-data)
 
-## Global Accelerator Metrics<a name="cloudwatch-metrics-global-accelerator"></a>
+## Global Accelerator metrics<a name="cloudwatch-metrics-global-accelerator"></a>
 
 The `AWS/GlobalAccelerator` namespace includes the following metrics\.
 
 
 | Metric | Description | 
 | --- | --- | 
-| NewFlowCount |  The total number of new TCP and UDP flows \(or connections\) established from clients to endpoints in the time period\. **Reporting criteria**: There is a nonzero value\. **Statistics**: The most useful statistic is `Sum`\. [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/global-accelerator/latest/dg/cloudwatch-monitoring.html)  | 
-| ProcessedBytesIn |  The total number of incoming bytes processed by the accelerator, including TCP/IP headers\. This count includes traffic to endpoints, minus health check traffic\. **Reporting criteria**: There is a nonzero value\. **Statistics**: The most useful statistic is `Sum`\. [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/global-accelerator/latest/dg/cloudwatch-monitoring.html)  | 
-| ProcessedBytesOut |  The total number of outgoing bytes processed by the accelerator, including TCP/IP headers\. This count includes traffic from endpoints, minus health check traffic\. **Reporting criteria**: There is a nonzero value\. **Statistics**: The most useful statistic is `Sum`\. [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/global-accelerator/latest/dg/cloudwatch-monitoring.html)  | 
+| NewFlowCount |  The total number of new TCP and UDP flows \(or connections\) established from clients to endpoints in the time period\. **Reporting criteria**: There is a nonzero value\. **Statistics**: The only useful statistic is `Sum`\. [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/global-accelerator/latest/dg/cloudwatch-monitoring.html)  | 
+| ProcessedBytesIn |  The total number of incoming bytes processed by the accelerator, including TCP/IP headers\. This count includes traffic to endpoints, minus health check traffic\. **Reporting criteria**: There is a nonzero value\. **Statistics**: The only useful statistic is `Sum`\. [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/global-accelerator/latest/dg/cloudwatch-monitoring.html)  | 
+| ProcessedBytesOut |  The total number of outgoing bytes processed by the accelerator, including TCP/IP headers\. This count includes traffic from endpoints, minus health check traffic\. **Reporting criteria**: There is a nonzero value\. **Statistics**: The only useful statistic is `Sum`\. [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/global-accelerator/latest/dg/cloudwatch-monitoring.html)  | 
 
-## Metric Dimensions for Accelerators<a name="cloudwatch-metric-dimensions-aga"></a>
+## Metric dimensions for accelerators<a name="cloudwatch-metric-dimensions-aga"></a>
 
 To filter the metrics for your accelerator, use the following dimensions\.
 
@@ -40,7 +40,7 @@ To filter the metrics for your accelerator, use the following dimensions\.
 | TransportProtocol |  Filters the metric data by transport protocol: UDP or TCP\.  | 
 | AcceleratorIPAddress |  Filters the metric data by the IP address of the accelerator: that is, one of the static IP addresses assigned to an accelerator\.  | 
 
-## Statistics for Global Accelerator Metrics<a name="cloudwatch-metric-statistics"></a>
+## Statistics for Global Accelerator metrics<a name="cloudwatch-metric-statistics"></a>
 
 CloudWatch provides statistics based on the metric data points published by Global Accelerator\. Statistics are aggregations of metric data over a specified period of time\. When you request statistics, the returned data stream is identified by the metric name and dimension\. A dimension is a name/value pair that uniquely identifies a metric\. For example, you can request the processed bytes out for an accelerator where the bytes are served from AWS edge locations in Europe \(destination edge is "EU"\)\.
 
@@ -48,7 +48,7 @@ The following are examples of metric/dimension combinations that you might find 
 + View the amount of traffic served \(such as ProcessedBytesOut\) by each of your two accelerator IP addresses to validate that your DNS configuration is correct\.
 + View the geographical distribution of your user traffic and monitor how much of it is local \(for example, North America to North America\) or global \(for example, Australia or India to North America\)\. To determine this, view the metrics ProcessedBytesIn or ProcessedBytesOut with the dimensions DestinationEdge and SourceRegion set to specific values\.
 
-## View CloudWatch Metrics for Your Accelerators<a name="view-metric-data"></a>
+## View CloudWatch metrics for your accelerators<a name="view-metric-data"></a>
 
 You can view the CloudWatch metrics for your accelerators using the CloudWatch console or the AWS CLI\. In the console, metrics are displayed as monitoring graphs\. The monitoring graphs show data points only if the accelerator is active and receiving requests\. 
 

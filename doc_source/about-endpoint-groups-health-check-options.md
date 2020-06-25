@@ -1,4 +1,4 @@
-# Health Check Options<a name="about-endpoint-groups-health-check-options"></a>
+# Health check options<a name="about-endpoint-groups-health-check-options"></a>
 
 AWS Global Accelerator regularly sends requests to endpoints to test their status\. These health checks run automatically\. The guidance for determining the health of each endpoint and the timing for the health checks depend on the type of endpoint resource\. 
 

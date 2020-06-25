@@ -1,19 +1,19 @@
-# Overview of Access and Authentication<a name="auth_access_overview"></a>
+# Overview of access and authentication<a name="auth_access_overview"></a>
 
 If you're new to IAM, read the following topics to get started with authorization and access in AWS\. 
 
 **Topics**
-+ [What is Authentication?](#auth_access_what-is-authentication)
-+ [What is Access Control?](#auth_access_what-is-access-control)
-+ [What are Policies?](#auth_access_what-are-policies)
-+ [Getting Started with IAM](#auth_access_getting-started)
++ [What is authentication?](#auth_access_what-is-authentication)
++ [What is access control?](#auth_access_what-is-access-control)
++ [What are policies?](#auth_access_what-are-policies)
++ [Getting started with IAM](#auth_access_getting-started)
 
-## What is Authentication?<a name="auth_access_what-is-authentication"></a>
+## What is authentication?<a name="auth_access_what-is-authentication"></a>
 
 Authentication is how you sign in to AWS using your credentials\.
 
 **Note**  
-To get started quickly, you can ignore this section\. First, review the introductory information on [Authentication and Access Control for AWS Global Accelerator](auth-and-access-control.md), and then see [Getting Started with IAM](#auth_access_getting-started)\.
+To get started quickly, you can ignore this section\. First, review the introductory information on [Identity and access management for AWS Global Accelerator](auth-and-access-control.md), and then see [Getting started with IAM](#auth_access_getting-started)\.
 
 As a principal, you must be *authenticated* \(signed in to AWS\) using an entity \(root user, IAM user, or IAM role\) to send a request to AWS\. An IAM user can have long\-term credentials such as a user name and password or a set of access keys\. When you assume an IAM role, you are given temporary security credentials\. 
 
@@ -34,20 +34,20 @@ An [IAM user](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_users.html) is
 **Temporary user permissions**  
 An IAM user can assume a role temporarily to take on different permissions for a specific task\.   
 **Cross\-account access**  
-You can use an IAM role to allow a trusted principal in a different account to access resources in your account\. Roles are the primary way to grant cross\-account access\. However, with some AWS services, you can attach a policy directly to a resource \(instead of using a role as a proxy\)\. Global Accelerator does not support these resource\-based policies\. For more information about choosing whether to use a role or a resource\-based policy to allow cross\-account access, see [Controlling Access to Principals in a Different Account](#auth_access_controlling-principal-accounts)\.  
+You can use an IAM role to allow a trusted principal in a different account to access resources in your account\. Roles are the primary way to grant cross\-account access\. However, with some AWS services, you can attach a policy directly to a resource \(instead of using a role as a proxy\)\. Global Accelerator does not support these resource\-based policies\. For more information about choosing whether to use a role or a resource\-based policy to allow cross\-account access, see [Controlling access to pPrincipals in a different account](#auth_access_controlling-principal-accounts)\.  
 **AWS service access**  
   A service role is an IAM role that a service assumes to perform actions in your account on your behalf\. When you set up some AWS service environments, you must define a role for the service to assume\. This service role must include all the permissions that are required for the service to access the AWS resources that it needs\. Service roles vary from service to service, but many allow you to choose your permissions as long as you meet the documented requirements for that service\. Service roles provide access only within your account and cannot be used to grant access to services in other accounts\. You can create, modify, and delete a service role from within IAM\. For example, you can create a role that allows Amazon Redshift to access an Amazon S3 bucket on your behalf and then load data from that bucket into an Amazon Redshift cluster\. For more information, see [Creating a Role to Delegate Permissions to an AWS Service](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-service.html) in the *IAM User Guide*\.   
 **Applications running on Amazon EC2**  
   You can use an IAM role to manage temporary credentials for applications that are running on an EC2 instance and making AWS CLI or AWS API requests\. This is preferable to storing access keys within the EC2 instance\. To assign an AWS role to an EC2 instance and make it available to all of its applications, you create an instance profile that is attached to the instance\. An instance profile contains the role and enables programs that are running on the EC2 instance to get temporary credentials\. For more information, see [Using an IAM Role to Grant Permissions to Applications Running on Amazon EC2 Instances](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_switch-role-ec2.html) in the *IAM User Guide*\. 
 
-## What is Access Control?<a name="auth_access_what-is-access-control"></a>
+## What is access control?<a name="auth_access_what-is-access-control"></a>
 
 After you sign in \(are authenticated\) to AWS, your access to AWS resources and operations is governed by policies\. Access control is also known as authorization\.
 
 **Note**  
-To get started quickly, you can ignore this page\. First, review the introductory information on [Authentication and Access Control for AWS Global Accelerator](auth-and-access-control.md), and then see [Getting Started with IAM](#auth_access_getting-started)\.
+To get started quickly, you can ignore this page\. First, review the introductory information on [Identity and access management for AWS Global Accelerator](auth-and-access-control.md), and then see [Getting started with IAM](#auth_access_getting-started)\.
 
-During authorization, AWS uses values from the [ request context](https://docs.aws.amazon.com/IAM/latest/UserGuide/intro-structure-request.html) to check for policies that apply\. It then uses the policies to determine whether to allow or deny the request\. Most policies are stored in AWS as JSON documents and specify the permissions that are allowed or denied for principals\. For more information about the structure and contents of JSON policy documents, see [What are Policies?](#auth_access_what-are-policies)\.
+During authorization, AWS uses values from the [ request context](https://docs.aws.amazon.com/IAM/latest/UserGuide/intro-structure-request.html) to check for policies that apply\. It then uses the policies to determine whether to allow or deny the request\. Most policies are stored in AWS as JSON documents and specify the permissions that are allowed or denied for principals\. For more information about the structure and contents of JSON policy documents, see [What are policies?](#auth_access_what-are-policies)\.
 
 Policies let an administrator specify who has access to AWS resources and what actions they can perform on those resources\. Every IAM entity \(user or role\) starts with no permissions\. In other words, by default, users can do nothing, not even view their own access keys\. To give a user permission to do something, an administrator must attach a permissions policy to a user\. Or they can add the user to a group that has the intended permissions\. When an administrator then gives permissions to a group, all users in that group get those permissions\.
 
@@ -55,50 +55,50 @@ You might have valid credentials to authenticate your requests, but unless an ad
 
 As an administrator, you can write a policy to control access to the following:
 + **[ Principals](#auth_access_controlling-principals)** – Control what the person or application making the request \(the *principal*\) is allowed to do\. 
-+ **[IAM Identities](#auth_access_controlling-identities)** – Control which IAM identities \(groups, users, and roles\) can be accessed and how\.
-+ **[IAM Policies](#auth_access_controlling-policies)** – Control who can create, edit, and delete customer managed policies, and who can attach and detach all managed policies\.
-+ **[AWS Resources](#auth_access_controlling-resources)** – Control who has access to resources using an identity\-based policy or a resource\-based policy\.
-+ **[AWS Accounts](#auth_access_controlling-principal-accounts)** – Control whether a request is allowed only for members of a specific account\.
++ **[IAM identities](#auth_access_controlling-identities)** – Control which IAM identities \(groups, users, and roles\) can be accessed and how\.
++ **[IAM policies](#auth_access_controlling-policies)** – Control who can create, edit, and delete customer managed policies, and who can attach and detach all managed policies\.
++ **[AWS resources](#auth_access_controlling-resources)** – Control who has access to resources using an identity\-based policy or a resource\-based policy\.
++ **[AWS accounts](#auth_access_controlling-principal-accounts)** – Control whether a request is allowed only for members of a specific account\.
 
-### Controlling Access for Principals<a name="auth_access_controlling-principals"></a>
+### Controlling access for principals<a name="auth_access_controlling-principals"></a>
 
-Permissions policies control what you, as a principal, are allowed to do\. An administrator must attach an identity\-based permissions policy to the identity \(user, group, or role\) that provides your permissions\. Permissions policies allow or deny access to AWS\. Administrators can also set a permissions boundary for an IAM entity \(user or role\) to define the maximum permissions that the entity can have\. Permissions boundaries are an advanced IAM feature\. For more information about permissions boundaries, see [Permissions Boundaries for IAM Identities](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html) in the *IAM User Guide*\.
+Permissions policies control what you, as a principal, are allowed to do\. An administrator must attach an identity\-based permissions policy to the identity \(user, group, or role\) that provides your permissions\. Permissions policies allow or deny access to AWS\. Administrators can also set a permissions boundary for an IAM entity \(user or role\) to define the maximum permissions that the entity can have\. Permissions boundaries are an advanced IAM feature\. For more information about permissions boundaries, see [Permissions boundaries for IAM identities](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html) in the *IAM User Guide*\.
 
-For more information and an example of how to control AWS access for principals, see [Controlling Access for Principals](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_controlling.html#access_controlling-principals) in the *IAM User Guide*\.
+For more information and an example of how to control AWS access for principals, see [Controlling access for principals](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_controlling.html#access_controlling-principals) in the *IAM User Guide*\.
 
-### Controlling Access to Identities<a name="auth_access_controlling-identities"></a>
+### Controlling access to identities<a name="auth_access_controlling-identities"></a>
 
 Administrators control what you can do to an IAM identity \(user, group, or role\) by creating a policy that limits what can be done to an identity or who can access it\. Then they attach that policy to the identity that provides your permissions\. 
 
 For example, an administrator might allow you to reset the password for three specific users\. To do this, they attach a policy to your IAM user that allows you to reset the password for only yourself and users with the ARN of the three specified users\. This allows you to reset the password of your team members but not other IAM users\.
 
-For more information and an example of using a policy to control AWS access to identities, see [Controlling Access to Identities](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_controlling.html#access_controlling-identities) in the *IAM User Guide*\.
+For more information and an example of using a policy to control AWS access to identities, see [Controlling access to identities](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_controlling.html#access_controlling-identities) in the *IAM User Guide*\.
 
-### Controlling Access to Policies<a name="auth_access_controlling-policies"></a>
+### Controlling access to policies<a name="auth_access_controlling-policies"></a>
 
-Administrators can control who can create, edit, and delete customer managed policies, and who can attach and detach all managed policies\. When you review a policy, you can view the policy summary that includes a summary of the access level for each service within that policy\. AWS categorizes each service action into one of four *access levels* based on what each action does: `List`, `Read`, `Write`, or `Permissions management`\. You can use these access levels to determine which actions to include in your policies\. For more information, see [Understanding Access Level Summaries Within Policy Summaries](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_understand-policy-summary-access-level-summaries.html) in the *IAM User Guide*\.
+Administrators can control who can create, edit, and delete customer managed policies, and who can attach and detach all managed policies\. When you review a policy, you can view the policy summary that includes a summary of the access level for each service within that policy\. AWS categorizes each service action into one of four *access levels* based on what each action does: `List`, `Read`, `Write`, or `Permissions management`\. You can use these access levels to determine which actions to include in your policies\. For more information, see [Understanding access level summaries within policy summaries](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_understand-policy-summary-access-level-summaries.html) in the *IAM User Guide*\.
 
 **Warning**  
 You should limit `Permissions Management` access\-level permissions in your account\. Otherwise, your account members can create policies for themselves with more permissions than they should have\. Or they can create separate users with full access to AWS\. 
 
-For more information and an example for how to control AWS access to policies, see [Controlling Access to Policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_controlling.html#access_controlling-policies) in the *IAM User Guide*\.
+For more information and an example for how to control AWS access to policies, see [Controlling access to policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_controlling.html#access_controlling-policies) in the *IAM User Guide*\.
 
-### Controlling Access to Resources<a name="auth_access_controlling-resources"></a>
+### Controlling access to resources<a name="auth_access_controlling-resources"></a>
 
 Administrators can control access to resources using an identity\-based policy or a resource\-based policy\. In an identity\-based policy, you attach the policy to an identity and specify what resources that identity can access\. In a resource\-based policy, you attach a policy to the resource that you want to control\. In the policy, you specify which principals can access that resource\. 
 
 For more information, see [Controlling Access to Resources](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_controlling.html#access_controlling-resources) in the *IAM User Guide*\.
 
-#### Resource Creators Do Not Automatically Have Permissions<a name="NoDefaultPermissions"></a>
+#### Resource creators do not automatically have permissions<a name="NoDefaultPermissions"></a>
 
 All resources in an account are owned by the account, regardless of who created those resources\. The AWS account root user is the account owner, and therefore has permission to perform any action on any resource in the account\.
 
 **Important**  
-We strongly recommend that you do not use the root user for your everyday tasks, even the administrative ones\. Instead, adhere to the [best practice of using the root user only to create your first IAM user](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#create-iam-users)\. Then securely lock away the root user credentials and use them to perform only a few account and service management tasks\. To view the tasks that require you to sign in as the root user, see [AWS Tasks That Require Root User](https://docs.aws.amazon.com/general/latest/gr/aws_tasks-that-require-root.html)\.
+We strongly recommend that you do not use the root user for your everyday tasks, even the administrative ones\. Instead, follow the [best practice of using the root user only to create your first IAM user](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#create-iam-users)\. Then securely lock away the root user credentials and use them to perform only a few account and service management tasks\. To view the tasks that require you to sign in as the root user, see [AWS Tasks That Require Root User](https://docs.aws.amazon.com/general/latest/gr/aws_tasks-that-require-root.html)\.
 
 Entities \(users or roles\) in the AWS account must be granted access to create a resource\. But just because they create a resource doesn't mean they automatically have full access to that resource\. Administrators must explicitly grant permissions for each action\. Additionally, administrators can revoke those permissions at any time, as long as they have access to manage user and role permissions\.
 
-### Controlling Access to Principals in a Different Account<a name="auth_access_controlling-principal-accounts"></a>
+### Controlling access to pPrincipals in a different account<a name="auth_access_controlling-principal-accounts"></a>
 
 Administrators can use AWS resource\-based policies, IAM cross\-account roles, or the AWS Organizations service to allow principals in another account to access resources in your account\.
 
@@ -108,12 +108,12 @@ Cross\-account access with a resource\-based policy has some advantages over a r
 
 AWS Organizations offers policy\-based management for multiple AWS accounts that you own\. With Organizations, you can create groups of accounts, automate account creation, and apply and manage policies for those groups\. Organizations enables you to centrally manage policies across multiple accounts, without requiring custom scripts and manual processes\. Using AWS Organizations, you can create Service Control Policies \(SCPs\) that centrally control AWS service use across AWS accounts\. For more information, see [What Is AWS Organizations?](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_introduction.html) in the *AWS Organizations User Guide*\.
 
-## What are Policies?<a name="auth_access_what-are-policies"></a>
+## What are policies?<a name="auth_access_what-are-policies"></a>
 
 You control access in AWS by creating policies and attaching them to IAM identities or AWS resources\.
 
 **Note**  
-To get started quickly, you can ignore this page\. First, review the introductory information on [Authentication and Access Control for AWS Global Accelerator](auth-and-access-control.md), and then see [Getting Started with IAM](#auth_access_getting-started)\.
+To get started quickly, you can ignore this page\. First, review the introductory information on [Identity and access management for AWS Global Accelerator](auth-and-access-control.md), and then see [Getting started with IAM](#auth_access_getting-started)\.
 
 A policy is an object in AWS that, when associated with an entity or resource, defines their permissions\. AWS evaluates these policies when a principal, such as a user, makes a request\. Permissions in the policies determine whether the request is allowed or denied\. Most policies are stored in AWS as JSON documents\.
 
@@ -152,11 +152,11 @@ You can use an AWS Organizations service control policy \(SCP\) to apply a permi
 You can use a managed policy for a user's or role's permissions boundary\. For more information, see [Permissions Boundaries for IAM Entities](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html) in the *IAM User Guide*\.
 
 **Topics**
-+ [Identity\-based Policies](#auth_access_manage-access-intro-identity-policies)
-+ [Resource\-based Policies](#auth_access_manage-access-intro-resource-policies)
-+ [Policy Access\-Level Classifications](#auth_access_policies-access-level)
++ [Identity\-based policies](#auth_access_manage-access-intro-identity-policies)
++ [Resource\-based policies](#auth_access_manage-access-intro-resource-policies)
++ [Policy access level classifications](#auth_access_policies-access-level)
 
-### Identity\-based Policies<a name="auth_access_manage-access-intro-identity-policies"></a>
+### Identity\-based policies<a name="auth_access_manage-access-intro-identity-policies"></a>
 
 You can attach policies to IAM identities\. For example, you can do the following:
 
@@ -210,13 +210,13 @@ The following example grants programmatic access to the `ListAccelerators` opera
 }
 ```
 
-### Resource\-based Policies<a name="auth_access_manage-access-intro-resource-policies"></a>
+### Resource\-based policies<a name="auth_access_manage-access-intro-resource-policies"></a>
 
 Resource\-based policies are JSON policy documents that you attach to a resource\. These policies allow you to specify what actions a specified principal can perform on that resource and under what conditions\. The most common resource\-based policy is for an Amazon S3 bucket\. Resource\-based policies are inline policies that exist only on the resource\. There are no managed resource\-based policies\.
 
 Granting permissions to members of other AWS accounts using a resource\-based policy has some advantages over an IAM role\. For more information, see [How IAM Roles Differ from Resource\-based Policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_compare-resource-policies.html) in the *IAM User Guide*\.
 
-### Policy Access\-Level Classifications<a name="auth_access_policies-access-level"></a>
+### Policy access level classifications<a name="auth_access_policies-access-level"></a>
 
 In the IAM console, actions are grouped using the following access\-level classifications:
 
@@ -237,20 +237,20 @@ To improve the security of your AWS account, restrict or regularly monitor polic
 **Tagging**  
 Provides permission to create, delete, or modify tags that are attached to a resource in the service\. For example, the Amazon EC2 `CreateTags` and `DeleteTags` operations have the **Tagging** access level\.
 
-## Getting Started with IAM<a name="auth_access_getting-started"></a>
+## Getting started with IAM<a name="auth_access_getting-started"></a>
 
 AWS Identity and Access Management \(IAM\) is an AWS service that allows you manage access to services and resources securely\. IAM is a feature of your AWS account offered at no additional charge\.
 
 **Note**  
-Before you start with IAM, review the introductory information on [Authentication and Access Control for AWS Global Accelerator](auth-and-access-control.md)\.
+Before you start with IAM, review the introductory information on [Identity and access management for AWS Global Accelerator](auth-and-access-control.md)\.
 
   When you first create an AWS account, you begin with a single sign\-in identity that has complete access to all AWS services and resources in the account\. This identity is called the AWS account *root user* and is accessed by signing in with the email address and password that you used to create the account\. We strongly recommend that you do not use the root user for your everyday tasks, even the administrative ones\. Instead, adhere to the [best practice of using the root user only to create your first IAM user](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#create-iam-users)\. Then securely lock away the root user credentials and use them to perform only a few account and service management tasks\. 
 
-### Create your IAM Admin User<a name="auth_access_setup-iam-admin"></a>
+### Create your IAM admin user<a name="auth_access_setup-iam-admin"></a>
 
 **To create an administrator user for yourself and add the user to an administrators group \(console\)**
 
-1. Use your AWS account email address and password to sign in as the *[AWS account root user](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_root-user.html)* to the IAM console at [https://console\.aws\.amazon\.com/iam/](https://console.aws.amazon.com/iam/)\.
+1. Sign in to the [IAM console](https://console.aws.amazon.com/iam/) as the account owner by choosing **Root user** and entering your AWS account email address\. On the next page, enter your password\.
 **Note**  
 We strongly recommend that you adhere to the best practice of using the **Administrator** IAM user below and securely lock away the root user credentials\. Sign in as the root user only to perform a few [account and service management tasks](https://docs.aws.amazon.com/general/latest/gr/aws_tasks-that-require-root.html)\.
 
@@ -286,7 +286,7 @@ You must activate IAM user and role access to Billing before you can use the `Ad
 
 You can use this same process to create more groups and users and to give your users access to your AWS account resources\. To learn about using policies that restrict user permissions to specific AWS resources, see [Access Management](https://docs.aws.amazon.com/IAM/latest/UserGuide/access.html) and [Example Policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_examples.html)\.
 
-### Create Delegated Users for Global Accelerator<a name="auth_access_setup-iam-delegated"></a>
+### Create delegated users for Global Accelerator<a name="auth_access_setup-iam-delegated"></a>
 
 To support multiple users in your AWS account, you must delegate permission to allow other people to perform only the actions that you want to allow\. To do this, create an IAM group with the permissions those people need and then add IAM users to the necessary groups as you create them\. You can use this process to set up the groups, users, and permissions for your entire AWS account\. This solution is best used by small and medium organizations where an AWS administrator can manually manage the users and groups\. For large organizations, you can use [custom IAM roles](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_enable-console-custom-url.html), [federation](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers.html), or [single sign\-on](https://docs.aws.amazon.com/singlesignon/latest/userguide/what-is.html)\.
 
@@ -320,7 +320,7 @@ In the following procedure, you create three users named **arnav**, **carlos**, 
 
 1. Choose the Global Accelerator actions that you want to allow\. For example, to grants permission to create an accelerator, enter **`globalaccelerator:CreateAccelerator`** in the **Filter actions** text box\. When the list of Global Accelerator actions is filtered, select the check box next to **`globalaccelerator:CreateAccelerator`**\.
 
-   The Global Accelerator actions are grouped by access\-level classification to make it easy for you to quickly determine the level of access that each action provides\. For more information, see [Policy Access\-Level Classifications](#auth_access_policies-access-level)\.
+   The Global Accelerator actions are grouped by access\-level classification to make it easy for you to quickly determine the level of access that each action provides\. For more information, see [Policy access level classifications](#auth_access_policies-access-level)\.
 
 1. If the actions that you selected in the preceding steps do not support choosing specific resources, then **All resources** is selected for you\. In that case, you cannot edit this section\.
 
@@ -360,7 +360,7 @@ In the following procedure, you create three users named **arnav**, **carlos**, 
 
 1. Download or copy the passwords for your new users and deliver them to the users securely\. Separately, provide your users with a [link to your IAM user console page](https://docs.aws.amazon.com/IAM/latest/UserGuide/console.html#user-sign-in-page) and the user names that you just created\.
 
-### Allow Users to Self\-Manage Their Credentials<a name="auth_access_manage-password-mfa"></a>
+### Allow users to self\-manage their credentials<a name="auth_access_manage-password-mfa"></a>
 
 You must have physical access to the hardware that will host the user's virtual MFA device in order to configure MFA\. For example, you might configure MFA for a user who will use a virtual MFA device running on a smartphone\. In that case, you must have the smartphone available in order to finish the wizard\. Because of this, you might want to let users configure and manage their own virtual MFA devices\. In that case, you must grant users the permissions to perform the necessary IAM actions\.
 
@@ -504,7 +504,7 @@ This example policy does not allow users to reset their password while signing i
 
 1. Review your changes and choose **Add permissions**\.
 
-### Enable MFA for Your IAM User<a name="auth_access_enable-mfa"></a>
+### Enable MFA for your IAM user<a name="auth_access_enable-mfa"></a>
 
 For increased security, we recommend that all IAM users configure multi\-factor authentication \(MFA\) to help protect your Global Accelerator resources\. MFA adds extra security because it requires users to provide unique authentication from an AWS\-supported MFA device in addition to their regular sign\-in credentials\. The most secure AWS MFA device is the U2F security key\. If your company already has U2F devices, then we recommend that you enable those devices for AWS\. Otherwise, you must purchase a device for each of your users and wait for the hardware to arrive\. For more information, see [Enabling a U2F Security Key](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_mfa_enable_u2f.html) in the *IAM User Guide*\. 
 

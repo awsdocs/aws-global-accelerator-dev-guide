@@ -1,4 +1,4 @@
-# Bring Your Own IP Addresses \(BYOIP\) in AWS Global Accelerator<a name="using-byoip"></a>
+# Bring your own IP addresses \(BYOIP\) in AWS Global Accelerator<a name="using-byoip"></a>
 
 AWS Global Accelerator uses static IP addresses as entry points for your accelerators\. These IP addresses are anycast from AWS edge locations\. By default, Global Accelerator provides static IP addresses from the [Amazon IP address pool](https://docs.aws.amazon.com/general/latest/gr/aws-ip-ranges.html)\. Instead of using the IP addresses that Global Accelerator provides, you can configure these entry points to be IPv4 addresses from your own address ranges\. This topic explains how to use your own IP address ranges with Global Accelerator\.
 
@@ -11,18 +11,18 @@ To use your own IP address range with Global Accelerator, review the requirement
 
 **Topics**
 + [Requirements](#using-byoip.requirements)
-+ [Prepare to Bring Your IP Address Range to Your AWS Account: Authorization](#using-byoip.prepare)
-+ [Provision the Address Range for use with AWS Global Accelerator](#using-byoip.provision)
-+ [Advertise the Address Range through AWS](#using-byoip.advertise)
-+ [Deprovision the Address Range](#using-byoip.deprovision)
-+ [Create an Accelerator with Your IP Addresses](#using-byoip.create-accelerator)
++ [Prepare to bring your IP address range to your AWS account: Authorization](#using-byoip.prepare)
++ [Provision the address range for use with AWS Global Accelerator](#using-byoip.provision)
++ [Advertise the address range through AWS](#using-byoip.advertise)
++ [Deprovision the address range](#using-byoip.deprovision)
++ [Create an accelerator with your IP addresses](#using-byoip.create-accelerator)
 
 ## Requirements<a name="using-byoip.requirements"></a>
 
 You can bring up to two qualifying IP address ranges to AWS Global Accelerator per AWS account\.
 
 To qualify, your IP address range must meet the following requirements:
-+ The IP address range must be registered with your regional internet registry \(RIR\), such as the American Registry for Internet Numbers \(ARIN\), Réseaux IP Européens Network Coordination Centre \(RIPE\), or Asia\-Pacific Network Information Centre \(APNIC\)\. The address range must be registered to a business or institutional entity\. It can’t be registered to an individual\.
++ The IP address range must be registered with one of the following regional internet registries \(RIRs\): the American Registry for Internet Numbers \(ARIN\), Réseaux IP Européens Network Coordination Centre \(RIPE\), or Asia\-Pacific Network Information Centre \(APNIC\)\. The address range must be registered to a business or institutional entity\. It can’t be registered to an individual\.
 + The most specific address range that you can bring is /24\. The first 24 bits of the IP address specify the network number\. For example, 198\.51\.100 is the network number for IP address 198\.51\.100\.0\.
 + The IP addresses in the address range must have a clean history\. That is, they can’t have a poor reputation or be associated with malicious behavior\. We reserve the right to reject the IP address range if we investigate the reputation of the IP address range and find that it contains an IP address that doesn’t have a clean history\. 
 
@@ -31,7 +31,7 @@ Also, we require the following allocation and assignment network types or status
 + RIPE: `ALLOCATED PA`, `LEGACY`, and `ASSIGNED PI` allocation statuses
 + APNIC: `ALLOCATED PORTABLE` and `ASSIGNED PORTABLE` allocation statuses
 
-## Prepare to Bring Your IP Address Range to Your AWS Account: Authorization<a name="using-byoip.prepare"></a>
+## Prepare to bring your IP address range to your AWS account: Authorization<a name="using-byoip.prepare"></a>
 
 To ensure that only you can bring your IP address space to Amazon, we require two authorizations:
 + You must authorize Amazon to advertise the IP address range\.
@@ -45,12 +45,12 @@ A ROA does not authorize your AWS account to bring the IP address range to AWS\.
 
 The following sections provide detailed steps for completing these authorization tasks\. The commands in these steps are supported on Linux\. If you use Windows, you can access the [Windows Subsystem for Linux](https://docs.microsoft.com/en-us/windows/wsl/about) to run Linux commands\.
 
-### Steps to Provide Authorization<a name="using-byoip.prepare-steps"></a>
-+ [Step 1: Create a ROA Object](#using-byoip.prepare-steps-1)
-+ [Step 2: Create a Self\-Signed X509 Certificate](#using-byoip.prepare-steps-2)
-+ [Step 3: Create a Signed Authorization Message](#using-byoip.prepare-steps-3)
+### Steps to provide authorization<a name="using-byoip.prepare-steps"></a>
++ [Step 1: Create a ROA object](#using-byoip.prepare-steps-1)
++ [Step 2: Create a self\-signed X509 certificate](#using-byoip.prepare-steps-2)
++ [Step 3: Create a signed authorization message](#using-byoip.prepare-steps-3)
 
-### Step 1: Create a ROA Object<a name="using-byoip.prepare-steps-1"></a>
+### Step 1: Create a ROA object<a name="using-byoip.prepare-steps-1"></a>
 
 Create a ROA object to authorize Amazon ASN 16509 to advertise your IP address range as well as the ASNs that are currently authorized to advertise the IP address range\. The ROA must contain the /24 IP address that you want to bring to AWS and you must set the maximum length to /24\. 
 
@@ -59,7 +59,7 @@ For more information about creating a ROA request, see the following sections, d
 + RIPE: [ Managing ROAs](https://www.ripe.net/manage-ips-and-asns/resource-management/certification/resource-certification-roa-management)
 + APNIC: [ Route Management](https://www.apnic.net/wp-content/uploads/2017/01/route-roa-management-guide.pdf)
 
-### Step 2: Create a Self\-Signed X509 Certificate<a name="using-byoip.prepare-steps-2"></a>
+### Step 2: Create a self\-signed X509 certificate<a name="using-byoip.prepare-steps-2"></a>
 
 Create a key pair and a self\-signed X509 certificate, and then add the certificate to the RDAP record for your RIR\. The following steps describe how to perform these tasks\.
 
@@ -97,7 +97,7 @@ Make sure to include the `-----BEGIN CERTIFICATE-----` and `-----END CERTIFICATE
       + For RIPE, add the certificate as a new `descr` field for your IP address range\.
       + For APNIC, send the public key in email to `helpdesk@apnic.net`, the APNIC authorized contact for the IP addresses, to request that they manually add it to the `remarks` field\.
 
-### Step 3: Create a Signed Authorization Message<a name="using-byoip.prepare-steps-3"></a>
+### Step 3: Create a signed authorization message<a name="using-byoip.prepare-steps-3"></a>
 
 Create the signed authorization message to allow Amazon to advertise your IP address range\. 
 
@@ -125,7 +125,7 @@ The format of the message is as follows, where the `YYYYMMDD` date is the expira
    						tr -- '+=/' '-_~' | tr -d "\n")
    ```
 
-## Provision the Address Range for use with AWS Global Accelerator<a name="using-byoip.provision"></a>
+## Provision the address range for use with AWS Global Accelerator<a name="using-byoip.provision"></a>
 
 When you provision an address range for use with AWS, you are confirming that you own the address range and authorize Amazon to advertise it\. We'll verify that you own the address range\.
 
@@ -166,7 +166,7 @@ When your IP address range is provisioned, the `State` returned by `list-byoip-c
 }
 ```
 
-## Advertise the Address Range through AWS<a name="using-byoip.advertise"></a>
+## Advertise the address range through AWS<a name="using-byoip.advertise"></a>
 
 After the address range is provisioned, it's ready to be advertised\. You must advertise the exact address range that you provisioned\. You can't advertise only a portion of the provisioned address range\.
 
@@ -211,7 +211,7 @@ When your IP address range is advertised, the `State` returned by `list-byoip-ci
 To stop advertising the address range, use the following `withdraw-byoip-cidr` command\.
 
 **Important**  
-To stop advertising your address range, you first must remove any accelerators that have static IP addresses that are allocated from the address pool\. To delete an accelerator using the console or using API operations, see [ Deleting an Accelerator](about-accelerators.md#about-accelerators.deleting)\.
+To stop advertising your address range, you first must remove any accelerators that have static IP addresses that are allocated from the address pool\. To delete an accelerator using the console or using API operations, see [ Deleting an accelerator](about-accelerators.md#about-accelerators.deleting)\.
 
 ```
 aws globalaccelerator withdraw-byoip-cidr --cidr address-range
@@ -224,13 +224,13 @@ aws globalaccelerator withdraw-byoip-cidr
     --cidr 203.0.113.25/24
 ```
 
-## Deprovision the Address Range<a name="using-byoip.deprovision"></a>
+## Deprovision the address range<a name="using-byoip.deprovision"></a>
 
 To stop using your address range with AWS, you first must remove any accelerators that have static IP addresses that are allocated from the address pool and stop advertising your address range\. After you complete those steps, you can deprovision the address range\.
 
 You must stop advertising and deprovision your address range using the CLI or Global Accelerator API operations\. This functionality is not available in the AWS console\.
 
-**Step 1: Delete any associated accelerators\. **To delete an accelerator using the console or using API operations, see [ Deleting an Accelerator](about-accelerators.md#about-accelerators.deleting)\.
+**Step 1: Delete any associated accelerators\. **To delete an accelerator using the console or using API operations, see [ Deleting an accelerator](about-accelerators.md#about-accelerators.deleting)\.
 
 **Step 2\. Stop advertising the address range\.** To stop advertising the range, use the following [WithdrawByoipCidr](https://docs.aws.amazon.com/global-accelerator/latest/api/API_WithdrawByoipCidr.html) command\.
 
@@ -244,8 +244,8 @@ aws globalaccelerator withdraw-byoip-cidr --cidr address-range
 aws globalaccelerator deprovision-byoip-cidr --cidr address-range
 ```
 
-## Create an Accelerator with Your IP Addresses<a name="using-byoip.create-accelerator"></a>
+## Create an accelerator with your IP addresses<a name="using-byoip.create-accelerator"></a>
 
 You have several options for creating an accelerator using your own IP addresses for the static IP addresses: 
-+ **Use Global Accelerator console to create an accelerator\.** For more information, see [ Creating or Updating an Accelerator](about-accelerators.md#about-accelerators.creating-editing)\.
++ **Use Global Accelerator console to create an accelerator\.** For more information, see [ Creating or updating an accelerator](about-accelerators.md#about-accelerators.creating-editing)\.
 + **Use the Global Accelerator API to create an accelerator\.** For more information, including an example of using the CLI, see [ CreateAccelerator](https://docs.aws.amazon.com/global-accelerator/latest/api/API_CreateAccelerator.html) in the AWS Global Accelerator API Reference\.

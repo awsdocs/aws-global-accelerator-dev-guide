@@ -1,4 +1,4 @@
-# How To Enable Client IP Address Preservation<a name="preserve-client-ip-address.how-to-enable-preservation"></a>
+# How to enable client IP address preservation<a name="preserve-client-ip-address.how-to-enable-preservation"></a>
 
 When you create a new accelerator, client IP address preservation is enabled, by default, for supported endpoints\. 
 
@@ -12,4 +12,4 @@ For existing accelerators, you can transition endpoints without client IP addres
 + For existing Application Load Balancer endpoints, first add to Global Accelerator a duplicate Application Load Balancer endpoint that targets the same backends and, if it's an internet\-facing Application Load Balancer, enable client IP address preservation for it\. Then adjust the weights on the endpoints to slowly move traffic from the load balancer that does *not* have client IP address preservation enabled to the load balancer *with* client IP address preservation\.
 + For an existing Elastic IP address endpoint, you can move traffic to an EC2 instance endpoint with client IP address preservation\. First add an EC2 instance endpoint to Global Accelerator, and then adjust the weights on the endpoints to slowly move traffic from the Elastic IP address endpoint to the EC2 instance endpoint\.
 
-For step\-by\-step transition guidance, see [ Transitioning Endpoints to Use Client IP Address Preservation](about-endpoints.transition-to-IP-preservation.md)\.
+For step\-by\-step transition guidance, see [ Transitioning endpoints to use client IP address preservation](about-endpoints.transition-to-IP-preservation.md)\.

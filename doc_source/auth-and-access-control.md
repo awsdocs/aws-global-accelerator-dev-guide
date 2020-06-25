@@ -1,21 +1,21 @@
-# Authentication and Access Control for AWS Global Accelerator<a name="auth-and-access-control"></a>
+# Identity and access management for AWS Global Accelerator<a name="auth-and-access-control"></a>
 
 AWS Identity and Access Management \(IAM\) is an AWS service that helps an administrator securely control access to AWS resources, including AWS Global Accelerator resources\. Administrators use IAM to control who is *authenticated* \(signed in\) and *authorized* \(has permissions\) to use Global Accelerator resources\. IAM is a feature included with your AWS account at no additional charge\.
 
 **Important**  
-If you're not familiar with IAM, review the introductory information on this page, and then see [Getting Started with IAM](auth_access_overview.md#auth_access_getting-started)\. Optionally, you can learn more about authentication and access control by viewing [What is Authentication?](auth_access_overview.md#auth_access_what-is-authentication), [What is Access Control?](auth_access_overview.md#auth_access_what-is-access-control), and [What are Policies?](auth_access_overview.md#auth_access_what-are-policies)\.
+If you're not familiar with IAM, review the introductory information on this page, and then see [Getting started with IAM](auth_access_overview.md#auth_access_getting-started)\. Optionally, you can learn more about authentication and access control by viewing [What is authentication?](auth_access_overview.md#auth_access_what-is-authentication), [What is access control?](auth_access_overview.md#auth_access_what-is-access-control), and [What are policies?](auth_access_overview.md#auth_access_what-are-policies)\.
 
 **Topics**
-+ [Concepts and Terms](#auth_access_introduction)
-+ [Permissions Required for Console Access, Authentication Management, and Access Control](#auth_access_required-permissions)
-+ [Understanding How Global Accelerator Works with IAM](#auth_access_service-with-iam)
-+ [Troubleshooting Authentication and Access Control](#auth_access_troubleshoot)
++ [Concepts and terms](#auth_access_introduction)
++ [Permissions required for console access, authentication management, and access control](#auth_access_required-permissions)
++ [Understanding how Global Accelerator works with IAM](#auth_access_service-with-iam)
++ [Troubleshooting authentication and access control](#auth_access_troubleshoot)
 
-## Concepts and Terms<a name="auth_access_introduction"></a>
+## Concepts and terms<a name="auth_access_introduction"></a>
 
-**Authentication** – To sign in to AWS, you must use one of the following: root user credentials \(not recommended\), IAM user credentials, or temporary credentials using IAM roles\. To learn more about these entities, see [What is Authentication?](auth_access_overview.md#auth_access_what-is-authentication)\.
+**Authentication** – To sign in to AWS, you must use one of the following: root user credentials \(not recommended\), IAM user credentials, or temporary credentials using IAM roles\. To learn more about these entities, see [What is authentication?](auth_access_overview.md#auth_access_what-is-authentication)\.
 
-**Access Control** – AWS administrators use policies to control access to AWS resources, such as accelerators in Global Accelerator\. To learn more, see [What is Access Control?](auth_access_overview.md#auth_access_what-is-access-control) and [What are Policies?](auth_access_overview.md#auth_access_what-are-policies)\.
+**Access control** – AWS administrators use policies to control access to AWS resources, such as accelerators in Global Accelerator\. To learn more, see [What is access control?](auth_access_overview.md#auth_access_what-is-access-control) and [What are policies?](auth_access_overview.md#auth_access_what-are-policies)\.
 
 **Important**  
 All resources in an account are owned by the account, regardless of who created those resources\. You must be granted access to create a resource\. However, just because you created a resource doesn't mean that you automatically have full access to that resource\. An administrator must explicitly grant permissions for each action that you want to perform\. That administrator can also revoke your permissions at any time\.
@@ -44,11 +44,11 @@ In AWS, a principal is a person or application that uses an entity to sign in an
 
 To view a diagram of the authentication and access control process, see [Understanding How IAM Works](https://docs.aws.amazon.com/IAM/latest/UserGuide/intro-structure.html) in the *IAM User Guide*\. For details about how AWS determines whether a request is allowed, see [Policy Evaluation Logic](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_evaluation-logic.html) in the *IAM User Guide*\.
 
-## Permissions Required for Console Access, Authentication Management, and Access Control<a name="auth_access_required-permissions"></a>
+## Permissions required for console access, authentication management, and access control<a name="auth_access_required-permissions"></a>
 
 To use Global Accelerator or to manage authorization and access control for yourself or others, you must have the correct permissions\. 
 
-### Permissions Required to Create a Global Accelerator Accelerator<a name="auth_access_required-permissions-create-accelerator"></a>
+### Permissions required to create a Global Accelerator accelerator<a name="auth_access_required-permissions-create-accelerator"></a>
 
 To create a AWS Global Accelerator accelerator, users must have permission to create service\-linked roles that are associated with Global Accelerator\. 
 
@@ -78,7 +78,7 @@ If you create an identity\-based permissions policy that is more restrictive, us
     }
 ```
 
-### Permissions Required to Use the Global Accelerator Console<a name="auth_access_required-permissions-console"></a>
+### Permissions required to use the Global Accelerator console<a name="auth_access_required-permissions-console"></a>
 
 To access the AWS Global Accelerator console, you must have a minimum set of permissions that allows you to list and view details about the Global Accelerator resources in your AWS account\. If you create an identity\-based permissions policy that is more restrictive than the minimum required permissions, the console won't function as intended for entities with that policy\.
 
@@ -157,16 +157,16 @@ The following is the full access policy:
 }
 ```
 
-### Permissions Required for Authentication Management<a name="auth_access_required-permissions-iam-auth"></a>
+### Permissions required for authentication management<a name="auth_access_required-permissions-iam-auth"></a>
 
-To manage your own credentials, such as your password, access keys, and multi\-factor authentication \(MFA\) devices, your administrator must grant you the required permissions\. To view the policy that includes these permissions, see [Allow Users to Self\-Manage Their Credentials](auth_access_overview.md#auth_access_manage-password-mfa)\.
+To manage your own credentials, such as your password, access keys, and multi\-factor authentication \(MFA\) devices, your administrator must grant you the required permissions\. To view the policy that includes these permissions, see [Allow users to self\-manage their credentials](auth_access_overview.md#auth_access_manage-password-mfa)\.
 
 As an AWS administrator, you need full access to IAM so that you can create and manage users, groups, roles, and policies in IAM\. You should use the [AdministratorAccess](https://console.aws.amazon.com/iam/home#/policies/arn:aws:iam::aws:policy/AdministratorAccess) AWS managed policy that includes full access to all of AWS\. This policy doesn't provide access to the AWS Billing and Cost Management console or allow tasks that require AWS account root user credentials\. For more information, see [AWS Tasks That Require AWS Account Root User Credentials](https://docs.aws.amazon.com/general/latest/gr/aws_tasks-that-require-root.html) in the *AWS General Reference*\.
 
 **Warning**  
-Only an administrator user should have full access to AWS\. Anyone with this policy has permission to fully manage authentication and access control, in addition to modifying every resource in AWS\. To learn how to create this user, see [Create your IAM Admin User](auth_access_overview.md#auth_access_setup-iam-admin)\.
+Only an administrator user should have full access to AWS\. Anyone with this policy has permission to fully manage authentication and access control, in addition to modifying every resource in AWS\. To learn how to create this user, see [Create your IAM admin user](auth_access_overview.md#auth_access_setup-iam-admin)\.
 
-### Permissions Required for Access Control<a name="auth_access_required-permissions-iam-authz"></a>
+### Permissions required for access control<a name="auth_access_required-permissions-iam-authz"></a>
 
 If your administrator provided you with IAM user credentials, they attached policies to your IAM user to control what resources you can access\. To view the policies that are attached to your user identity in the AWS Management Console, you must have the following permissions:
 
@@ -209,7 +209,7 @@ If your administrator provided you with IAM user credentials, they attached poli
 
 If you need additional permissions, ask your administrator to update your policies to allow you to access the actions that you require\.
 
-## Understanding How Global Accelerator Works with IAM<a name="auth_access_service-with-iam"></a>
+## Understanding how Global Accelerator works with IAM<a name="auth_access_service-with-iam"></a>
 
 Services can work with IAM in several ways:
 
@@ -250,7 +250,7 @@ Global Accelerator supports service\-linked roles\. This feature allows a servic
 **Service roles**  
 Global Accelerator does not support service roles\. This feature allows a service to assume a [service role](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_terms-and-concepts.html#iam-term-service-role) on your behalf\. This role allows the service to access resources in other services to complete an action on your behalf\. Service roles appear in your IAM account and are owned by the account\. This means that an IAM administrator can change the permissions for this role\. However, this might break the functionality of the service\.
 
-## Troubleshooting Authentication and Access Control<a name="auth_access_troubleshoot"></a>
+## Troubleshooting authentication and access control<a name="auth_access_troubleshoot"></a>
 
 Use the following information to help you diagnose and fix common issues that you might encounter when working with IAM\.
 
@@ -275,16 +275,16 @@ In this case, ask your administrator to update your policies to allow you to acc
 
 To allow others to access Global Accelerator, you must create an IAM entity \(user or role\) for the person or application that needs access\. They will use the credentials for that entity to access AWS\. You must then attach a policy to the entity that grants them the correct permissions in Global Accelerator\. 
 
-To get started right away, see [Getting Started with IAM](auth_access_overview.md#auth_access_getting-started)\.
+To get started right away, see [Getting started with IAM](auth_access_overview.md#auth_access_getting-started)\.
 
 ### I want to understand IAM without becoming an expert<a name="auth_access_troubleshoot-iam-expert"></a>
 
 To learn more about IAM terms, concepts, and procedures, see the following topics:
-+ [What is Authentication?](auth_access_overview.md#auth_access_what-is-authentication)
-+ [What is Access Control?](auth_access_overview.md#auth_access_what-is-access-control)
-+ [What are Policies?](auth_access_overview.md#auth_access_what-are-policies)
++ [What is authentication?](auth_access_overview.md#auth_access_what-is-authentication)
++ [What is access control?](auth_access_overview.md#auth_access_what-is-access-control)
++ [What are policies?](auth_access_overview.md#auth_access_what-are-policies)
 
-## Tag\-Based Policies<a name="access-control-manage-access-tag-policies"></a>
+## Tag\-based policies<a name="access-control-manage-access-tag-policies"></a>
 
 When you design IAM policies, you might set granular permissions by granting access to specific resources\. As the number of resources that you manage grows, this task becomes more difficult\. Tagging accelerators and using tags in policy statement conditions can make this task easier\. You grant access in bulk to any accelerator with a certain tag\. Then you repeatedly apply this tag to relevant accelerators, when you create the accelerator or by updating the accelerator later\.
 
@@ -296,7 +296,7 @@ Tags can be attached to a resource or passed in the request to services that sup
 + What tags can be passed in an action's request\.
 + Whether specific tag keys can be used in a request\.
 
-For the complete syntax and semantics of tag condition keys, see [ Control Access Using IAM Tags](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_iam-tags.html) in the *IAM User Guide*\.
+For the complete syntax and semantics of tag condition keys, see [ Control access using IAM tags](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_iam-tags.html) in the *IAM User Guide*\.
 
 For example, the Global Accelerator `GlobalAcceleratorFullAccess` managed user policy gives users unlimited permission to perform any Global Accelerator action on any resource\. The following policy limits this power and denies unauthorized users permission to perform any Global Accelerator action on any *production* accelerators\. A customer's administrator must attach this IAM policy to unauthorized IAM users, in addition to the managed user policy\.
 

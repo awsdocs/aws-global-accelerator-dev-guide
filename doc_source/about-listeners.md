@@ -5,10 +5,10 @@ With AWS Global Accelerator, you add listeners that process inbound connections 
 You define a listener when you create your accelerator, and you can add more listeners at any time\. You associate each listener with one or more endpoint groups, and you associate each endpoint group with one AWS Region\.
 
 **Topics**
-+ [Adding, Editing, or Removing a Listener](#about-listeners.creating-listeners)
-+ [Client Affinity](#about-listeners-client-affinity)
++ [Adding, editing, or removing a listener](#about-listeners.creating-listeners)
++ [Client affinity](#about-listeners-client-affinity)
 
-## Adding, Editing, or Removing a Listener<a name="about-listeners.creating-listeners"></a>
+## Adding, editing, or removing a listener<a name="about-listeners.creating-listeners"></a>
 
 This section explains how to work with listeners on the AWS Global Accelerator console\. To complete these tasks by using an API operation instead of the console, see [https://docs.aws.amazon.com/global-accelerator/latest/api/API_CreateListener.html](https://docs.aws.amazon.com/global-accelerator/latest/api/API_CreateListener.html), [https://docs.aws.amazon.com/global-accelerator/latest/api/API_UpdateListener.html](https://docs.aws.amazon.com/global-accelerator/latest/api/API_UpdateListener.html), and [https://docs.aws.amazon.com/global-accelerator/latest/api/API_DeleteListener.html](https://docs.aws.amazon.com/global-accelerator/latest/api/API_DeleteListener.html) in the *AWS Global Accelerator API Reference*\.
 
@@ -28,7 +28,7 @@ This section explains how to work with listeners on the AWS Global Accelerator c
 
    The default is **None**, which means that client affinity is not enabled and Global Accelerator distributes traffic equally between the endpoints in the endpoint groups for the listener\.
 
-   For more information, see [Client Affinity](#about-listeners-client-affinity)\.
+   For more information, see [Client affinity](#about-listeners-client-affinity)\.
 
 1. Choose **Add listener**\.
 
@@ -46,7 +46,7 @@ This section explains how to work with listeners on the AWS Global Accelerator c
 
    The default is **None**, which means that client affinity is not enabled and Global Accelerator distributes traffic equally between the endpoints in the endpoint groups for the listener\.
 
-   For more information, see [Client Affinity](#about-listeners-client-affinity)\.
+   For more information, see [Client affinity](#about-listeners-client-affinity)\.
 
 1. Choose **Save**\.
 
@@ -60,7 +60,7 @@ This section explains how to work with listeners on the AWS Global Accelerator c
 
 1. In the confirmation dialog box, choose **Remove**\.
 
-## Client Affinity<a name="about-listeners-client-affinity"></a>
+## Client affinity<a name="about-listeners-client-affinity"></a>
 
 If you have stateful applications, you can choose to have Global Accelerator direct all requests from a user at a specific source \(client\) IP address to the same endpoint resource, to maintain client affinity\.
 

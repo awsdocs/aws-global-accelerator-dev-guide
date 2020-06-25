@@ -1,4 +1,4 @@
-# How to Get Started with AWS Global Accelerator<a name="introduction-get-started"></a>
+# How to get started with AWS Global Accelerator<a name="introduction-get-started"></a>
 
 You can get started with setting up AWS Global Accelerator by using the API or by using the AWS Global Accelerator console\. Because Global Accelerator is a global service, it’s not tied to a specific AWS Region\. 
 
@@ -10,4 +10,4 @@ To get started using Global Accelerator, you follow these general steps:
 
 1. **Add endpoints to endpoint groups:** You can add one or more regional resources, such as load balancers or EC2 instances endpoints, to each endpoint group\. Next, you can decide how much traffic you want to route to each endpoint by setting endpoint weights\.
 
-For detailed steps about how to create an accelerator using the AWS Global Accelerator console, see [Getting Started with AWS Global Accelerator](getting-started.md)\. To work with API operations, see [Common Actions That You Can Use with AWS Global Accelerator](global-accelerator-actions.md) and the [AWS Global Accelerator API Reference](https://docs.aws.amazon.com/global-accelerator/latest/api/Welcome.html)\.
+For detailed steps about how to create an accelerator using the AWS Global Accelerator console, see [Getting started with AWS Global Accelerator](getting-started.md)\. To work with API operations, see [Common actions that you can use with AWS Global Accelerator](global-accelerator-actions.md) and the [AWS Global Accelerator API Reference](https://docs.aws.amazon.com/global-accelerator/latest/api/Welcome.html)\.

@@ -1,4 +1,4 @@
-# AWS Global Accelerator Security<a name="security"></a>
+# AWS Global Accelerator security<a name="security"></a>
 
 Cloud security at AWS is the highest priority\. As an AWS customer, you benefit from a data center and network architecture that is built to meet the requirements of the most security\-sensitive organizations\.
 
@@ -9,9 +9,9 @@ Security is a shared responsibility between AWS and you\. The [shared responsibi
 This documentation will help you understand how to apply the shared responsibility model when using Global Accelerator\. The following topics show you how to configure Global Accelerator to meet your security objectives\. 
 
 **Topics**
-+ [Authentication and Access Control for AWS Global Accelerator](auth-and-access-control.md)
-+ [Secure VPC Connections in AWS Global Accelerator](secure-vpc-connections.md)
-+ [Logging and Monitoring in AWS Global Accelerator](logging-and-monitoring.md)
-+ [Compliance Validation for AWS Global Accelerator](compliance-validation.md)
++ [Identity and access management for AWS Global Accelerator](auth-and-access-control.md)
++ [Secure VPC connections in AWS Global Accelerator](secure-vpc-connections.md)
++ [Logging and monitoring in AWS Global Accelerator](logging-and-monitoring.md)
++ [Compliance validation for AWS Global Accelerator](compliance-validation.md)
 + [Resilience in AWS Global Accelerator](disaster-recovery-resiliency.md)
-+ [Infrastructure Security in AWS Global Accelerator](infrastructure-security.md)
++ [Infrastructure security in AWS Global Accelerator](infrastructure-security.md)

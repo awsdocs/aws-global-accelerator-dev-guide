@@ -1,6 +1,6 @@
-# Compliance Validation for AWS Global Accelerator<a name="compliance-validation"></a>
+# Compliance validation for AWS Global Accelerator<a name="compliance-validation"></a>
 
-Third\-party auditors assess the security and compliance of AWS Global Accelerator as part of multiple AWS compliance programs\. These include SOC, PCI, HIPAA, GDPR, and ISO\.
+Third\-party auditors assess the security and compliance of AWS Global Accelerator as part of multiple AWS compliance programs\. These include SOC, PCI, HIPAA, GDPR, ISO, and ENS High\.
 
 For a list of AWS services, including Global Accelerator, in scope of specific compliance programs, see [AWS Services in Scope by Compliance Program](http://aws.amazon.com/compliance/services-in-scope/)\. For general information, see [AWS Compliance Programs](http://aws.amazon.com/compliance/programs/)\.
 

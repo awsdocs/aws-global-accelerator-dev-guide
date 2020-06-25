@@ -1,4 +1,4 @@
-# Adjusting Traffic Flow With Traffic Dials<a name="about-endpoint-groups-traffic-dial"></a>
+# Adjusting traffic flow with traffic dials<a name="about-endpoint-groups-traffic-dial"></a>
 
 For each endpoint group, you can set a traffic dial to control the percentage of traffic that is directed to the group\. The percentage is applied only to traffic that is already directed to the endpoint group, not to all listener traffic\.
 

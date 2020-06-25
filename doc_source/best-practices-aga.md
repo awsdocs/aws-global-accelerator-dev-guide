@@ -1,11 +1,11 @@
-# Best Practices for Client IP Address Preservation<a name="best-practices-aga"></a>
+# Best practices for client IP address preservation<a name="best-practices-aga"></a>
 
-When you use client IP address preservation in Global Accelerator, keep in mind the information and best practices in this section for elastic network interfaces and security groups\.
+When you use client IP address preservation in AWS Global Accelerator, keep in mind the information and best practices in this section for elastic network interfaces and security groups\.
 
-To support client IP address preservation, AWS Global Accelerator creates elastic network interfaces in your AWS account—one for each subnet where an endpoint is present\. An elastic network interface is a logical networking component in a VPC that represents a virtual network card\. Global Accelerator uses these elastic network interfaces to route traffic to the endpoints configured behind an accelerator\. The supported endpoints for routing traffic this way are Application Load Balancers \(internal and internet\-facing\) and Amazon EC2 instances\. 
+To support client IP address preservation, Global Accelerator creates elastic network interfaces in your AWS account—one for each subnet where an endpoint is present\. An elastic network interface is a logical networking component in a VPC that represents a virtual network card\. Global Accelerator uses these elastic network interfaces to route traffic to the endpoints configured behind an accelerator\. The supported endpoints for routing traffic this way are Application Load Balancers \(internal and internet\-facing\) and Amazon EC2 instances\. 
 
 **Note**  
-When you add an internal Application Load Balancer or an EC2 instance endpoint in Global Accelerator, you enable internet traffic to flow directly to and from the endpoint in Virtual Private Clouds \(VPCs\) by targeting it in a private subnet\. For more information, see [Secure VPC Connections in AWS Global Accelerator](secure-vpc-connections.md)\.
+When you add an internal Application Load Balancer or an EC2 instance endpoint in Global Accelerator, you enable internet traffic to flow directly to and from the endpoint in Virtual Private Clouds \(VPCs\) by targeting it in a private subnet\. For more information, see [Secure VPC connections in AWS Global Accelerator](secure-vpc-connections.md)\.
 
 **How Global Accelerator uses elastic network interfaces**  
 When you have an Application Load Balancer with client IP address preservation enabled, the number of subnets that the load balancer is in determines the number of elastic network interfaces that Global Accelerator creates in your account\. Global Accelerator creates one elastic network interface for each subnet that has at least one elastic network interface of the Application Load Balancer in it that is fronted by an accelerator in your account\.  

@@ -1,6 +1,6 @@
 # Endpoints in AWS Global Accelerator<a name="about-endpoints"></a>
 
-Endpoints in AWS Global Accelerator can be Network Load Balancers, Application Load Balancers, EC2 instances, or Elastic IP addresses\. A static IP address serves as a single point of contact for clients, and Global Accelerator then distributes incoming traffic across healthy endpoints\. Global Accelerator directs traffic to endpoints by using the port \(or port range\) that you specify for the listener that the endpoint group for the endpoint belongs to\. 
+Endpoints in AWS Global Accelerator can be Network Load Balancers, Application Load Balancers, Amazon EC2 instances, or Elastic IP addresses\. A static IP address serves as a single point of contact for clients, and Global Accelerator then distributes incoming traffic across healthy endpoints\. Global Accelerator directs traffic to endpoints by using the port \(or port range\) that you specify for the listener that the endpoint group for the endpoint belongs to\. 
 
 Each endpoint group can have multiple endpoints\. You can add each endpoint to multiple endpoint groups, but the endpoint groups must be associated with different listeners\.
 
@@ -13,21 +13,21 @@ Be aware of the following for specific types of Global Accelerator endpoints:
 
 **EC2 instance endpoints**  
 + An EC2 instance endpoint can't be one of the following types: C1, CC1, CC2, CG1, CG2, CR1, CS1, G1, G2, HI1, HS1, M1, M2, M3, or T1\.
-+ EC2 instances are supported as endpoints in only some AWS Regions\. For a list of supported Regions, see [ Supported Regions for Client IP Address Preservation](preserve-client-ip-address.regions.md)\.
++ EC2 instances are supported as endpoints in only some AWS Regions\. For a list of supported Regions, see [Supported AWS Regions for client IP address preservation](preserve-client-ip-address.regions.md)\.
 + We recommend that you remove an EC2 instance from Global Accelerator endpoint groups before you terminate the instance\. If you terminate an EC2 instance before you remove it from an endpoint group in Global Accelerator, and then you create another instance in the same VPC with the same private IP address, and health checks pass, Global Accelerator will route traffic to the new endpoint\. 
 
-A feature that you can use with some endpoint types—in some Regions— is *client IP address preservation*\. With this feature, you preserve the source IP address of the original client for packets that arrive at the endpoint\. You can use this feature with Application Load Balancer and EC2 instance endpoints\. For more information, see [Preserve Client IP Addresses in AWS Global Accelerator](preserve-client-ip-address.md)\.
+A feature that you can use with some endpoint types—in some Regions— is *client IP address preservation*\. With this feature, you preserve the source IP address of the original client for packets that arrive at the endpoint\. You can use this feature with Application Load Balancer and EC2 instance endpoints\. For more information, see [Preserve client IP addresses in AWS Global Accelerator](preserve-client-ip-address.md)\.
 
 If you intend to use the client IP address preservation feature, be aware of the following when you add endpoints to Global Accelerator:
 
 **Elastic network interfaces**  
-To support client IP address preservation, Global Accelerator creates elastic network interfaces in your AWS account—one for each subnet where an endpoint is present\. For more information about how Global Accelerator works with elastic network interfaces, see [Best Practices for Client IP Address Preservation](best-practices-aga.md)\.
+To support client IP address preservation, Global Accelerator creates elastic network interfaces in your AWS account—one for each subnet where an endpoint is present\. For more information about how Global Accelerator works with elastic network interfaces, see [Best practices for client IP address preservation](best-practices-aga.md)\.
 
 **Endpoints in private subnets**  
-You can target an Application Load Balancer or an EC2 instance in a private subnet using AWS Global Accelerator but you must have an [internet gateway](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Internet_Gateway.html) attached to the VPC that contains the endpoints\. For more information, see [Secure VPC Connections in AWS Global Accelerator](secure-vpc-connections.md)\.
+You can target an Application Load Balancer or an EC2 instance in a private subnet using AWS Global Accelerator but you must have an [internet gateway](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Internet_Gateway.html) attached to the VPC that contains the endpoints\. For more information, see [Secure VPC connections in AWS Global Accelerator](secure-vpc-connections.md)\.
 
-**Whitelist the client IP address**  
-Before you add and begin to route traffic to endpoints that preserve the client IP address, make sure that all your required security configurations, for example, security groups, are updated to whitelist the user client IP address\. Network access control lists \(ACLs\) only apply to egress \(outbound\) traffic\. If you need to filter ingress \(inbound\) traffic, you must use security groups\. 
+**Add the client IP address to the allow list**  
+Before you add and begin to route traffic to endpoints that preserve the client IP address, make sure that all your required security configurations, for example, security groups, are updated to include the user client IP address on the allow list\. Network access control lists \(ACLs\) only apply to egress \(outbound\) traffic\. If you need to filter ingress \(inbound\) traffic, you must use security groups\. 
 
 **Configure network access control lists \(ACLs\)**  
 Network ACLs associated with your VPC subnets apply to egress \(outbound\) traffic when client IP address preservation is enabled on your accelerator\. However, for traffic to be allowed to exit through Global Accelerator, you must configure the ACL as both an inbound and outbound rule\.   
@@ -35,11 +35,11 @@ For example, to allow TCP and UDP clients using an ephemeral source port to conn
 Security group and AWS WAF rules are an additional set of capabilities that you can apply to protect your resources\. For example, the inbound security group rules associated with your Amazon EC2 instances and Application Load Balancers allow you to control the destination ports that clients can connect to through Global Accelerator, such as port 80 for HTTP or 443 for HTTPS\. You must ensure that these rules are configured appropriately to correctly allow or deny traffic that you intend your applications to accept\.
 
 **Topics**
-+ [Adding, Editing, or Removing an Endpoint](#about-endpoints-adding-endpoints)
-+ [Endpoint Weights](about-endpoints-endpoint-weights.md)
-+ [Transitioning Endpoints to Use Client IP Address Preservation](about-endpoints.transition-to-IP-preservation.md)
++ [Adding, editing, or removing an endpoint](#about-endpoints-adding-endpoints)
++ [Endpoint weights](about-endpoints-endpoint-weights.md)
++ [Transitioning endpoints to use client IP address preservation](about-endpoints.transition-to-IP-preservation.md)
 
-## Adding, Editing, or Removing an Endpoint<a name="about-endpoints-adding-endpoints"></a>
+## Adding, editing, or removing an endpoint<a name="about-endpoints-adding-endpoints"></a>
 
 You add endpoints to endpoint groups so that traffic can be directed to your resources\. You can edit an endpoint to change the weight for the endpoint\. Or you can remove an endpoint from your accelerator by removing it from an endpoint group\. Removing an endpoint doesn't affect the endpoint itself, but Global Accelerator can no longer direct traffic to that resource\.
 
@@ -63,19 +63,19 @@ This section explains how to work with endpoints on the AWS Global Accelerator c
 
 1. On the **Add endpoints** page, choose an endpoint from the dropdown list\.
 
-1. Optionally, for **Weight**, enter a number from 0 to 255 to set a weight for routing traffic to this endpoint\. When you add weights to endpoints, you configure Global Accelerator to route traffic based on proportions that you specify\. By default, all endpoints have a weight of 128\. For more information, see [Endpoint Weights](about-endpoints-endpoint-weights.md)\.
+1. Optionally, for **Weight**, enter a number from 0 to 255 to set a weight for routing traffic to this endpoint\. When you add weights to endpoints, you configure Global Accelerator to route traffic based on proportions that you specify\. By default, all endpoints have a weight of 128\. For more information, see [ Endpoint weights](about-endpoints-endpoint-weights.md)\.
 
 1. Optionally, enable client IP address preservation for an internet\-facing Application Load Balancer endpoint\. Under **Preserve client IP address**, select **Preserve address**\. 
 
-   This option is always selected for internal Application Load Balancer and EC2 instance endpoints, and never selected for Network Load Balancer and Elastic IP address endpoints\. For more information, see [Preserve Client IP Addresses in AWS Global Accelerator](preserve-client-ip-address.md)\.
+   This option is always selected for internal Application Load Balancer and EC2 instance endpoints, and never selected for Network Load Balancer and Elastic IP address endpoints\. For more information, see [Preserve client IP addresses in AWS Global Accelerator](preserve-client-ip-address.md)\.
 **Note**  
-Before you add and begin to route traffic to endpoints that preserve the client IP address, make sure that all your required security configurations, for example, security groups, are updated to whitelist the user client IP address\.
+Before you add and begin to route traffic to endpoints that preserve the client IP address, make sure that all your required security configurations, for example, security groups, are updated to include the user client IP address on allow lists\.
 
 1. Choose **Add endpoint**\.
 
 ## To edit an endpoint
 
-You can edit an endpoint configuration to change the weight\. For more information, see [Endpoint Weights](about-endpoints-endpoint-weights.md)\.
+You can edit an endpoint configuration to change the weight\. For more information, see [ Endpoint weights](about-endpoints-endpoint-weights.md)\.
 
 1. Open the Global Accelerator console at [ https://us\-west\-2\.console\.aws\.amazon\.com/ec2/v2/home?region=us\-west\-2\#Global Accelerator:](https://us-west-2.console.aws.amazon.com/ec2/v2/home?region=us-west-2#GlobalAccelerator:)\. 
 

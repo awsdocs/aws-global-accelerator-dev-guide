@@ -1,4 +1,4 @@
-# Route Custom Domain Traffic to Your Accelerator<a name="about-accelerators.mapping-your-custom-domain"></a>
+# Route custom domain traffic to your accelerator<a name="about-accelerators.mapping-your-custom-domain"></a>
 
 In most scenarios, you can configure DNS to use your custom domain name \(such as `www.example.com`\) with your accelerator, instead of using the assigned static IP addresses or the default DNS name\. First, using Amazon Route 53 or another DNS provider, create a domain name, and then add or update DNS records with your Global Accelerator IP addresses\. Or you can associate your custom domain name with the DNS name for your accelerator\. Complete the DNS configuration and wait for the changes to propagate over the internet\. Now when a client makes a request using your custom domain name, the DNS server resolves it to the IP addresses, in random order, or to the DNS name for your accelerator\.
 
