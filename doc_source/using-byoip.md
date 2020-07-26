@@ -2,10 +2,12 @@
 
 AWS Global Accelerator uses static IP addresses as entry points for your accelerators\. These IP addresses are anycast from AWS edge locations\. By default, Global Accelerator provides static IP addresses from the [Amazon IP address pool](https://docs.aws.amazon.com/general/latest/gr/aws-ip-ranges.html)\. Instead of using the IP addresses that Global Accelerator provides, you can configure these entry points to be IPv4 addresses from your own address ranges\. This topic explains how to use your own IP address ranges with Global Accelerator\.
 
-You can bring part or all of your public IPv4 address ranges from your on\-premises network to your AWS account to use with Global Accelerator\. You continue to own the address ranges, but AWS advertises them on the internet\. After you bring an address range to AWS, it appears in your account as an address pool\. When you create an accelerator, you can assign one or two of the IP addresses from your range to it\. We recommend that you bring two IP address ranges so that you can choose an IP address from different ranges for each static IP address\.
+You can bring part or all of your public IPv4 address ranges from your on\-premises network to your AWS account to use with Global Accelerator\. You continue to own the address ranges, but AWS advertises them on the internet\. 
 
-**Note**  
-If you choose to assign only one IP address from your IP address range to an accelerator, Global Accelerator assigns a second static IP address for the accelerator from the AWS IP address pool\.
+**Important**  
+You must stop advertising your IP address range from other locations before you advertise it through AWS\. If an IP address range is multihomed \(that is, the range is advertised by multiple service providers at the same time\), we can't guarantee that traffic to the address range will enter our network or that your BYOIP advertising workflow will complete successfully\.
+
+After you bring an address range to AWS, it appears in your account as an address pool\. When you create an accelerator, you can assign one or two of the IP addresses from your range to it\. We recommend that you bring two IP address ranges so that you can choose an IP address from different ranges for each static IP address\. If you choose to assign only one IP address from your IP address range to an accelerator, Global Accelerator assigns a second static IP address for the accelerator from the AWS IP address pool\.
 
 To use your own IP address range with Global Accelerator, review the requirements, and then follow the steps provided in this topic\.
 
@@ -41,13 +43,13 @@ When you use BYOIP to bring an IP address range to AWS, you can't transfer owner
 
 To authorize Amazon to advertise the IP address range, you provide Amazon with a signed authorization message\. Use a Route Origin Authorization \(ROA\) to provide this authorization\. A ROA is a cryptographic statement about your route announcements that you create through your Regional Internet Registry \(RIR\)\. A ROA contains the IP address range, the Autonomous System Numbers \(ASN\) that are allowed to advertise the IP address range, and an expiration date\. The ROA authorizes Amazon to advertise an IP address range under a specific Autonomous System \(AS\)\. 
 
-A ROA does not authorize your AWS account to bring the IP address range to AWS\. To provide this authorization, you must publish a self\-signed X509 certificate in the Registry Data Access Protocol \(RDAP\) remarks for the IP address range\. The certificate contains a public key, which AWS uses to verify the authorization\-context signature that you provide\. Keep your private key secure and use it to sign the authorization\-context message\.
+A ROA does not authorize your AWS account to bring the IP address range to AWS\. To provide this authorization, you must publish a self\-signed X\.509 certificate in the Registry Data Access Protocol \(RDAP\) remarks for the IP address range\. The certificate contains a public key, which AWS uses to verify the authorization\-context signature that you provide\. Keep your private key secure and use it to sign the authorization\-context message\.
 
 The following sections provide detailed steps for completing these authorization tasks\. The commands in these steps are supported on Linux\. If you use Windows, you can access the [Windows Subsystem for Linux](https://docs.microsoft.com/en-us/windows/wsl/about) to run Linux commands\.
 
 ### Steps to provide authorization<a name="using-byoip.prepare-steps"></a>
 + [Step 1: Create a ROA object](#using-byoip.prepare-steps-1)
-+ [Step 2: Create a self\-signed X509 certificate](#using-byoip.prepare-steps-2)
++ [Step 2: Create a self\-signed X\.509 certificate](#using-byoip.prepare-steps-2)
 + [Step 3: Create a signed authorization message](#using-byoip.prepare-steps-3)
 
 ### Step 1: Create a ROA object<a name="using-byoip.prepare-steps-1"></a>
@@ -59,14 +61,14 @@ For more information about creating a ROA request, see the following sections, d
 + RIPE: [ Managing ROAs](https://www.ripe.net/manage-ips-and-asns/resource-management/certification/resource-certification-roa-management)
 + APNIC: [ Route Management](https://www.apnic.net/wp-content/uploads/2017/01/route-roa-management-guide.pdf)
 
-### Step 2: Create a self\-signed X509 certificate<a name="using-byoip.prepare-steps-2"></a>
+### Step 2: Create a self\-signed X\.509 certificate<a name="using-byoip.prepare-steps-2"></a>
 
-Create a key pair and a self\-signed X509 certificate, and then add the certificate to the RDAP record for your RIR\. The following steps describe how to perform these tasks\.
+Create a key pair and a self\-signed X\.509 certificate, and then add the certificate to the RDAP record for your RIR\. The following steps describe how to perform these tasks\.
 
 **Note**  
 The `openssl` commands in these steps require OpenSSL version 1\.0\.2 or later\.
 
-### To create and add an X509 certificate
+### To create and add an X\.509 certificate
 
 1. Generate an RSA 2048\-bit key pair using the following command\.
 
@@ -74,7 +76,7 @@ The `openssl` commands in these steps require OpenSSL version 1\.0\.2 or later\.
    openssl genrsa -out private.key 2048
    ```
 
-1. Create a public X509 certificate from the key pair using the following command\.
+1. Create a public X\.509 certificate from the key pair using the following command\.
 
    ```
    openssl req -new -x509 -key private.key -days 365 | tr -d "\n" > publickey.cer
@@ -82,7 +84,7 @@ The `openssl` commands in these steps require OpenSSL version 1\.0\.2 or later\.
 
    In this example, the certificate expires in 365 days, after which time it can’t be trusted\. When you run the command, make sure that you set the `–days` option to the desired value for the correct expiration\. When you're prompted for other information, you can accept the default values\.
 
-1. Update the RDAP record for your RIR with the X509 certificate by using the following steps, depending on your RIR\.
+1. Update the RDAP record for your RIR with the X\.509 certificate by using the following steps, depending on your RIR\.
 
    1. View your certificate using the following command\.
 
@@ -168,9 +170,7 @@ When your IP address range is provisioned, the `State` returned by `list-byoip-c
 
 ## Advertise the address range through AWS<a name="using-byoip.advertise"></a>
 
-After the address range is provisioned, it's ready to be advertised\. You must advertise the exact address range that you provisioned\. You can't advertise only a portion of the provisioned address range\.
-
-We recommend that you stop advertising your IP address range from other locations before you advertise it through AWS\. If you keep advertising your address range from other locations, we can't reliably support it or troubleshoot issues\. Specifically, we can't guarantee that traffic to the address range will enter our network\.
+After the address range is provisioned, it's ready to be advertised\. You must advertise the exact address range that you provisioned\. You can't advertise only a portion of the provisioned address range\. In addition, you must stop advertising your IP address range from other locations before you advertise it through AWS\.
 
 You must advertise \(or stop advertising\) your address range using the CLI or Global Accelerator API operations\. This functionality is not available in the AWS console\.
 
@@ -211,7 +211,7 @@ When your IP address range is advertised, the `State` returned by `list-byoip-ci
 To stop advertising the address range, use the following `withdraw-byoip-cidr` command\.
 
 **Important**  
-To stop advertising your address range, you first must remove any accelerators that have static IP addresses that are allocated from the address pool\. To delete an accelerator using the console or using API operations, see [ Deleting an accelerator](about-accelerators.md#about-accelerators.deleting)\.
+To stop advertising your address range, you first must remove any accelerators that have static IP addresses that are allocated from the address pool\. To delete an accelerator using the console or using API operations, see [ Deleting an accelerator](about-accelerators.deleting.md)\.
 
 ```
 aws globalaccelerator withdraw-byoip-cidr --cidr address-range
@@ -230,7 +230,7 @@ To stop using your address range with AWS, you first must remove any accelerator
 
 You must stop advertising and deprovision your address range using the CLI or Global Accelerator API operations\. This functionality is not available in the AWS console\.
 
-**Step 1: Delete any associated accelerators\. **To delete an accelerator using the console or using API operations, see [ Deleting an accelerator](about-accelerators.md#about-accelerators.deleting)\.
+**Step 1: Delete any associated accelerators\. **To delete an accelerator using the console or using API operations, see [ Deleting an accelerator](about-accelerators.deleting.md)\.
 
 **Step 2\. Stop advertising the address range\.** To stop advertising the range, use the following [WithdrawByoipCidr](https://docs.aws.amazon.com/global-accelerator/latest/api/API_WithdrawByoipCidr.html) command\.
 
@@ -247,5 +247,5 @@ aws globalaccelerator deprovision-byoip-cidr --cidr address-range
 ## Create an accelerator with your IP addresses<a name="using-byoip.create-accelerator"></a>
 
 You have several options for creating an accelerator using your own IP addresses for the static IP addresses: 
-+ **Use Global Accelerator console to create an accelerator\.** For more information, see [ Creating or updating an accelerator](about-accelerators.md#about-accelerators.creating-editing)\.
++ **Use Global Accelerator console to create an accelerator\.** For more information, see [ Creating or updating an accelerator](about-accelerators.creating-editing.md)\.
 + **Use the Global Accelerator API to create an accelerator\.** For more information, including an example of using the CLI, see [ CreateAccelerator](https://docs.aws.amazon.com/global-accelerator/latest/api/API_CreateAccelerator.html) in the AWS Global Accelerator API Reference\.

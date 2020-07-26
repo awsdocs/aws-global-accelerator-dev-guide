@@ -1,4 +1,4 @@
-# Client Affinity<a name="about-listeners-client-affinity"></a>
+# Client affinity<a name="about-listeners-client-affinity"></a>
 
 If you have stateful applications, you can choose to have Global Accelerator direct all requests from a user at a specific source \(client\) IP address to the same endpoint resource, to maintain client affinity\.
 

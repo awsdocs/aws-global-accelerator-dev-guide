@@ -2,6 +2,9 @@
 
 This tutorial provides the steps for getting started with AWS Global Accelerator using the console\. You can also use AWS Global Accelerator API operations to create and customize your accelerator\. At each step in this tutorial, there's a link to the corresponding API operation for completing the task programmatically\. For more information about working with AWS Global Accelerator API operations, see the [AWS Global Accelerator API Reference](https://docs.aws.amazon.com/global-accelerator/latest/api/Welcome.html)\.
 
+**Tip**  
+To explore how you can use Global Accelerator to improve performance and availability for web applications, check out the following self\-paced workshop: [AWS Global Accelerator Workshop](https://intro-to-global-accelerator.workshop.aws/en)\.
+
 Global Accelerator is a global service that supports endpoints in multiple AWS Regions, which are listed in the [AWS Region Table](https://aws.amazon.com/about-aws/global-infrastructure/regional-product-services/)\.
 
 **Tasks**
@@ -18,17 +21,19 @@ Global Accelerator is a global service that supports endpoints in multiple AWS R
 Before you create an accelerator, create at least one resource that you can add as an endpoint to direct traffic to\. For example, create one of the following:
 + Launch at least one Amazon EC2 instance to add as an endpoint\. For more information, see [Create Your EC2 Resources and Launch Your EC2 Instance](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/gs-step-one-create-ec2-resources.html) in the *Amazon EC2 User Guide for Linux Instances*\. 
 + Optionally, create one or more Network Load Balancers or Application Load Balancers that includes EC2 instances\. For more information, see [Create a Network Load Balancer Application Load Balancer](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/create-network-load-balancer.html) in the *User Guide for Network Load Balancers*\.
+**Tip**  
+You can add an accelerator at the same time that you create an Application Load Balancer, by selecting the option in the Amazon EC2 console when you create the load balancer\. For more information, see [ Create an Application Load Balancer](https://docs.aws.amazon.com/elasticloadbalancing/latest/application/create-application-load-balancer.html)\.
 
 When you create a resource to add to Global Accelerator, be aware of the following:
 + When you add an internal Application Load Balancer or an EC2 instance endpoint in Global Accelerator, you enable internet traffic to flow directly to and from the endpoint in Virtual Private Clouds \(VPCs\) by targeting it in a private subnet\. The VPC that contains the load balancer or EC2 instance must have an [internet gateway](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Internet_Gateway.html) attached to it, to indicate that the VPC accepts internet traffic\. For more information, see [Secure VPC connections in AWS Global Accelerator](secure-vpc-connections.md)\.
 + Global Accelerator requires your router and firewall rules to allow inbound traffic from the IP addresses associated with Route 53 health checkers to complete health checks for Application Load Balancer, EC2 instance, or Elastic IP address endpoints\. You can find information about the IP address ranges associated with Amazon Route 53 health checkers in [Health Checks for Your Target Groups](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/route-53-ip-addresses.html) in the *Amazon Route 53 Developer Guide*\.
 
 **Important**  
-Make sure that you’re in the AWS Region US West \(Oregon\)\. You must be in this Region to create or update accelerators\.
+Global Accelerator is a global service that can front application endpoints in multiple AWS Regions but you must be in the US West \(Oregon\) Region to create or update accelerators by using the AWS Management Console or AWS CLI\.
 
 ## Step 1: Create an accelerator<a name="getting-started-accelerator"></a>
 
-To create your accelerator, you enter a name\. 
+To get started creating your accelerator, you enter a name for it\.
 
 **Note**  
 To complete this task by using an API operation instead of the console, see [CreateAccelerator](https://docs.aws.amazon.com/global-accelerator/latest/api/API_CreateAccelerator.html) in the *AWS Global Accelerator API Reference*\.
@@ -62,7 +67,7 @@ To complete this task by using an API operation instead of the console, see [Cre
 
    The default is **None**, which means that client affinity is not enabled and Global Accelerator distributes traffic equally between the endpoints in the endpoint groups for the listener\.
 
-   For more information, see [Client affinity](about-listeners.md#about-listeners-client-affinity)\.
+   For more information, see [Client affinity](about-listeners-client-affinity.md)\.
 
 1. Optionally, choose **Add listener** to add an additional listener\.
 
