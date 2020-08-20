@@ -4,6 +4,8 @@ AWS Global Accelerator uses static IP addresses as entry points for your acceler
 
 You can bring part or all of your public IPv4 address ranges from your on\-premises network to your AWS account to use with Global Accelerator\. You continue to own the address ranges, but AWS advertises them on the internet\. 
 
+You can't use the IP addresses that you bring to AWS for one AWS service with another service\. The steps in this chapter describe how to bring your own IP address range for use in AWS Global Accelerator only\. For steps to bring your own IP address range for use in Amazon EC2, see [Bring your own IP addresses \(BYOIP\)](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-byoip.html) in the Amazon EC2 User Guide\.
+
 **Important**  
 You must stop advertising your IP address range from other locations before you advertise it through AWS\. If an IP address range is multihomed \(that is, the range is advertised by multiple service providers at the same time\), we can't guarantee that traffic to the address range will enter our network or that your BYOIP advertising workflow will complete successfully\.
 

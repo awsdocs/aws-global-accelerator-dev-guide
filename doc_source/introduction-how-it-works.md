@@ -1,10 +1,12 @@
 # How AWS Global Accelerator works<a name="introduction-how-it-works"></a>
 
-AWS Global Accelerator provides you with a set of static IP addresses that are anycast from the AWS edge network\. If you bring your own IP address range to AWS \(BYOIP\), you can instead assign static IP addresses from your own pool to use with your accelerator\. For more information, see [Bring your own IP addresses \(BYOIP\) in AWS Global Accelerator](using-byoip.md)\.
+AWS Global Accelerator provides you with a set of static IP addresses that are anycast from the AWS edge network\. If you [bring your own IP address range](using-byoip.md) to AWS \(BYOIP\), you can instead assign static IP addresses from your own pool to use with your accelerator\. 
 
 The static IP addresses serve as single fixed entry points for your clients\. When you set up your accelerator with Global Accelerator, you associate your static IP addresses to regional endpoints—Network Load Balancers, Application Load Balancers, Amazon EC2 instances, or Elastic IP addresses—in one or more AWS Regions\. The static IP addresses accept incoming traffic onto the AWS global network from the edge location that is closest to your users\.
 
 From the edge location, traffic for your application is routed to the optimal AWS endpoint based on several factors, including the user’s location, the health of the endpoint, and the endpoint weights that you configure\. Traffic travels over the well\-monitored, congestion\-free, redundant AWS global network to the endpoint\. By maximizing the time that traffic is on the AWS network, Global Accelerator ensures that traffic is always routed over the optimum network path\.
+
+With some endpoint types \(in some AWS Regions\), you have the option to [preserve and access the client IP address](preserve-client-ip-address.md)\. Two types of endpoints can preserve the source IP address of the client in incoming packets: Application Load Balancers and Amazon EC2 instances\. Global Accelerator does not support client IP address preservation for Network Load Balancer and Elastic IP address endpoints\.
 
 For endpoints that have client IP address preservation enabled, Global Accelerator terminates TCP connections from clients at AWS edge locations\. Almost concurrently, Global Accelerator establishes a new TCP connection with your endpoints that have client IP address preservation enabled, in supported AWS Regions\. This gives clients faster response times \(lower latency\) and increased throughput\.
 
@@ -12,7 +14,7 @@ Global Accelerator continuously monitors the health of all endpoints, and instan
 
 When you add an accelerator, security groups and AWS WAF rules that you have already configured continue to work as they did before you added the accelerator\.
 
-If you want fine\-grained control over your global traffic, you can configure weights for your endpoints\. You can also increase \(dial up\) or decrease \(dial down\) the percentage of traffic to a particular endpoint group, for example, for performance testing or stack upgrades\. 
+If you want fine\-grained control over your global traffic, you can [ configure weights](about-endpoints-endpoint-weights.md) for your endpoints\. You can also [ increase \(dial up\) or decrease \(dial down\)](about-endpoint-groups-traffic-dial.md) the percentage of traffic to a particular endpoint group, for example, for performance testing or stack upgrades\. 
 
 Global Accelerator supports both TCP and UDP protocols\.
 

@@ -4,6 +4,8 @@ You add endpoints to endpoint groups so that traffic can be directed to your res
 
 You can add or remove endpoints from endpoint groups based on usage\. For example, if demand on your application increases, you can add more endpoints to one or more endpoint groups to handle the increased traffic\. Global Accelerator starts routing requests to an endpoint as soon as you add it and the endpoint passes the initial health checks\. You can manage traffic to endpoints by adjusting the weights on an endpoint, to send proportionally more or less traffic to the endpoint\.
 
+If you're adding an endpoint with client IP address preservation, first review the information in [Supported AWS Regions for client IP address preservation](preserve-client-ip-address.regions.md) and [Preserve client IP addresses in AWS Global Accelerator](preserve-client-ip-address.md)\.
+
 You can remove endpoints from your endpoint groups, for example, if you need to service your endpoints\. Removing an endpoint takes it out of the endpoint group, but does not affect the endpoint otherwise\. Global Accelerator stops directing traffic to an endpoint as soon as you remove it from an endpoint group\. The endpoint goes into a state where it waits for all current requests to be completed so there's no interruption for client traffic that is in progress\. You can add the endpoint back to the endpoint group when you’re ready for it to resume receiving requests\.
 
 This section explains how to work with endpoints on the AWS Global Accelerator console\. If you want to use API operations with AWS Global Accelerator, see the [ AWS Global Accelerator API Reference](https://docs.aws.amazon.com/global-accelerator/latest/api/Welcome.html)\.

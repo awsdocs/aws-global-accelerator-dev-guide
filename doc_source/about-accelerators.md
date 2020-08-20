@@ -13,7 +13,7 @@ This section includes steps to create, edit, or delete an accelerator on the Glo
 + [Creating or updating an accelerator](about-accelerators.creating-editing.md)
 + [Deleting an accelerator](about-accelerators.deleting.md)
 + [Viewing your accelerators](about-accelerators.viewing.md)
++ [Add an accelerator when you create a load balancer](about-accelerators.alb-accelerator.md)
 + [Bring your own IP addresses \(BYOIP\) in AWS Global Accelerator](using-byoip.md)
 + [Support for DNS addressing in Global Accelerator](about-accelerators.dns-addressing.md)
 + [Route custom domain traffic to your accelerator](about-accelerators.mapping-your-custom-domain.md)
-+ [Add an accelerator when you create a load balancer](about-accelerators.alb-accelerator.md)
