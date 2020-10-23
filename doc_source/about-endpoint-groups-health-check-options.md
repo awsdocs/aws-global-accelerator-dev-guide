@@ -7,13 +7,16 @@ Global Accelerator requires your router and firewall rules to allow inbound traf
 
 You can configure the following health check options for an endpoint group\. If you specify health check options, Global Accelerator uses the settings for EC2 instance or Elastic IP address health checks but not for Network Load Balancers or Application Load Balancers\.
 + For Application Load Balancer or Network Load Balancer endpoints, you configure health checks for the resources by using Elastic Load Balancing configuration options\. For more information, see [Health Checks for Your Target Groups](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/target-group-health-checks.html)\. Health check options that you choose in Global Accelerator do not affect Application Load Balancers or Network Load Balancers that you've added as endpoints\.
+**Note**  
+When you have an Application Load Balancer or Network Load Balancer that includes multiple target groups, Global Accelerator considers the load balancer endpoint to be healthy only if *each* target group behind the load balancer has at least one healthy target\. If any single target group for the load balancer has only unhealthy targets, Global Accelerator considers the endpoint to be unhealthy\.
 + For EC2 instance or Elastic IP address endpoints that are added to a listener configured with TCP, you can specify the port to use for health checks\. By default, if you don't specify a port for health checks, Global Accelerator uses the listener port that you specified for your accelerator\.
 + For EC2 instance or Elastic IP address endpoints with UDP listeners, Global Accelerator uses the listener port and the TCP protocol for health checks, so you must have a TCP server on your endpoint\.
 **Note**  
 Be sure to check that the port that you've configured for the TCP server on each endpoint is the same as the port that you specify for the health check in Global Accelerator\. If the port numbers aren't the same, or if you haven't set up a TCP server for the endpoint, Global Accelerator marks the endpoint as unhealthy, regardless of the endpoint's health\.
 
 **Health check port**  
-The port to use when Global Accelerator performs health checks on endpoints that are part of this endpoint group\.
+The port to use when Global Accelerator performs health checks on endpoints that are part of this endpoint group\.  
+You can't set a port override for health check ports\.
 
 **Health check protocol**  
 The protocol to use when Global Accelerator performs health checks on endpoints that are part of this endpoint group\.

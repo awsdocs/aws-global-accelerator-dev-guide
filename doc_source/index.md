@@ -39,6 +39,7 @@ Amazon's trademarks and trade dress may not be used in
 + [Endpoint groups in AWS Global Accelerator](about-endpoint-groups.md)
    + [Adding, editing, or removing an endpoint group](about-endpoint-groups.create-endpoint-group.md)
    + [Adjusting traffic flow with traffic dials](about-endpoint-groups-traffic-dial.md)
+   + [Port overrides](about-endpoint-groups-port-override.md)
    + [Health check options](about-endpoint-groups-health-check-options.md)
 + [Endpoints in AWS Global Accelerator](about-endpoints.md)
    + [Adding, editing, or removing an endpoint](about-endpoints-adding-endpoints.md)

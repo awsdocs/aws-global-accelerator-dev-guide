@@ -2,13 +2,14 @@
 
 The following entries describe important changes made to the AWS Global Accelerator documentation\.
 + **API version: latest**
-+ **Latest documentation update: **May 20, 2020
++ **Latest documentation update: **October 21, 2020
 
 
 ****  
 
 | Change | Description | Date | 
 | --- | --- | --- | 
+| Added port overrides support | Global Accelerator now supports overriding the listener port used for routing traffic to endpoints so you can reroute traffic to specific ports on your endpoints\. For more information, see [https://docs.aws.amazon.com/global-accelerator/latest/dg/about-endpoint-groups-port-override.html](https://docs.aws.amazon.com/global-accelerator/latest/dg/about-endpoint-groups-port-override.html)\. | October 21, 2020 | 
 | Added two new Regions | Global Accelerator now supports Africa \(Cape Town\) and Europe \(Milan\)\. For more information, see [https://docs.aws.amazon.com/global-accelerator/latest/dg/preserve-client-ip-address.regions.html](https://docs.aws.amazon.com/global-accelerator/latest/dg/preserve-client-ip-address.regions.html)\. | May 20, 2020 | 
 | Tagging and BYOIP | This release adds support for adding tags to accelerators and bringing your own IP address to AWS Global Accelerator \(BYOIP\)\. For more information, see [https://docs.aws.amazon.com/global-accelerator/latest/dg/tagging-in-global-accelerator.html](https://docs.aws.amazon.com/global-accelerator/latest/dg/tagging-in-global-accelerator.html) and [https://docs.aws.amazon.com/global-accelerator/latest/dg/using-byoip.html](https://docs.aws.amazon.com/global-accelerator/latest/dg/using-byoip.html)\. | February 27, 2020 | 
 | Updated Security chapter | Added content for compliance, resilience, and infrastructure security\. For more information, see [https://docs.aws.amazon.com/global-accelerator/latest/dg/security.html](https://docs.aws.amazon.com/global-accelerator/latest/dg/security.html)\. | December 20, 2019 | 

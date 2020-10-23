@@ -2,7 +2,7 @@
 
 Endpoints in AWS Global Accelerator can be Network Load Balancers, Application Load Balancers, Amazon EC2 instances, or Elastic IP addresses\. A static IP address serves as a single point of contact for clients, and Global Accelerator then distributes incoming traffic across healthy endpoints\. Global Accelerator directs traffic to endpoints by using the port \(or port range\) that you specify for the listener that the endpoint group for the endpoint belongs to\. 
 
-Each endpoint group can have multiple endpoints\. You can add each endpoint to multiple endpoint groups, but the endpoint groups must be associated with different listeners\.
+Each endpoint group can have multiple endpoints\. You can add each endpoint to multiple endpoint groups, but the endpoint groups must be associated with different listeners\. A resource must be valid and active when you add it as an endpoint\.
 
 Global Accelerator continually monitors the health of all endpoints that are included in an endpoint group\. It routes traffic only to the active endpoints that are healthy\. If Global Accelerator doesn’t have any healthy endpoints to route traffic to, it routes traffic to all endpoints\.
 

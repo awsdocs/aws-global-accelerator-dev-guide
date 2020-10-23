@@ -13,4 +13,5 @@ This section explains how to work with endpoint groups on the AWS Global Acceler
 **Topics**
 + [Adding, editing, or removing an endpoint group](about-endpoint-groups.create-endpoint-group.md)
 + [Adjusting traffic flow with traffic dials](about-endpoint-groups-traffic-dial.md)
++ [Port overrides](about-endpoint-groups-port-override.md)
 + [Health check options](about-endpoint-groups-health-check-options.md)

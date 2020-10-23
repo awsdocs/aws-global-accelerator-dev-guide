@@ -6,6 +6,7 @@ Your AWS account has the following quotas, also known as limits, related to AWS 
 + Number of accelerators for each AWS account – 20
 + Number of listeners for each accelerator – 10
 + Number of port ranges for each listener – 10
++ Number of port overrides for each endpoint group – 10
 + Number of endpoints for each endpoint group – 10
 + Number of tags for each accelerator – 50
 
