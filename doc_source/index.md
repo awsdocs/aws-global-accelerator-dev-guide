@@ -30,6 +30,7 @@ Amazon's trademarks and trade dress may not be used in
    + [Deleting an accelerator](about-accelerators.deleting.md)
    + [Viewing your accelerators](about-accelerators.viewing.md)
    + [Add an accelerator when you create a load balancer](about-accelerators.alb-accelerator.md)
+   + [Using global static IP addresses instead of regional static IP addresses](about-accelerators.eip-accelerator.md)
    + [Bring your own IP addresses (BYOIP) in AWS Global Accelerator](using-byoip.md)
    + [Support for DNS addressing in Global Accelerator](about-accelerators.dns-addressing.md)
    + [Route custom domain traffic to your accelerator](about-accelerators.mapping-your-custom-domain.md)
