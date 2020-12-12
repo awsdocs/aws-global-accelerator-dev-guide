@@ -1,4 +1,4 @@
-# Adding, editing, or removing a listener<a name="about-listeners.creating-listeners"></a>
+# Adding, editing, or removing a standard listener<a name="about-listeners.creating-listeners"></a>
 
 This section explains how to work with listeners on the AWS Global Accelerator console\. To complete these tasks by using an API operation instead of the console, see [https://docs.aws.amazon.com/global-accelerator/latest/api/API_CreateListener.html](https://docs.aws.amazon.com/global-accelerator/latest/api/API_CreateListener.html), [https://docs.aws.amazon.com/global-accelerator/latest/api/API_UpdateListener.html](https://docs.aws.amazon.com/global-accelerator/latest/api/API_UpdateListener.html), and [https://docs.aws.amazon.com/global-accelerator/latest/api/API_DeleteListener.html](https://docs.aws.amazon.com/global-accelerator/latest/api/API_DeleteListener.html) in the *AWS Global Accelerator API Reference*\.
 
@@ -22,7 +22,7 @@ This section explains how to work with listeners on the AWS Global Accelerator c
 
 1. Choose **Add listener**\.
 
-# To edit a listener
+# To edit a standard listener
 
 1. Open the Global Accelerator console at [ https://us\-west\-2\.console\.aws\.amazon\.com/ec2/v2/home?region=us\-west\-2\#Global Accelerator:](https://us-west-2.console.aws.amazon.com/ec2/v2/home?region=us-west-2#GlobalAccelerator:)\. 
 

@@ -1,6 +1,6 @@
 # Adjusting traffic flow with traffic dials<a name="about-endpoint-groups-traffic-dial"></a>
 
-For each endpoint group, you can set a traffic dial to control the percentage of traffic that is directed to the group\. The percentage is applied only to traffic that is already directed to the endpoint group, not to all listener traffic\.
+For each standard endpoint group, you can set a traffic dial to control the percentage of traffic that is directed to the group\. The percentage is applied only to traffic that is already directed to the endpoint group, not to all listener traffic\.
 
 By default, the traffic dial is set to 100 \(that is, 100%\) for all regional endpoint groups in an accelerator\. The traffic dial lets you easily do performance testing or blue/green deployment testing for new releases across different AWS Regions, for example\. 
 

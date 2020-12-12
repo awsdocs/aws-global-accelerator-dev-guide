@@ -1,14 +1,38 @@
 # Common actions that you can use with AWS Global Accelerator<a name="global-accelerator-actions"></a>
 
-The following table lists common AWS Global Accelerator actions that you can use with Global Accelerator resources\. The table also provides links to relevant documentation\.
+This section lists common AWS Global Accelerator actions that you can use with Global Accelerator resources, with links to relevant documentation\.
+
+**Actions to use with standard resources**
+
+The following table lists common Global Accelerator actions that you can use with Global Accelerator standard accelerators, with links to relevant documentation\.
 
 
 | Action | Using the Global Accelerator Console | Using the Global Accelerator API | 
 | --- | --- | --- | 
-| Create an accelerator | See [Getting started with AWS Global Accelerator](getting-started.md) | See [https://docs.aws.amazon.com/global-accelerator/latest/api/API_CreateAccelerator.html](https://docs.aws.amazon.com/global-accelerator/latest/api/API_CreateAccelerator.html) | 
-| Create a listener | See [Adding, editing, or removing a listener](about-listeners.creating-listeners.md) | See [https://docs.aws.amazon.com/global-accelerator/latest/api/API_CreateListener.html](https://docs.aws.amazon.com/global-accelerator/latest/api/API_CreateListener.html) | 
-| Create an endpoint group | See [ Adding, editing, or removing an endpoint group](about-endpoint-groups.create-endpoint-group.md) | See [https://docs.aws.amazon.com/global-accelerator/latest/api/API_CreateEndpointGroup.html](https://docs.aws.amazon.com/global-accelerator/latest/api/API_CreateEndpointGroup.html) | 
+| Create a standard accelerator | See [ Getting started with a standard accelerator](getting-started.md#getting-started-standard) | See [https://docs.aws.amazon.com/global-accelerator/latest/api/API_CreateAccelerator.html](https://docs.aws.amazon.com/global-accelerator/latest/api/API_CreateAccelerator.html) | 
+| Create a listener for a standard accelerator | See [Listeners for standard accelerators in AWS Global Accelerator](about-listeners.md) | See [https://docs.aws.amazon.com/global-accelerator/latest/api/API_CreateListener.html](https://docs.aws.amazon.com/global-accelerator/latest/api/API_CreateListener.html) | 
+| Create a endpoint group for a standard accelerator | See [Endpoint groups for standard accelerators in AWS Global Accelerator](about-endpoint-groups.md) | See [https://docs.aws.amazon.com/global-accelerator/latest/api/API_CreateEndpointGroup.html](https://docs.aws.amazon.com/global-accelerator/latest/api/API_CreateEndpointGroup.html) | 
+| Update a standard accelerator | See [Standard accelerators in AWS Global Accelerator](about-accelerators.md) |  See [https://docs.aws.amazon.com/global-accelerator/latest/api/API_UpdateAccelerator.html](https://docs.aws.amazon.com/global-accelerator/latest/api/API_UpdateAccelerator.html)  | 
 | List your accelerators | See [Viewing your accelerators](about-accelerators.viewing.md) | See [https://docs.aws.amazon.com/global-accelerator/latest/api/API_ListAccelerators.html](https://docs.aws.amazon.com/global-accelerator/latest/api/API_ListAccelerators.html)  | 
 | Get all information about an accelerator | See [Viewing your accelerators](about-accelerators.viewing.md) |  See [https://docs.aws.amazon.com/global-accelerator/latest/api/API_DescribeAccelerator.html](https://docs.aws.amazon.com/global-accelerator/latest/api/API_DescribeAccelerator.html)  | 
-| Update an accelerator | See [ Creating or updating an accelerator](about-accelerators.creating-editing.md) |  See [https://docs.aws.amazon.com/global-accelerator/latest/api/API_UpdateAccelerator.html](https://docs.aws.amazon.com/global-accelerator/latest/api/API_UpdateAccelerator.html)  | 
-| Delete an accelerator | See [ Creating or updating an accelerator](about-accelerators.creating-editing.md) | See [https://docs.aws.amazon.com/global-accelerator/latest/api/API_DeleteAccelerator.html](https://docs.aws.amazon.com/global-accelerator/latest/api/API_DeleteAccelerator.html) | 
+| Delete an accelerator | See [ Creating or updating a standard accelerator](about-accelerators.md#about-accelerators.creating-editing) | See [https://docs.aws.amazon.com/global-accelerator/latest/api/API_DeleteAccelerator.html](https://docs.aws.amazon.com/global-accelerator/latest/api/API_DeleteAccelerator.html) | 
+
+**Actions to use with custom routing resources**
+
+The following table lists common Global Accelerator actions that you can use with , with links to relevant documentation\.
+
+
+| Action | Using the Global Accelerator Console | Using the Global Accelerator API | 
+| --- | --- | --- | 
+| Create a  | See [ Getting started with a ](getting-started.md#getting-started-custom-routing) |  See [https://docs.aws.amazon.com/global-accelerator/latest/api/API_CreateCustomRoutingAccelerator.html](https://docs.aws.amazon.com/global-accelerator/latest/api/API_CreateCustomRoutingAccelerator.html)  | 
+| Create a listener for a  | See [Listeners for custom routing accelerators in AWS Global Accelerator](about-custom-routing-listeners.md) | See [https://docs.aws.amazon.com/global-accelerator/latest/api/API_CreateCustomRoutingListener.html](https://docs.aws.amazon.com/global-accelerator/latest/api/API_CreateCustomRoutingListener.html) | 
+| Create an endpoint group for a  | See [Endpoint groups for custom routing accelerators in AWS Global Accelerator](about-custom-routing-endpoint-groups.md) | See [https://docs.aws.amazon.com/global-accelerator/latest/api/API_CreateCustomRoutingEndpointGroup.html](https://docs.aws.amazon.com/global-accelerator/latest/api/API_CreateCustomRoutingEndpointGroup.html) | 
+| Update a  | See [Custom routing accelerators in AWS Global Accelerator](about-custom-routing-accelerators.md) |  See [https://docs.aws.amazon.com/global-accelerator/latest/api/API_UpdateCustomRoutingAccelerator.html](https://docs.aws.amazon.com/global-accelerator/latest/api/API_UpdateCustomRoutingAccelerator.html)  | 
+| List your  | See [ Viewing your ](about-custom-routing-accelerators.md#about-custom-routing-accelerators.viewing) | See [https://docs.aws.amazon.com/global-accelerator/latest/api/API_ListCustomRoutingAccelerators.html](https://docs.aws.amazon.com/global-accelerator/latest/api/API_ListCustomRoutingAccelerators.html)  | 
+| Get all information about a  | See [ Viewing your ](about-custom-routing-accelerators.md#about-custom-routing-accelerators.viewing) | See [https://docs.aws.amazon.com/global-accelerator/latest/api/API_DescribeCustomRoutingAccelerator.html](https://docs.aws.amazon.com/global-accelerator/latest/api/API_DescribeCustomRoutingAccelerator.html)  | 
+| Delete a  | See [ Creating or updating a custom routing accelerator](about-custom-routing-accelerators.md#about-custom-routing-accelerators.creating-editing) | See [https://docs.aws.amazon.com/global-accelerator/latest/api/API_DeleteCustomRoutingAccelerator.html](https://docs.aws.amazon.com/global-accelerator/latest/api/API_DeleteCustomRoutingAccelerator.html) | 
+| Get the static port mapping for a  | N/A | See [https://docs.aws.amazon.com/global-accelerator/latest/api/API_ListCustomRoutingPortMappings.html](https://docs.aws.amazon.com/global-accelerator/latest/api/API_ListCustomRoutingPortMappings.html) | 
+| Allow all destination traffic for a subnet in a  | See [ Adding, editing, or removing a VPC subnet endpoint](about-custom-routing-endpoints.md#about-custom-routing-endpoints-adding-endpoints) | See [https://docs.aws.amazon.com/global-accelerator/latest/api/API_AllowCustomRoutingTraffic.html](https://docs.aws.amazon.com/global-accelerator/latest/api/API_AllowCustomRoutingTraffic.html) | 
+| Disallow all destination traffic for a subnet in a  | See [ Adding, editing, or removing a VPC subnet endpoint](about-custom-routing-endpoints.md#about-custom-routing-endpoints-adding-endpoints) | See [https://docs.aws.amazon.com/global-accelerator/latest/api/API_DenyCustomRoutingTraffic.html](https://docs.aws.amazon.com/global-accelerator/latest/api/API_DenyCustomRoutingTraffic.html) | 
+| Allow traffic to a specific destination in a  | N/A | See [https://docs.aws.amazon.com/global-accelerator/latest/api/API_AllowCustomRoutingTraffic.html](https://docs.aws.amazon.com/global-accelerator/latest/api/API_AllowCustomRoutingTraffic.html) | 
+| Disallow traffic to a specific destination in a  | N/A | See [https://docs.aws.amazon.com/global-accelerator/latest/api/API_DenyCustomRoutingTraffic.html](https://docs.aws.amazon.com/global-accelerator/latest/api/API_DenyCustomRoutingTraffic.html) | 

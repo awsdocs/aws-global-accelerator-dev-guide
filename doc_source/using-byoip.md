@@ -213,7 +213,7 @@ When your IP address range is advertised, the `State` returned by `list-byoip-ci
 To stop advertising the address range, use the following `withdraw-byoip-cidr` command\.
 
 **Important**  
-To stop advertising your address range, you first must remove any accelerators that have static IP addresses that are allocated from the address pool\. To delete an accelerator using the console or using API operations, see [ Deleting an accelerator](about-accelerators.deleting.md)\.
+To stop advertising your address range, you first must remove any accelerators that have static IP addresses that are allocated from the address pool\. To delete an accelerator using the console or using API operations, see [ Deleting an accelerator](about-accelerators.md#about-accelerators.deleting)\.
 
 ```
 aws globalaccelerator withdraw-byoip-cidr --cidr address-range
@@ -232,7 +232,7 @@ To stop using your address range with AWS, you first must remove any accelerator
 
 You must stop advertising and deprovision your address range using the CLI or Global Accelerator API operations\. This functionality is not available in the AWS console\.
 
-**Step 1: Delete any associated accelerators\. **To delete an accelerator using the console or using API operations, see [ Deleting an accelerator](about-accelerators.deleting.md)\.
+**Step 1: Delete any associated accelerators\. **To delete an accelerator using the console or using API operations, see [ Deleting an accelerator](about-accelerators.md#about-accelerators.deleting)\.
 
 **Step 2\. Stop advertising the address range\.** To stop advertising the range, use the following [WithdrawByoipCidr](https://docs.aws.amazon.com/global-accelerator/latest/api/API_WithdrawByoipCidr.html) command\.
 
@@ -249,5 +249,5 @@ aws globalaccelerator deprovision-byoip-cidr --cidr address-range
 ## Create an accelerator with your IP addresses<a name="using-byoip.create-accelerator"></a>
 
 You have several options for creating an accelerator using your own IP addresses for the static IP addresses: 
-+ **Use Global Accelerator console to create an accelerator\.** For more information, see [ Creating or updating an accelerator](about-accelerators.creating-editing.md)\.
++ **Use Global Accelerator console to create an accelerator\.** For more information, see [ Creating or updating a standard accelerator](about-accelerators.md#about-accelerators.creating-editing)\.
 + **Use the Global Accelerator API to create an accelerator\.** For more information, including an example of using the CLI, see [ CreateAccelerator](https://docs.aws.amazon.com/global-accelerator/latest/api/API_CreateAccelerator.html) in the AWS Global Accelerator API Reference\.

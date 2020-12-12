@@ -2,13 +2,17 @@
 
 Your AWS account has the following quotas, also known as limits, related to AWS Global Accelerator\.
 
-**AWS Global Accelerator Quotas**
+**Global Accelerator quotas**
 + Number of accelerators for each AWS account – 20
 + Number of listeners for each accelerator – 10
 + Number of port ranges for each listener – 10
 + Number of port overrides for each endpoint group – 10
 + Number of endpoints for each endpoint group – 10
 + Number of tags for each accelerator – 50
+
+**Global Accelerator quotas for **
++ Number of IP addresses that can be specified when allowing or denying traffic to specific destinations – 10
++ Number of ports that can be specified when allowing or denying traffic to specific destinations – 10
 
 In addition, there are quotas for Network Load Balancers, Application Load Balancers, Amazon EC2 instances, or Elastic IP addresses that are used as endpoints for an accelerator\. For more information, see the following:
 + [Elastic IP address quota](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html#using-instance-addressing-limit) in the *Amazon EC2 User Guide*\.
