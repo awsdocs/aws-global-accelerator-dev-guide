@@ -28,3 +28,5 @@ The AWS Blog has a number of posts to help you use AWS services\. For example, s
 + [ AWS Global Accelerator for Availability and Performance](https://aws.amazon.com/blogs/startups/how-to-accelerate-your-wordpress-site-with-amazon-cloudfront/)
 + [ Traffic management with AWS Global Accelerator](https://aws.amazon.com/blogs/networking-and-content-delivery/traffic-management-with-aws-global-accelerator/)
 + [ Analyzing and visualizing AWS Global Accelerator flow logs using Amazon Athena and Amazon QuickSight](https://aws.amazon.com/blogs/networking-and-content-delivery/analyzing-and-visualizing-aws-global-accelerator-flow-logs-using-amazon-athena-and-amazon-quicksight/)
+
+To see a complete list of AWS Global Accelerator blogs, refer to [Networking & Content Delivery: Category: AWS Global Accelerator](https://aws.amazon.com/blogs/networking-and-content-delivery/category/networking-content-delivery/aws-global-accelerator/)
