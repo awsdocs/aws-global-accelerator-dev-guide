@@ -2,7 +2,7 @@
 
 This chapter includes procedures and recommendations for creating standard accelerators in AWS Global Accelerator\. With a standard accelerator, Global Accelerator chooses the closest healthy endpoint for your traffic\.
 
-If instead you want to use custom application logic to direct one or more users to a specific endpoint among many endpoints, create a custom routing accelerator\. For more information, see [Work with in AWS Global Accelerator](work-with-custom-routing-accelerators.md)\.
+If instead you want to use custom application logic to direct one or more users to a specific endpoint among many endpoints, create a custom routing accelerator\. For more information, see [Work with custom routing accelerators in AWS Global Accelerator](work-with-custom-routing-accelerators.md)\.
 
 To set up a standard accelerator, do the following:
 

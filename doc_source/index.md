@@ -1,7 +1,7 @@
 # AWS Global Accelerator Developer Guide
 
 -----
-*****Copyright &copy; 2020 Amazon Web Services, Inc. and/or its affiliates. All rights reserved.*****
+*****Copyright &copy; 2021 Amazon Web Services, Inc. and/or its affiliates. All rights reserved.*****
 
 -----
 Amazon's trademarks and trade dress may not be used in 
@@ -44,13 +44,13 @@ Amazon's trademarks and trade dress may not be used in
       + [Endpoint weights](about-endpoints-endpoint-weights.md)
       + [Adding endpoints with client IP address preservation](about-endpoints.sipp-caveats.md)
       + [Transitioning endpoints to use client IP address preservation](about-endpoints.transition-to-IP-preservation.md)
-+ [Work with in AWS Global Accelerator](work-with-custom-routing-accelerators.md)
-   + [How work in AWS Global Accelerator](about-custom-routing-how-it-works.md)
-   + [Guidelines and restrictions for](about-custom-routing-guidelines.md)
++ [Work with custom routing accelerators in AWS Global Accelerator](work-with-custom-routing-accelerators.md)
+   + [How custom routing accelerators work in AWS Global Accelerator](about-custom-routing-how-it-works.md)
+   + [Guidelines and restrictions for custom routing accelerators](about-custom-routing-guidelines.md)
    + [Custom routing accelerators in AWS Global Accelerator](about-custom-routing-accelerators.md)
    + [Listeners for custom routing accelerators in AWS Global Accelerator](about-custom-routing-listeners.md)
    + [Endpoint groups for custom routing accelerators in AWS Global Accelerator](about-custom-routing-endpoint-groups.md)
-   + [VPC subnet endpoints for in AWS Global Accelerator](about-custom-routing-endpoints.md)
+   + [VPC subnet endpoints for custom routing accelerators in AWS Global Accelerator](about-custom-routing-endpoints.md)
 + [DNS addressing and custom domains in AWS Global Accelerator](dns-addressing-custom-domains.md)
    + [Route custom domain traffic to your accelerator](dns-addressing-custom-domains.mapping-your-custom-domain.md)
 + [Preserve client IP addresses in AWS Global Accelerator](preserve-client-ip-address.md)

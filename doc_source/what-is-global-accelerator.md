@@ -2,7 +2,7 @@
 
 AWS Global Accelerator is a service in which you create *accelerators* to improve the performance of your applications for local and global users\. Depending on the type of accelerator you choose, you can gain additional benefits\. 
 + By using a standard accelerator, you can improve availability of your internet applications that are used by a global audience\. With a standard accelerator, Global Accelerator directs traffic over the AWS global network to endpoints in the nearest Region to the client\. 
-+ By using a , you can map one or more users to a specific destination among many destinations\.
++ By using a custom routing accelerator, you can map one or more users to a specific destination among many destinations\.
 
 Global Accelerator is a global service that supports endpoints in multiple AWS Regions, which are listed in the [AWS Region Table](https://aws.amazon.com/about-aws/global-infrastructure/regional-product-services/)\.
 
@@ -13,7 +13,7 @@ The static IP addresses remain assigned to your accelerator for as long as it ex
 
 For standard accelerators, Global Accelerator uses the AWS global network to route traffic to the optimal regional endpoint based on health, client location, and policies that you configure, which increases the availability of your applications\. Endpoints for standard accelerators can be Network Load Balancers, Application Load Balancers, Amazon EC2 instances, or Elastic IP addresses that are located in one AWS Region or multiple Regions\.\. The service reacts instantly to changes in health or configuration to ensure that internet traffic from clients is always directed to healthy endpoints\.
 
- only support virtual private cloud \(VPC\) subnet endpoint types and route traffic to private IP addresses in that subnet\.
+custom routing accelerators only support virtual private cloud \(VPC\) subnet endpoint types and route traffic to private IP addresses in that subnet\.
 
 For a list of the AWS Regions where Global Accelerator and other services are currently supported, see the [AWS Region Table](https://aws.amazon.com/about-aws/global-infrastructure/regional-product-services/)\.
 

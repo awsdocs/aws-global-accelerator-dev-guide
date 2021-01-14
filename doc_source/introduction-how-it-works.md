@@ -7,15 +7,15 @@ If you bring your own IP address range to AWS \(BYOIP\) for a standard accelerat
 
 From the edge location, traffic for your application is routed based on the type of accelerator that you configure\. 
 + For standard accelerators, traffic is routed to the optimal AWS endpoint based on several factors, including the user’s location, the health of the endpoint, and the endpoint weights that you configure\. 
-+ For , each client is routed to a specific Amazon EC2 instance and port in a VPC subnet, based on the external static IP address and listener port that you provide\.
++ For custom routing accelerators, each client is routed to a specific Amazon EC2 instance and port in a VPC subnet, based on the external static IP address and listener port that you provide\.
 
 Traffic travels over the well\-monitored, congestion\-free, redundant AWS global network to the endpoint\. By maximizing the time that traffic is on the AWS network, Global Accelerator ensures that traffic is always routed over the optimum network path\.
 
-With some endpoint types \(in some AWS Regions\), you have the option to preserve and access the client IP address\. Two types of endpoints can preserve the source IP address of the client in incoming packets: Application Load Balancers and Amazon EC2 instances\. Global Accelerator does not support client IP address preservation for Network Load Balancer and Elastic IP address endpoints\. Endpoints on always have the client IP address preserved\.
+With some endpoint types \([in some AWS Regions](preserve-client-ip-address.regions.md)\), you have the option to preserve and access the client IP address\. Two types of endpoints can preserve the source IP address of the client in incoming packets: Application Load Balancers and Amazon EC2 instances\. Global Accelerator does not support client IP address preservation for Network Load Balancer and Elastic IP address endpoints\. Endpoints on custom routing accelerators always have the client IP address preserved\.
 
 Global Accelerator terminates TCP connections from clients at AWS edge locations and, almost concurrently, establishes a new TCP connection with your endpoints\. This gives clients faster response times \(lower latency\) and increased throughput\.
 
-In standard accelerators, Global Accelerator continuously monitors the health of all endpoints, and instantly begins directing traffic to another available endpoint when it determines that an active endpoint is unhealthy\. This allows you to create a high\-availability architecture for your applications on AWS\. Health checks aren't used with and there is no failover, because you specify the destination to route traffic to\.
+In standard accelerators, Global Accelerator continuously monitors the health of all endpoints, and instantly begins directing traffic to another available endpoint when it determines that an active endpoint is unhealthy\. This allows you to create a high\-availability architecture for your applications on AWS\. Health checks aren't used with custom routing accelerators and there is no failover, because you specify the destination to route traffic to\.
 
 When you add an accelerator, security groups and AWS WAF rules that you have already configured continue to work as they did before you added the accelerator\.
 
@@ -24,7 +24,7 @@ If you want fine\-grained control over your global traffic, you can configure we
 Be aware of the following when you use Global Accelerator:
 + AWS Direct Connect does not advertise IP address prefixes for AWS Global Accelerator over a public virtual interface\. We recommend that you do not advertise IP addresses that you use to communicate with Global Accelerator over your AWS Direct Connect public virtual interface\. If you advertise IP addresses that you use to communicate with Global Accelerator over your AWS Direct Connect public virtual interface, it will result in an asymmetric traffic flow: your traffic toward Global Accelerator goes to Global Accelerator over the internet, but return traffic coming to your on\-premises network comes over your AWS Direct Connect public virtual interface\.
 + Global Accelerator does not support processing IP packet fragments or re\-assembly\. An intermediate router or gateway operating at layer 3 might fragment a packet into multiple smaller packets between the client and the Global Accelerator endpoint\. If that happens, the fragments are not processed or re\-assembled by Global Accelerator and are not delivered to the endpoint\.
-+ Global Accelerator does not support resources/endpoints which reside in different AWS accounts.
++ Global Accelerator does not support adding as endpoints resources that belong to other AWS accounts\.
 
 **Topics**
 + [Idle timeout in AWS Global Accelerator](#about-idle-timeout)
@@ -45,7 +45,7 @@ Global Accelerator continues to direct traffic to an endpoint until the idle tim
 
 ## Static IP addresses in AWS Global Accelerator<a name="about-static-ip-addresses"></a>
 
-You use the static IP addresses that Global Accelerator assigns to your accelerator—or that you specify from your own IP address pool, for standard accelerators—to route internet traffic to the AWS global network close to where your users are, regardless of their location\. For standard accelerators, you associate the addresses with Network Load Balancers, Application Load Balancers, Amazon EC2 instances, or Elastic IP addresses that run in a single AWS Region or multiple Regions\. For , you direct traffic to EC2 destinations in VPC subnets in one or more Regions\. Routing traffic through the AWS global network improves availability and performance because traffic doesn't have to take multiple hops over the public internet\. Using static IP addresses also lets you distribute incoming application traffic across multiple endpoint resources in multiple AWS Regions\. 
+You use the static IP addresses that Global Accelerator assigns to your accelerator—or that you specify from your own IP address pool, for standard accelerators—to route internet traffic to the AWS global network close to where your users are, regardless of their location\. For standard accelerators, you associate the addresses with Network Load Balancers, Application Load Balancers, Amazon EC2 instances, or Elastic IP addresses that run in a single AWS Region or multiple Regions\. For custom routing accelerators, you direct traffic to EC2 destinations in VPC subnets in one or more Regions\. Routing traffic through the AWS global network improves availability and performance because traffic doesn't have to take multiple hops over the public internet\. Using static IP addresses also lets you distribute incoming application traffic across multiple endpoint resources in multiple AWS Regions\. 
 
 In addition, using static IP addresses makes it easier to add your application to more Regions or to migrate applications between Regions\. Using fixed IP addresses means that users have a consistent way to connect to your application as you make changes\. 
 
@@ -85,4 +85,3 @@ For standard accelerators, AWS Global Accelerator automatically checks the healt
 Global Accelerator includes default health checks that are run automatically, but you can configure the timing for the checks and other options\. If you've configured custom health check settings, Global Accelerator uses those settings in specific ways, depending on your configuration\. You configure those settings in Global Accelerator for Amazon EC2 instance or Elastic IP address endpoints or by configuring settings on the Elastic Load Balancing console for Network Load Balancers or Application Load Balancers\. For more information, see [Health check options](about-endpoint-groups-health-check-options.md)\.
 
 When you add an endpoint to a standard accelerator, it must pass a health check to be considered healthy before traffic is directed to it\. If Global Accelerator doesn’t have any healthy endpoints to route traffic to in a standard accelerator, it routes requests to all endpoints\. 
-

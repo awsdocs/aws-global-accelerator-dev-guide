@@ -1,17 +1,17 @@
 # Getting started with AWS Global Accelerator<a name="getting-started"></a>
 
-These tutorials provide the steps for getting started with AWS Global Accelerator using the console\. You can also use AWS Global Accelerator API operations to create and customize your accelerators\. At each step in this tutorial, there's a link to the corresponding API operation for completing the task programmatically\. \(When you set up a , you must use the API for certain configuration steps\.\) For more information about working with AWS Global Accelerator API operations, see the [AWS Global Accelerator API Reference](https://docs.aws.amazon.com/global-accelerator/latest/api/Welcome.html)\.
+These tutorials provide the steps for getting started with AWS Global Accelerator using the console\. You can also use AWS Global Accelerator API operations to create and customize your accelerators\. At each step in this tutorial, there's a link to the corresponding API operation for completing the task programmatically\. \(When you set up a custom routing accelerator, you must use the API for certain configuration steps\.\) For more information about working with AWS Global Accelerator API operations, see the [AWS Global Accelerator API Reference](https://docs.aws.amazon.com/global-accelerator/latest/api/Welcome.html)\.
 
 **Tip**  
 To explore how you can use Global Accelerator to improve performance and availability for web applications, check out the following self\-paced workshop: [AWS Global Accelerator Workshop](https://intro-to-global-accelerator.workshop.aws/en)\.
 
 Global Accelerator is a global service that supports endpoints in multiple AWS Regions, which are listed in the [AWS Region Table](https://aws.amazon.com/about-aws/global-infrastructure/regional-product-services/)\.
 
-This chapter includes two tutorials: one for creating a standard accelerator and one for creating a \. To learn more about the two types of accelerators, see [Work with standard accelerators in AWS Global Accelerator](work-with-standard-accelerators.md) and [Work with in AWS Global Accelerator](work-with-custom-routing-accelerators.md)\. 
+This chapter includes two tutorials: one for creating a standard accelerator and one for creating a custom routing accelerator\. To learn more about the two types of accelerators, see [Work with standard accelerators in AWS Global Accelerator](work-with-standard-accelerators.md) and [Work with custom routing accelerators in AWS Global Accelerator](work-with-custom-routing-accelerators.md)\. 
 
 **Topics**
 + [Getting started with a standard accelerator](#getting-started-standard)
-+ [Getting started with a](#getting-started-custom-routing)
++ [Getting started with a custom routing accelerator](#getting-started-custom-routing)
 
 ## Getting started with a standard accelerator<a name="getting-started-standard"></a>
 
@@ -159,13 +159,13 @@ Be aware of the following when you remove endpoints or endpoint groups, or delet
 
 1. In the confirmation dialog box, choose **Delete**\.
 
-## Getting started with a<a name="getting-started-custom-routing"></a>
+## Getting started with a custom routing accelerator<a name="getting-started-custom-routing"></a>
 
-This section provides steps for creating a that routes traffic deterministically to Amazon EC2 instance destinations in virutal private cloud \(VPC\) subnet endpoints\.
+This section provides steps for creating a custom routing accelerator that routes traffic deterministically to Amazon EC2 instance destinations in virutal private cloud \(VPC\) subnet endpoints\.
 
 **Tasks**
 + [ Before you begin](#getting-started-before-you-begin-custom)
-+ [ Step 1: Create a ](#getting-started-accelerator-custom)
++ [ Step 1: Create a custom routing accelerator](#getting-started-accelerator-custom)
 + [Step 2: Add listeners](#getting-started-create-listeners-custom)
 + [ Step 3: Add endpoint groups](#getting-started-add-endpoint-groups-custom)
 + [Step 4: Add endpoints](#getting-started-add-endpoints-custom)
@@ -173,7 +173,7 @@ This section provides steps for creating a that routes traffic deterministically
 
 ### Before you begin<a name="getting-started-before-you-begin-custom"></a>
 
-Before you create a , create a resource that you can add as an endpoint to direct traffic to\. A endpoint must be a virtual private cloud \(VPC\) subnet, which can include multiple Amazon EC2 instances\. For instructions for creating the resources see the following:
+Before you create a custom routing accelerator, create a resource that you can add as an endpoint to direct traffic to\. A custom routing accelerator endpoint must be a virtual private cloud \(VPC\) subnet, which can include multiple Amazon EC2 instances\. For instructions for creating the resources see the following:
 + Create a VPC subnet\. For more information, see [ Create and Configure Your VPC](https://docs.aws.amazon.com/directoryservice/latest/admin-guide/gsg_create_vpc.html) in the *AWS Directory Service Administration Guide*\.
 + Optionally, launch one or more Amazon EC2 instances in your VPC\. For more information, see [Create your EC2 resources and launch your EC2 instance](https://docs.aws.amazon.com/efs/latest/ug/gs-step-one-create-ec2-resources.html) in the *Amazon EC2 User Guide for Linux Instances*\. 
 
@@ -183,7 +183,7 @@ When you create a resource to add to Global Accelerator, be aware of the followi
 **Important**  
 Make sure that you’re in the AWS Region US West \(Oregon\)\. You must be in this Region to create or update accelerators\.
 
-### Step 1: Create a<a name="getting-started-accelerator-custom"></a>
+### Step 1: Create a custom routing accelerator<a name="getting-started-accelerator-custom"></a>
 
 **Note**  
 To complete this task by using an API operation instead of the console, see [CreateCustomRoutingAccelerator](https://docs.aws.amazon.com/global-accelerator/latest/api/API_CreateCustomRoutingAccelerator.html) in the *AWS Global Accelerator API Reference*\.
@@ -204,7 +204,7 @@ To complete this task by using an API operation instead of the console, see [Cre
 
 Create a listener to process inbound connections from your users to Global Accelerator\.
 
-The range that you specify when you create a listener defines how many listener port and destination IP address combinations that you can use with your \. For maximum flexibility, we recommend that you specify a large port range\. Each listener port range that you specify must include a minimum of 16 ports\.
+The range that you specify when you create a listener defines how many listener port and destination IP address combinations that you can use with your custom routing accelerator\. For maximum flexibility, we recommend that you specify a large port range\. Each listener port range that you specify must include a minimum of 16 ports\.
 
 **Note**  
 To complete this task by using an API operation instead of the console, see [CreateCustomRoutingListener](https://docs.aws.amazon.com/global-accelerator/latest/api/API_CreateCustomRoutingListener.html) in the *AWS Global Accelerator API Reference*\.
@@ -246,7 +246,7 @@ To complete this task by using an API operation instead of the console, see [Cre
 
 ### Step 4: Add VPC subnet endpoints<a name="getting-started-add-endpoints-custom"></a>
 
-Add one or more virtual private cloud \(VPC\) subnet endpoints for this regional endpoint group\. Endpoints for define the VPC subnets that can receive traffic through a \. Each subnet can contain one or many Amazon EC2 instance destinations\. 
+Add one or more virtual private cloud \(VPC\) subnet endpoints for this regional endpoint group\. Endpoints for custom routing accelerators define the VPC subnets that can receive traffic through a custom routing accelerator\. Each subnet can contain one or many Amazon EC2 instance destinations\. 
 
 When you add a VPC subnet endpoint, Global Accelerator generates new port mappings that you can use to route traffic to the destination EC2 instance IP addresses in the subnet\. Then you can use the Global Accelerator API to get a static list of all the port mappings for the subnet, and use the mapping to deterministically direct traffic to specific EC2 instances\.
 
@@ -257,7 +257,11 @@ The steps here show how to add endpoints in the console\. If you're creating you
 
 1. On the **Add endpoints** page, in the section for the endpoint group that you want to add the endpoint to, choose a subnet ID for **Endpoint**\.
 
-1. Optionally, select **Enable all IP addresses and ports** to allow traffic to be directed to the subnet\. By default, no traffic is allowed to subnet endpoints\. If you don't select the option, traffic is denied to all destinations in the subnet\.
+1. Optionally, do one of the following to enable traffic to EC2 instance destinations in the subnet:
+   + To allow traffic to be directed to all EC2 endpoints and ports on the subnet, select **Allow all traffic**
+   + To allow traffic to specific EC2 endpoints and ports on the subnet, select **Allow traffic to specific destination socket addresses**\. Then specify the IP addresses and ports or port ranges to allow\. Finally, choose **Allow these destinations**\.
+
+   By default, no traffic is allowed to subnet endpoints\. If you don't select an option to allow traffic, traffic is denied to all destinations in the subnet\.
 **Note**  
 If you want to enable traffic to specific EC2 instances and ports in the subnet, you can do that programmatically\. For more information, see [AllowCustomRoutingTraffic](https://docs.aws.amazon.com/global-accelerator/latest/api/API_AllowCustomRoutingTraffic.html) in the *AWS Global Accelerator API Reference*\.
 
