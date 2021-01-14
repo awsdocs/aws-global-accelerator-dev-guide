@@ -24,6 +24,7 @@ If you want fine\-grained control over your global traffic, you can configure we
 Be aware of the following when you use Global Accelerator:
 + AWS Direct Connect does not advertise IP address prefixes for AWS Global Accelerator over a public virtual interface\. We recommend that you do not advertise IP addresses that you use to communicate with Global Accelerator over your AWS Direct Connect public virtual interface\. If you advertise IP addresses that you use to communicate with Global Accelerator over your AWS Direct Connect public virtual interface, it will result in an asymmetric traffic flow: your traffic toward Global Accelerator goes to Global Accelerator over the internet, but return traffic coming to your on\-premises network comes over your AWS Direct Connect public virtual interface\.
 + Global Accelerator does not support processing IP packet fragments or re\-assembly\. An intermediate router or gateway operating at layer 3 might fragment a packet into multiple smaller packets between the client and the Global Accelerator endpoint\. If that happens, the fragments are not processed or re\-assembled by Global Accelerator and are not delivered to the endpoint\.
++ Global Accelerator does not support resources/endpoints which reside in different AWS accounts.
 
 **Topics**
 + [Idle timeout in AWS Global Accelerator](#about-idle-timeout)
@@ -84,3 +85,4 @@ For standard accelerators, AWS Global Accelerator automatically checks the healt
 Global Accelerator includes default health checks that are run automatically, but you can configure the timing for the checks and other options\. If you've configured custom health check settings, Global Accelerator uses those settings in specific ways, depending on your configuration\. You configure those settings in Global Accelerator for Amazon EC2 instance or Elastic IP address endpoints or by configuring settings on the Elastic Load Balancing console for Network Load Balancers or Application Load Balancers\. For more information, see [Health check options](about-endpoint-groups-health-check-options.md)\.
 
 When you add an endpoint to a standard accelerator, it must pass a health check to be considered healthy before traffic is directed to it\. If Global Accelerator doesn’t have any healthy endpoints to route traffic to in a standard accelerator, it routes requests to all endpoints\. 
+
