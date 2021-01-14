@@ -1,0 +1,19 @@
+# Adding endpoints with client IP address preservation<a name="about-endpoints.sipp-caveats"></a>
+
+A feature that you can use with some endpoint types—in some Regions— is *client IP address preservation*\. With this feature, you preserve the source IP address of the original client for packets that arrive at the endpoint\. You can use this feature with Application Load Balancer and Amazon EC2 instance endpoints\. Endpoints on custom routing accelerators always have the client IP address preserved\. For more information, see [Preserve client IP addresses in AWS Global Accelerator](preserve-client-ip-address.md)\.
+
+If you intend to use the client IP address preservation feature, be aware of the following when you add endpoints to Global Accelerator:
+
+**Elastic network interfaces**  
+To support client IP address preservation, Global Accelerator creates elastic network interfaces in your AWS account—one for each subnet where an endpoint is present\. For more information about how Global Accelerator works with elastic network interfaces, see [Best practices for client IP address preservation](best-practices-aga.md)\.
+
+**Endpoints in private subnets**  
+You can target an Application Load Balancer or an EC2 instance in a private subnet using AWS Global Accelerator but you must have an [internet gateway](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Internet_Gateway.html) attached to the VPC that contains the endpoints\. For more information, see [Secure VPC connections in AWS Global Accelerator](secure-vpc-connections.md)\.
+
+**Add the client IP address to the allow list**  
+Before you add and begin to route traffic to endpoints that preserve the client IP address, make sure that all your required security configurations, for example, security groups, are updated to include the user client IP address on the allow list\. Network access control lists \(ACLs\) only apply to egress \(outbound\) traffic\. If you need to filter ingress \(inbound\) traffic, you must use security groups\. 
+
+**Configure network access control lists \(ACLs\)**  
+Network ACLs associated with your VPC subnets apply to egress \(outbound\) traffic when client IP address preservation is enabled on your accelerator\. However, for traffic to be allowed to exit through Global Accelerator, you must configure the ACL as both an inbound and outbound rule\.   
+For example, to allow TCP and UDP clients using an ephemeral source port to connect to your endpoint through Global Accelerator, associate the subnet of your endpoint with a Network ACL that allows outbound traffic destined to an ephemeral TCP or UDP port \(port range 1024\-65535, destination 0\.0\.0\.0/0\)\. In addition, create a matching inbound rule \(port range 1024\-65535, source 0\.0\.0\.0/0\)\.  
+Security group and AWS WAF rules are an additional set of capabilities that you can apply to protect your resources\. For example, the inbound security group rules associated with your Amazon EC2 instances and Application Load Balancers allow you to control the destination ports that clients can connect to through Global Accelerator, such as port 80 for HTTP or port 443 for HTTPS\. Note that Amazon EC2 instance security groups apply to any traffic that arrives to your instances, including traffic from Global Accelerator and any public or Elastic IP address that is assigned to your instance\. As a best practice, use private subnets if you want to ensure that traffic is delivered only by Global Accelerator\. Also make sure that the inbound security group rules are configured appropriately to correctly allow or deny traffic for your applications\.
