@@ -1,6 +1,6 @@
 # How to get started with AWS Global Accelerator<a name="introduction-get-started"></a>
 
-You can get started with setting up AWS Global Accelerator by using the API or by using the AWS Global Accelerator console\. Because Global Accelerator is a global service, it’s not tied to a specific AWS Region\. Note that Global Accelerator is a global service that supports endpoints in multiple AWS Regions but you must specify the US West \(Oregon\) Region to create or update accelerators\.\)
+You can get started with setting up AWS Global Accelerator by using the API or by using the AWS Global Accelerator console\. Because Global Accelerator is a global service, it’s not tied to a specific AWS Region\. Note that Global Accelerator is a global service that supports endpoints in multiple AWS Regions but you must specify the US West \(Oregon\) Region to create or update accelerators\.
 
 To get started using Global Accelerator, you follow these general steps: 
 

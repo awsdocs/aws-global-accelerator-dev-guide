@@ -34,7 +34,7 @@ An [IAM user](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_users.html) is
 **Temporary user permissions**  
 An IAM user can assume a role temporarily to take on different permissions for a specific task\.   
 **Cross\-account access**  
-You can use an IAM role to allow a trusted principal in a different account to access resources in your account\. Roles are the primary way to grant cross\-account access\. However, with some AWS services, you can attach a policy directly to a resource \(instead of using a role as a proxy\)\. Global Accelerator does not support these resource\-based policies\. For more information about choosing whether to use a role or a resource\-based policy to allow cross\-account access, see [Controlling access to pPrincipals in a different account](#auth_access_controlling-principal-accounts)\.  
+You can use an IAM role to allow a trusted principal in a different account to access resources in your account\. Roles are the primary way to grant cross\-account access\. However, with some AWS services, you can attach a policy directly to a resource \(instead of using a role as a proxy\)\. Global Accelerator does not support these resource\-based policies\. For more information about choosing whether to use a role or a resource\-based policy to allow cross\-account access, see [Controlling access to Principals in a different account](#auth_access_controlling-principal-accounts)\.  
 **AWS service access**  
   A service role is an [IAM role](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles.html) that a service assumes to perform actions on your behalf\. Service roles provide access only within your account and cannot be used to grant access to services in other accounts\. An IAM administrator can create, modify, and delete a service role from within IAM\. For more information, see [Creating a role to delegate permissions to an AWS service](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-service.html) in the *IAM User Guide*\.   
 **Applications running on Amazon EC2**  
@@ -98,7 +98,7 @@ We strongly recommend that you do not use the root user for your everyday tasks,
 
 Entities \(users or roles\) in the AWS account must be granted access to create a resource\. But just because they create a resource doesn't mean they automatically have full access to that resource\. Administrators must explicitly grant permissions for each action\. Additionally, administrators can revoke those permissions at any time, as long as they have access to manage user and role permissions\.
 
-### Controlling access to pPrincipals in a different account<a name="auth_access_controlling-principal-accounts"></a>
+### Controlling access to Principals in a different account<a name="auth_access_controlling-principal-accounts"></a>
 
 Administrators can use AWS resource\-based policies, IAM cross\-account roles, or the AWS Organizations service to allow principals in another account to access resources in your account\.
 

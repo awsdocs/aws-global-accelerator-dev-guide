@@ -13,7 +13,7 @@ The static IP addresses remain assigned to your accelerator for as long as it ex
 
 For standard accelerators, Global Accelerator uses the AWS global network to route traffic to the optimal regional endpoint based on health, client location, and policies that you configure, which increases the availability of your applications\. Endpoints for standard accelerators can be Network Load Balancers, Application Load Balancers, Amazon EC2 instances, or Elastic IP addresses that are located in one AWS Region or multiple Regions\.\. The service reacts instantly to changes in health or configuration to ensure that internet traffic from clients is always directed to healthy endpoints\.
 
-custom routing accelerators only support virtual private cloud \(VPC\) subnet endpoint types and route traffic to private IP addresses in that subnet\.
+Custom routing accelerators only support virtual private cloud \(VPC\) subnet endpoint types and route traffic to private IP addresses in that subnet\.
 
 For a list of the AWS Regions where Global Accelerator and other services are currently supported, see the [AWS Region Table](https://aws.amazon.com/about-aws/global-infrastructure/regional-product-services/)\.
 

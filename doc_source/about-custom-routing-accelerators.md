@@ -4,6 +4,8 @@ A *custom routing accelerator* in AWS Global Accelerator lets you use custom app
 
 A custom routing accelerator routes traffic only to ports on Amazon EC2 instances that are running in virtual private cloud \(VPC\) subnets\. With a custom routing accelerator, Global Accelerator does not route traffic based on the geoproximity or health of the endpoint\. To learn more, see [How custom routing accelerators work in AWS Global Accelerator](about-custom-routing-how-it-works.md)\.
 
+When you create an accelerator, by default, Global Accelerator provides you with a set of two static IP addresses\. If you bring your own IP address range to AWS \(BYOIP\), you can instead assign static IP addresses from your own pool to use with your accelerator\. For more information, see [Bring your own IP addresses \(BYOIP\) in AWS Global Accelerator](using-byoip.md)\.
+
 **Important**  
 The IP addresses are assigned to your accelerator for as long as it exists, even if you disable the accelerator and it no longer accepts or routes traffic\. However, when you *delete* an accelerator, you lose the Global Accelerator static IP addresses that are assigned to the accelerator, so you can no longer route traffic by using them\. As a best practice, ensure that you have permissions in place to avoid inadvertently deleting accelerators\. You can use IAM policies such as tag\-based permissions with Global Accelerator to limit the users who have permissions to delete an accelerator\. For more information, see [ Tag\-based policies](auth-and-access-control.md#access-control-manage-access-tag-policies)\.
 
@@ -28,6 +30,10 @@ Global Accelerator is a global service that can front application endpoints in m
 1. Provide a name for your accelerator\.
 
 1. For **Accelerator type**, select **Custom routing**\.
+
+1. Optionally, if you have brought your own IP address range to AWS \(BYOIP\), you can specify static IP addresses for your accelerator from that address pool\. Make this choice for each of the two static IP addresses for your accelerator\.
+   + For each static IP address, choose the IP address pool to use\.
+   + If you chose your own IP address pool, also choose a specific IP address from the pool\. If you chose the default Amazon IP address pool, Global Accelerator assigns a specific IP address to your accelerator\.
 
 1. Optionally, add one or more tags to help you identify your accelerator resources\.
 

@@ -4,6 +4,8 @@ By default, an accelerator routes user traffic to endpoints in AWS Regions using
 
 However, when you add or update an endpoint group, you can override the listener port used for routing traffic to endpoints\. For example, you can create a port override in which the listener receives user traffic on ports 80 and 443, but your accelerator routes that traffic to ports 1080 and 1443, respectively, on the endpoints\.
 
+Port overrides can help you avoid issues with listening on restricted ports\. It's safer to run applications that don't require superuser \(root\) privileges on your endpoints\. However, in Linux and other UNIX\-like systems, you must have superuser privileges to listen on restricted ports \(TCP or UDP ports below 1024\)\. By mapping a restricted port on a listener to a non\-restricted port on an endpoint, port overrides lets you avoid this issue\. You can accept traffic on restricted ports while running applications without root access on your endpoints behind Global Accelerator\. For example, you can override a listener port 443 to an endpoint port 8443\.
+
 For each port override, you specify a listener port that that accepts traffic from users and the endpoint port that Global Accelerator will route that traffic to\. For more information, see [ Adding, editing, or removing a standard endpoint group](about-endpoint-groups.create-endpoint-group.md)\.
 
 When you create a port override, keep the following in mind:

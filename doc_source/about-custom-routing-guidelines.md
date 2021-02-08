@@ -32,8 +32,5 @@ Global Accelerator does not perform health checks for custom routing accelerator
 By default, traffic directed through a custom routing accelerator is denied to all destinations in your subnet\. To enable destination instances to receive traffic, you must specifically allow all traffic to the subnet or, alternatively, allow traffic to specific instance IP addresses and ports in the subnet\.    
 Updating a subnet or specific destination to allow or deny traffic takes time to propagate across the internet\. To determine if a change has propagated, you can call the `DescribeCustomRoutingAccelerator` API action to check the accelerator status\. For more information, see [ DescribeCustomRoutingAccelerator](https://docs.aws.amazon.com/global-accelerator/latest/api/API_DescribeCustomRoutingAccelerator.html)\.
 
-**BYOIP is not supported**  
-Bring your own IP address \(BYOIP\) is not supported for custom routing accelerators\.
-
 **AWS CloudFormation is not supported**  
 AWS CloudFormation is not supported for custom routing accelerators\.

@@ -8,4 +8,4 @@ To find the IP address ranges that are associated with AWS Global Accelerator ed
 
 `"service": "GLOBALACCELERATOR"`
 
-Global Accelerator entries that include `"region": "GLOBAL"` refer to the static IP addresses that are allocated to customer accelerators\. If you want to filter for traffic through your accelerator that comes from points of presence \(POPs\) in one area, filter for entries that include a specific geographical area, such as `us-*` or `eu-*`\. So, for example, if you filter for `us-*`, you will see only traffic coming through POPs in the United States \(U\.S\.\)\.
+Global Accelerator entries that include `"region": "GLOBAL"` refer to the static IP addresses that are allocated to accelerators\. If you want to filter for traffic through your accelerator that comes from points of presence \(POPs\) in one area, filter for entries that include a specific geographical area, such as `us-*` or `eu-*`\. So, for example, if you filter for `us-*`, you will see only traffic coming through POPs in the United States \(U\.S\.\)\.

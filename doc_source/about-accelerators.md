@@ -15,7 +15,6 @@ This section explains how to create, edit, or delete a standard accelerator on t
 + [Viewing your accelerators](about-accelerators.viewing.md)
 + [Add an accelerator when you create a load balancer](about-accelerators.alb-accelerator.md)
 + [Using global static IP addresses instead of regional static IP addresses](about-accelerators.eip-accelerator.md)
-+ [Bring your own IP addresses \(BYOIP\) in AWS Global Accelerator](using-byoip.md)
 
 ## Creating or updating a standard accelerator<a name="about-accelerators.creating-editing"></a>
 
@@ -31,6 +30,8 @@ Make sure that you’re in the US West \(Oregon\) Region\. You must be in this R
 1. Choose **Create accelerator**\.
 
 1. Provide a name for your accelerator\.
+
+1. For **Accelerator type**, select **Standard**\.
 
 1. Optionally, if you have brought your own IP address range to AWS \(BYOIP\), you can specify static IP addresses for your accelerator from that address pool\. Make this choice for each of the two static IP addresses for your accelerator\.
    + For each static IP address, choose the IP address pool to use\.
