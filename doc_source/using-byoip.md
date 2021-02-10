@@ -249,5 +249,5 @@ aws globalaccelerator deprovision-byoip-cidr --cidr address-range
 ## Create an accelerator with your IP addresses<a name="using-byoip.create-accelerator"></a>
 
 You have several options for creating an accelerator using your own IP addresses for the static IP addresses: 
-+ **Use Global Accelerator console to create an accelerator\.** For more information, see [ Creating or updating a standard accelerator](about-accelerators.md#about-accelerators.creating-editing)\.
-+ **Use the Global Accelerator API to create an accelerator\.** For more information, including an example of using the CLI, see [ CreateAccelerator](https://docs.aws.amazon.com/global-accelerator/latest/api/API_CreateAccelerator.html) in the AWS Global Accelerator API Reference\.
++ **Use Global Accelerator console to create an accelerator\.** For more information, see [ Creating or updating a standard accelerator](about-accelerators.md#about-accelerators.creating-editing) and [ Creating or updating a custom routing accelerator](about-custom-routing-accelerators.md#about-custom-routing-accelerators.creating-editing)\.
++ **Use the Global Accelerator API to create an accelerator\.** For more information, including examples of using the CLI, see [ CreateAccelerator](https://docs.aws.amazon.com/global-accelerator/latest/api/API_CreateAccelerator.html) and [ CreateCustomRoutingAccelerator](https://docs.aws.amazon.com/global-accelerator/latest/api/API_CreateCustomRoutingAccelerator.html) in the AWS Global Accelerator API Reference\.
