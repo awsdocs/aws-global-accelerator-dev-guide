@@ -1,6 +1,6 @@
 # Endpoint weights<a name="about-endpoints-endpoint-weights"></a>
 
-A weight is a value that determines the proportion of traffic that Global Accelerator directs to an endpoint in a standard accelerator\. Global Accelerator calculates the sum of the weights for the endpoints in an endpoint group, and then directs traffic to the endpoints based on the ratio of each endpoint's weight to the total\.
+A weight is a value that determines the proportion of traffic that Global Accelerator directs to an endpoint (Network Load Balancers, Application Load Balancers, Amazon EC2 instances, or Elastic IP addresses) in a standard accelerator\. Global Accelerator calculates the sum of the weights for the endpoints in an endpoint group, and then directs traffic to the endpoints based on the ratio of each endpoint's weight to the total\.
 
 Weighted routing lets you choose how much traffic is routed to a resource in an endpoint group\. This can be useful in several ways, including load balancing and testing new versions of an application\.
 
