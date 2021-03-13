@@ -9,7 +9,7 @@ You can't use the IP addresses that you bring to AWS for one AWS service with an
 **Important**  
 You must stop advertising your IP address range from other locations before you advertise it through AWS\. If an IP address range is multihomed \(that is, the range is advertised by multiple service providers at the same time\), we can't guarantee that traffic to the address range will enter our network or that your BYOIP advertising workflow will complete successfully\.
 
-After you bring an address range to AWS, it appears in your account as an address pool\. When you create an accelerator, you can assign one or two of the IP addresses from your range to it\. We recommend that you bring two IP address ranges so that you can choose an IP address from different ranges for each static IP address\. If you choose to assign only one IP address from your IP address range to an accelerator, Global Accelerator assigns a second static IP address for the accelerator from the AWS IP address pool\.
+After you bring an address range to AWS, it appears in your account as an address pool\. When you create an accelerator, you can assign one IP address from your range to it\. Global Accelerator assigns you a second static IP address from an Amazon IP address range\. If you bring two IP address ranges to AWS, you can assign one IP address from each range to your accelerator\. This restriction is because Global Accelerator assigns each address range to a different network zone, for high availability\.
 
 To use your own IP address range with Global Accelerator, review the requirements, and then follow the steps provided in this topic\.
 
@@ -213,7 +213,7 @@ When your IP address range is advertised, the `State` returned by `list-byoip-ci
 To stop advertising the address range, use the following `withdraw-byoip-cidr` command\.
 
 **Important**  
-To stop advertising your address range, you first must remove any accelerators that have static IP addresses that are allocated from the address pool\. To delete an accelerator using the console or using API operations, see [ Deleting an accelerator](about-accelerators.md#about-accelerators.deleting)\.
+To stop advertising your address range, you first must remove any accelerators that have static IP addresses that are allocated from the address pool\. To delete an accelerator using the console or using API operations, see [ Deleting an accelerator](about-accelerators.deleting.md)\.
 
 ```
 aws globalaccelerator withdraw-byoip-cidr --cidr address-range
@@ -232,7 +232,7 @@ To stop using your address range with AWS, you first must remove any accelerator
 
 You must stop advertising and deprovision your address range using the CLI or Global Accelerator API operations\. This functionality is not available in the AWS console\.
 
-**Step 1: Delete any associated accelerators\. **To delete an accelerator using the console or using API operations, see [ Deleting an accelerator](about-accelerators.md#about-accelerators.deleting)\.
+**Step 1: Delete any associated accelerators\. **To delete an accelerator using the console or using API operations, see [ Deleting an accelerator](about-accelerators.deleting.md)\.
 
 **Step 2\. Stop advertising the address range\.** To stop advertising the range, use the following [WithdrawByoipCidr](https://docs.aws.amazon.com/global-accelerator/latest/api/API_WithdrawByoipCidr.html) command\.
 
@@ -248,6 +248,8 @@ aws globalaccelerator deprovision-byoip-cidr --cidr address-range
 
 ## Create an accelerator with your IP addresses<a name="using-byoip.create-accelerator"></a>
 
+Now you can create an accelerator with your IP addresses\. If you brought one address range to AWS, you can assign one IP address to your accelerator\. If you brought two address ranges, you can assign one IP address from each address range to your accelerator\.
+
 You have several options for creating an accelerator using your own IP addresses for the static IP addresses: 
-+ **Use Global Accelerator console to create an accelerator\.** For more information, see [ Creating or updating a standard accelerator](about-accelerators.md#about-accelerators.creating-editing) and [ Creating or updating a custom routing accelerator](about-custom-routing-accelerators.md#about-custom-routing-accelerators.creating-editing)\.
++ **Use Global Accelerator console to create an accelerator\.** For more information, see [ Creating or updating a standard accelerator](about-accelerators.creating-editing.md) and [ Creating or updating a custom routing accelerator](about-custom-routing-accelerators.md#about-custom-routing-accelerators.creating-editing)\.
 + **Use the Global Accelerator API to create an accelerator\.** For more information, including examples of using the CLI, see [ CreateAccelerator](https://docs.aws.amazon.com/global-accelerator/latest/api/API_CreateAccelerator.html) and [ CreateCustomRoutingAccelerator](https://docs.aws.amazon.com/global-accelerator/latest/api/API_CreateCustomRoutingAccelerator.html) in the AWS Global Accelerator API Reference\.

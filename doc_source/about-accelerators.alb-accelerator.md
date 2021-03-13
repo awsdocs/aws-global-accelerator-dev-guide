@@ -11,7 +11,7 @@ You must update your DNS configuration to direct traffic to the static IP addres
 
 After you create your load balancer by choosing the Global Accelerator add\-on on the Amazon EC2 console, go to the **Integrated services** tab to see the static IP addresses and Domain Name System \(DNS\) name for your accelerator\. You use this information to start routing user traffic to the load balancer over the AWS global network\. For more information about the DNS name assigned to your accelerator, see [DNS addressing and custom domains in AWS Global Accelerator](dns-addressing-custom-domains.md)\.
 
-You can view and configure your accelerator by [ navigating to Global Accelerator](https://us-west-2.console.aws.amazon.com/ec2/v2/home?region=us-west-2#GlobalAccelerator:) in the AWS Management Console\. For example, you can see the accelerators that are associated with your account or add additional load balancers to your accelerator\. For more information, see [Viewing your accelerators](about-accelerators.viewing.md) and [ Creating or updating a standard accelerator](about-accelerators.md#about-accelerators.creating-editing)\.
+You can view and configure your accelerator by [ navigating to Global Accelerator](https://us-west-2.console.aws.amazon.com/ec2/v2/home?region=us-west-2#GlobalAccelerator:) in the AWS Management Console\. For example, you can see the accelerators that are associated with your account or add additional load balancers to your accelerator\. For more information, see [Viewing your accelerators](about-accelerators.viewing.md) and [ Creating or updating a standard accelerator](about-accelerators.creating-editing.md)\.
 
 ## Pricing<a name="about-accelerators.elb-accelerator.pricing"></a>
 
@@ -25,4 +25,4 @@ If you'd like to stop routing traffic through Global Accelerator to your load ba
 
 1. Delete the load balancer from the accelerator\. For more information, see *To remove an endpoint* in [Adding, editing, or removing a standard endpoint](about-endpoints.md#about-endpoints-adding-endpoints)\.
 
-1. Delete the accelerator\. For more information, see [ Deleting an accelerator](about-accelerators.md#about-accelerators.deleting)\.
+1. Delete the accelerator\. For more information, see [ Deleting an accelerator](about-accelerators.deleting.md)\.

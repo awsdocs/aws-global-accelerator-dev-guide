@@ -28,6 +28,8 @@ Amazon's trademarks and trade dress may not be used in
 + [Common actions that you can use with AWS Global Accelerator](global-accelerator-actions.md)
 + [Work with standard accelerators in AWS Global Accelerator](work-with-standard-accelerators.md)
    + [Standard accelerators in AWS Global Accelerator](about-accelerators.md)
+      + [Creating or updating a standard accelerator](about-accelerators.creating-editing.md)
+      + [Deleting an accelerator](about-accelerators.deleting.md)
       + [Viewing your accelerators](about-accelerators.viewing.md)
       + [Add an accelerator when you create a load balancer](about-accelerators.alb-accelerator.md)
       + [Using global static IP addresses instead of regional static IP addresses](about-accelerators.eip-accelerator.md)

@@ -15,7 +15,7 @@ The following table lists common Global Accelerator actions that you can use wit
 | Update a standard accelerator | See [Standard accelerators in AWS Global Accelerator](about-accelerators.md) |  See [https://docs.aws.amazon.com/global-accelerator/latest/api/API_UpdateAccelerator.html](https://docs.aws.amazon.com/global-accelerator/latest/api/API_UpdateAccelerator.html)  | 
 | List your accelerators | See [Viewing your accelerators](about-accelerators.viewing.md) | See [https://docs.aws.amazon.com/global-accelerator/latest/api/API_ListAccelerators.html](https://docs.aws.amazon.com/global-accelerator/latest/api/API_ListAccelerators.html)  | 
 | Get all information about an accelerator | See [Viewing your accelerators](about-accelerators.viewing.md) |  See [https://docs.aws.amazon.com/global-accelerator/latest/api/API_DescribeAccelerator.html](https://docs.aws.amazon.com/global-accelerator/latest/api/API_DescribeAccelerator.html)  | 
-| Delete an accelerator | See [ Creating or updating a standard accelerator](about-accelerators.md#about-accelerators.creating-editing) | See [https://docs.aws.amazon.com/global-accelerator/latest/api/API_DeleteAccelerator.html](https://docs.aws.amazon.com/global-accelerator/latest/api/API_DeleteAccelerator.html) | 
+| Delete an accelerator | See [ Creating or updating a standard accelerator](about-accelerators.creating-editing.md) | See [https://docs.aws.amazon.com/global-accelerator/latest/api/API_DeleteAccelerator.html](https://docs.aws.amazon.com/global-accelerator/latest/api/API_DeleteAccelerator.html) | 
 
 **Actions to use with custom routing resources**
 
