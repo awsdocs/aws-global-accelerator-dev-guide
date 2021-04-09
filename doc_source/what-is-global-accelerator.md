@@ -4,7 +4,7 @@ AWS Global Accelerator is a service in which you create *accelerators* to improv
 + By using a standard accelerator, you can improve availability of your internet applications that are used by a global audience\. With a standard accelerator, Global Accelerator directs traffic over the AWS global network to endpoints in the nearest Region to the client\. 
 + By using a custom routing accelerator, you can map one or more users to a specific destination among many destinations\.
 
-Global Accelerator is a global service that supports endpoints in multiple AWS Regions, which are listed in the [AWS Region Table](https://aws.amazon.com/about-aws/global-infrastructure/regional-product-services/)\.
+Global Accelerator is a global service that supports endpoints in multiple AWS Regions, which are listed in the [AWS Region Table](aws.amazon.com/about-aws/global-infrastructure/regional-product-services/)\.
 
 By default, Global Accelerator provides you with two static IP addresses that you associate with your accelerator\. With a standard accelerator, instead of using the IP addresses that Global Accelerator provides, you can configure these entry points to be IPv4 addresses from your own IP address ranges that you bring to Global Accelerator\. The static IP addresses are anycast from the AWS edge network\. 
 

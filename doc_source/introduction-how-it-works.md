@@ -23,8 +23,7 @@ If you want fine\-grained control over your global traffic, you can configure we
 
 Be aware of the following when you use Global Accelerator:
 + AWS Direct Connect does not advertise IP address prefixes for AWS Global Accelerator over a public virtual interface\. We recommend that you do not advertise IP addresses that you use to communicate with Global Accelerator over your AWS Direct Connect public virtual interface\. If you advertise IP addresses that you use to communicate with Global Accelerator over your AWS Direct Connect public virtual interface, it will result in an asymmetric traffic flow: your traffic toward Global Accelerator goes to Global Accelerator over the internet, but return traffic coming to your on\-premises network comes over your AWS Direct Connect public virtual interface\.
-+ Global Accelerator does not support processing IP packet fragments or re\-assembly\. An intermediate router or gateway operating at layer 3 might fragment a packet into multiple smaller packets between the client and the Global Accelerator endpoint\. If that happens, the fragments are not processed or re\-assembled by Global Accelerator and are not delivered to the endpoint\.
-+ Global Accelerator does not support adding as endpoints resources that belong to other AWS accounts\.
++ Global Accelerator does not support adding as an endpoint a resource that belongs to another AWS account\.
 
 **Topics**
 + [Idle timeout in AWS Global Accelerator](#about-idle-timeout)
