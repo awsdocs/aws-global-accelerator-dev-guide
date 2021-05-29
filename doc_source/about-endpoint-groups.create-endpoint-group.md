@@ -6,7 +6,7 @@ This section explains how to work with standard endpoint groups on the AWS Globa
 
 # To add a standard endpoint group
 
-1. Open the Global Accelerator console at [ https://us\-west\-2\.console\.aws\.amazon\.com/ec2/v2/home?region=us\-west\-2\#Global Accelerator:](https://us-west-2.console.aws.amazon.com/ec2/v2/home?region=us-west-2#GlobalAccelerator:)\. 
+1. Open the Global Accelerator console at [ https://console\.aws\.amazon\.com/globalaccelerator/home](https://console.aws.amazon.com/globalaccelerator/home)\. 
 
 1. On the **accelerators** page, choose an accelerator\.
 
@@ -28,7 +28,7 @@ This section explains how to work with standard endpoint groups on the AWS Globa
 
 # To edit an endpoint group
 
-1. Open the Global Accelerator console at [ https://us\-west\-2\.console\.aws\.amazon\.com/ec2/v2/home?region=us\-west\-2\#Global Accelerator:](https://us-west-2.console.aws.amazon.com/ec2/v2/home?region=us-west-2#GlobalAccelerator:)\. 
+1. Open the Global Accelerator console at [ https://console\.aws\.amazon\.com/globalaccelerator/home](https://console.aws.amazon.com/globalaccelerator/home)\. 
 
 1. On the **accelerators** page, choose an accelerator\.
 
@@ -42,7 +42,7 @@ This section explains how to work with standard endpoint groups on the AWS Globa
 
 # To remove a standard endpoint group
 
-1. Open the Global Accelerator console at [ https://us\-west\-2\.console\.aws\.amazon\.com/ec2/v2/home?region=us\-west\-2\#Global Accelerator:](https://us-west-2.console.aws.amazon.com/ec2/v2/home?region=us-west-2#GlobalAccelerator:)\. 
+1. Open the Global Accelerator console at [ https://console\.aws\.amazon\.com/globalaccelerator/home](https://console.aws.amazon.com/globalaccelerator/home)\. 
 
 1. On the **accelerators** page, choose an accelerator\.
 

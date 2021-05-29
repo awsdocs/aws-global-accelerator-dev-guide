@@ -33,21 +33,13 @@ Be aware of the following when you use Global Accelerator:
 
 ## Idle timeout in AWS Global Accelerator<a name="about-idle-timeout"></a>
 
-The AWS Global Accelerator idle timeout for a network connection depends on the type of connection:
-+ The timeout is 350 seconds for TCP connections to endpoints *with* client IP address preservation enabled \(Application Load Balancers and EC2 instances\)\.
-+ The timeout is 90 seconds for TCP connections to endpoints *without* client IP address preservation \(Network Load Balancers and Elastic IP addresses\)\.
+AWS Global Accelerator sets an idle timeout period that applies to its connections\. If no data has been sent or received by the time that the idle timeout period elapses, Global Accelerator closes the connection\. To ensure that the connection stays alive, the client or the endpoint must send at least 1 byte of data before the idle timeout period elapses\.
+
+The Global Accelerator idle timeout for a network connection depends on the type of connection:
++ The timeout is 340 seconds for TCP connections\.
 + The timeout is 30 seconds for UDP connections\.
 
 Global Accelerator continues to direct traffic to an endpoint until the idle timeout is met, even if the endpoint is marked as unhealthy\. Global Accelerator selects a new endpoint, if needed, only when a new connection starts or after an idle timeout\.
-
-To ensure that a TCP connection stays alive, the client must continue to send at least 1 byte of data to the endpoint before the idle timeout period ends, to start a new idle timeout period\.
-
-**Note**  
-For each TCP connection in Global Accelerator, Global Accelerator maintains two connections: a front\-end connection \(between client and accelerator\) and a back\-end connection \(between accelerator and endpoint\)\. The idle timeout applies to both connections\. If no data has been sent or received by the time that the idle timeout period ends, Global Accelerator closes the connections to the client and to the endpoint\.
-
-To ensure that a UDP connection stays alive, Global Accelerator must detect new packets for the connection before the idle timeout period ends\. For UDP connections, the idle timeout in Global Accelerator affects how long connections are kept in a flow table and marked as active at edge locations\. In each edge location, for each new network connection, Global Accelerator maintains a record of the UDP connection in the flow table, as long as packets continue to come through\. If Global Accelerator doesn't detect new packets for a connection after the idle timeout period, it removes the connection entry from the flow table\. 
-
-If more UDP packets arrive after the timeout is exceeded for a specific flow, Global Accelerator re\-selects an endpoint target based on health, client location, and policies that you configure\.
 
 ## Static IP addresses in AWS Global Accelerator<a name="about-static-ip-addresses"></a>
 

@@ -2,12 +2,9 @@
 
 This section explains how to create or update standard accelerators on the console\. To work with Global Accelerator programmatically, see the [AWS Global Accelerator API Reference](https://docs.aws.amazon.com/global-accelerator/latest/api/Welcome.html)\.
 
-**Important**  
-Make sure that you’re in the US West \(Oregon\) Region\. You must be in this Region to create or update accelerators\.
-
 # To create a standard accelerator
 
-1. Open the Global Accelerator console at [ https://us\-west\-2\.console\.aws\.amazon\.com/ec2/v2/home?region=us\-west\-2\#Global Accelerator:](https://us-west-2.console.aws.amazon.com/ec2/v2/home?region=us-west-2#GlobalAccelerator:)\. 
+1. Open the Global Accelerator console at [ https://console\.aws\.amazon\.com/globalaccelerator/home](https://console.aws.amazon.com/globalaccelerator/home)\. 
 
 1. Choose **Create accelerator**\.
 
@@ -27,7 +24,7 @@ You must choose a different IP address pool for each static IP address\. This re
 
 # To edit a standard accelerator
 
-1. Open the Global Accelerator console at [ https://us\-west\-2\.console\.aws\.amazon\.com/ec2/v2/home?region=us\-west\-2\#Global Accelerator:](https://us-west-2.console.aws.amazon.com/ec2/v2/home?region=us-west-2#GlobalAccelerator:)\. 
+1. Open the Global Accelerator console at [ https://console\.aws\.amazon\.com/globalaccelerator/home](https://console.aws.amazon.com/globalaccelerator/home)\. 
 
 1. In the list of accelerators, choose one, and then choose **Edit**\.
 

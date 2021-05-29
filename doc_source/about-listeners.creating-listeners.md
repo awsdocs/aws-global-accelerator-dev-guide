@@ -4,7 +4,7 @@ This section explains how to work with listeners on the AWS Global Accelerator c
 
 # To add a listener
 
-1. Open the Global Accelerator console at [ https://us\-west\-2\.console\.aws\.amazon\.com/ec2/v2/home?region=us\-west\-2\#Global Accelerator:](https://us-west-2.console.aws.amazon.com/ec2/v2/home?region=us-west-2#GlobalAccelerator:)\. 
+1. Open the Global Accelerator console at [ https://console\.aws\.amazon\.com/globalaccelerator/home](https://console.aws.amazon.com/globalaccelerator/home)\. 
 
 1. On the **accelerators** page, choose an accelerator\.
 
@@ -24,7 +24,7 @@ This section explains how to work with listeners on the AWS Global Accelerator c
 
 # To edit a standard listener
 
-1. Open the Global Accelerator console at [ https://us\-west\-2\.console\.aws\.amazon\.com/ec2/v2/home?region=us\-west\-2\#Global Accelerator:](https://us-west-2.console.aws.amazon.com/ec2/v2/home?region=us-west-2#GlobalAccelerator:)\. 
+1. Open the Global Accelerator console at [ https://console\.aws\.amazon\.com/globalaccelerator/home](https://console.aws.amazon.com/globalaccelerator/home)\. 
 
 1. On the **accelerators** page, choose an accelerator\.
 
@@ -42,7 +42,7 @@ This section explains how to work with listeners on the AWS Global Accelerator c
 
 # To remove a listener
 
-1. Open the Global Accelerator console at [ https://us\-west\-2\.console\.aws\.amazon\.com/ec2/v2/home?region=us\-west\-2\#Global Accelerator:](https://us-west-2.console.aws.amazon.com/ec2/v2/home?region=us-west-2#GlobalAccelerator:)\. 
+1. Open the Global Accelerator console at [ https://console\.aws\.amazon\.com/globalaccelerator/home](https://console.aws.amazon.com/globalaccelerator/home)\. 
 
 1. On the **accelerators** page, choose an accelerator\.
 

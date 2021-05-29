@@ -36,7 +36,7 @@ The following example shows a CloudTrail log entry that includes these Global Ac
 + Deleting a listener: `eventName` is `DeleteListener`\.
 
 ```
-v{
+{
   "Records": [
     {
       "eventVersion": "1.05",

@@ -6,7 +6,7 @@ The following are two examples of how it can be useful to work with tags in Glob
 + Use tags to track billing information in different categories\. To do this, apply tags to accelerators or other AWS resources \(such as Network Load Balancers, Application Load Balancers, or Amazon EC2 instances\) and activate the tags\. Then AWS generates a cost allocation report as a comma\-separated value \(CSV file\) with your usage and costs aggregated by your active tags\. You can apply tags that represent business categories \(such as cost centers, application names, or owners\) to organize your costs across multiple services\. For more information, see [Using Cost Allocation Tags](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html) in the *AWS Billing and Cost Management User Guide*\.
 + Use tags to enforce tag\-based permissions for accelerators\. To do this, create IAM policies that specify tags and tag values to allow or disallow actions\. For more information, see [ Tag\-based policies](auth-and-access-control.md#access-control-manage-access-tag-policies)\.
 
-For usage conventions and links to other resources about tagging, see [Tagging AWS Resources](https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html) in the *AWS General Reference*\. For tips on using tags, see [ Tagging Best Practices: AWS Resource Tagging Strategy](https://d1.awsstatic.com/whitepapers/aws-tagging-best-practices.pdf) in the *AWS Whitepapers* blog\.
+For usage conventions and links to other resources about tagging, see [Tagging AWS resources](https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html) in the *AWS General Reference*\. For tips on using tags, see [ Tagging Best Practices: AWS Resource Tagging Strategy](https://d1.awsstatic.com/whitepapers/aws-tagging-best-practices.pdf) in the *AWS Whitepapers* blog\.
 
 For the maximum number of tags that you can add to a resource in Global Accelerator, see [Quotas for AWS Global Accelerator](limits-global-accelerator.md)\.
 
@@ -31,7 +31,7 @@ You can add or remove tags using the console, the AWS CLI, or Global Accelerator
 
 **To add tags, edit, or delete tags in Global Accelerator**
 
-1. Open the Global Accelerator console at [ https://us\-west\-2\.console\.aws\.amazon\.com/ec2/v2/home?region=us\-west\-2\#Global Accelerator:](https://us-west-2.console.aws.amazon.com/ec2/v2/home?region=us-west-2#GlobalAccelerator:)\. 
+1. Open the Global Accelerator console at [ https://console\.aws\.amazon\.com/globalaccelerator/home](https://console.aws.amazon.com/globalaccelerator/home)\. 
 
 1. Choose the accelerator that you want to add or update tags for\.
 

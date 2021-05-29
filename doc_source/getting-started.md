@@ -36,9 +36,6 @@ When you create a resource to add to Global Accelerator, be aware of the followi
 + When you add an internal Application Load Balancer or an EC2 instance endpoint in Global Accelerator, you enable internet traffic to flow directly to and from the endpoint in virtual private clouds \(VPCs\) by targeting it in a private subnet\. The VPC that contains the load balancer or EC2 instance must have an [internet gateway](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Internet_Gateway.html) attached to it, to indicate that the VPC accepts internet traffic\. For more information, see [Secure VPC connections in AWS Global Accelerator](secure-vpc-connections.md)\.
 + Global Accelerator requires your router and firewall rules to allow inbound traffic from the IP addresses associated with Route 53 health checkers to complete health checks for EC2 instance or Elastic IP address endpoints\. You can find information about the IP address ranges associated with Amazon Route 53 health checkers in [Health Checks for Your Target Groups](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/route-53-ip-addresses.html) in the *Amazon Route 53 Developer Guide*\.
 
-**Important**  
-Make sure that you’re in the AWS Region US West \(Oregon\)\. You must be in this Region to create or update accelerators\.
-
 ### Step 1: Create an accelerator<a name="getting-started-accelerator"></a>
 
 To create your accelerator, you enter a name\. 
@@ -48,7 +45,7 @@ To complete this task by using an API operation instead of the console, see [Cre
 
 ### To create an accelerator
 
-1. Open the Global Accelerator console at [ https://us\-west\-2\.console\.aws\.amazon\.com/ec2/v2/home?region=us\-west\-2\#Global Accelerator:](https://us-west-2.console.aws.amazon.com/ec2/v2/home?region=us-west-2#GlobalAccelerator:)\. 
+1. Open the Global Accelerator console at [ https://console\.aws\.amazon\.com/globalaccelerator/home](https://console.aws.amazon.com/globalaccelerator/home)\. 
 
 1. Choose **Create accelerator**\.
 
@@ -145,7 +142,7 @@ Be aware of the following when you remove endpoints or endpoint groups, or delet
 
 ### To delete an accelerator
 
-1. Open the Global Accelerator console at [ https://us\-west\-2\.console\.aws\.amazon\.com/ec2/v2/home?region=us\-west\-2\#Global Accelerator:](https://us-west-2.console.aws.amazon.com/ec2/v2/home?region=us-west-2#GlobalAccelerator:)\. 
+1. Open the Global Accelerator console at [ https://console\.aws\.amazon\.com/globalaccelerator/home](https://console.aws.amazon.com/globalaccelerator/home)\. 
 
 1. Choose the accelerator that you want to delete\.
 
@@ -161,7 +158,7 @@ Be aware of the following when you remove endpoints or endpoint groups, or delet
 
 ## Getting started with a custom routing accelerator<a name="getting-started-custom-routing"></a>
 
-This section provides steps for creating a custom routing accelerator that routes traffic deterministically to Amazon EC2 instance destinations in virutal private cloud \(VPC\) subnet endpoints\.
+This section provides steps for creating a custom routing accelerator that routes traffic deterministically to Amazon EC2 instance destinations in virtual private cloud \(VPC\) subnet endpoints\.
 
 **Tasks**
 + [ Before you begin](#getting-started-before-you-begin-custom)
@@ -180,9 +177,6 @@ Before you create a custom routing accelerator, create a resource that you can a
 When you create a resource to add to Global Accelerator, be aware of the following:
 + When you add an EC2 instance endpoint in Global Accelerator, you enable internet traffic to flow directly to and from the endpoint in VPCs by targeting it in a private subnet\. The VPC that contains the EC2 instance must have an [internet gateway](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Internet_Gateway.html) attached to it, to indicate that the VPC accepts internet traffic\. For more information, see [Secure VPC connections in AWS Global Accelerator](secure-vpc-connections.md)\.
 
-**Important**  
-Make sure that you’re in the AWS Region US West \(Oregon\)\. You must be in this Region to create or update accelerators\.
-
 ### Step 1: Create a custom routing accelerator<a name="getting-started-accelerator-custom"></a>
 
 **Note**  
@@ -190,7 +184,7 @@ To complete this task by using an API operation instead of the console, see [Cre
 
 ### To create an accelerator
 
-1. Open the Global Accelerator console at [ https://us\-west\-2\.console\.aws\.amazon\.com/ec2/v2/home?region=us\-west\-2\#Global Accelerator:](https://us-west-2.console.aws.amazon.com/ec2/v2/home?region=us-west-2#GlobalAccelerator:)\. 
+1. Open the Global Accelerator console at [ https://console\.aws\.amazon\.com/globalaccelerator/home](https://console.aws.amazon.com/globalaccelerator/home)\. 
 
 1. Provide a name for your accelerator\.
 
@@ -280,7 +274,7 @@ Be aware of the following when you delete an accelerator:
 
 ### To delete an accelerator
 
-1. Open the Global Accelerator console at [ https://us\-west\-2\.console\.aws\.amazon\.com/ec2/v2/home?region=us\-west\-2\#Global Accelerator:](https://us-west-2.console.aws.amazon.com/ec2/v2/home?region=us-west-2#GlobalAccelerator:)\. 
+1. Open the Global Accelerator console at [ https://console\.aws\.amazon\.com/globalaccelerator/home](https://console.aws.amazon.com/globalaccelerator/home)\. 
 
 1. Choose the accelerator that you want to delete\.
 

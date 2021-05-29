@@ -38,7 +38,7 @@ This section explains how to work with endpoints on the AWS Global Accelerator c
 
 ## To add a standard endpoint
 
-1. Open the Global Accelerator console at [ https://us\-west\-2\.console\.aws\.amazon\.com/ec2/v2/home?region=us\-west\-2\#Global Accelerator:](https://us-west-2.console.aws.amazon.com/ec2/v2/home?region=us-west-2#GlobalAccelerator:)\. 
+1. Open the Global Accelerator console at [ https://console\.aws\.amazon\.com/globalaccelerator/home](https://console.aws.amazon.com/globalaccelerator/home)\. 
 
 1. On the **accelerators** page, choose an accelerator\.
 
@@ -66,7 +66,7 @@ Before you add and begin to route traffic to endpoints that preserve the client 
 
 You can edit an endpoint configuration to change the weight\. For more information, see [ Endpoint weights](about-endpoints-endpoint-weights.md)\.
 
-1. Open the Global Accelerator console at [ https://us\-west\-2\.console\.aws\.amazon\.com/ec2/v2/home?region=us\-west\-2\#Global Accelerator:](https://us-west-2.console.aws.amazon.com/ec2/v2/home?region=us-west-2#GlobalAccelerator:)\. 
+1. Open the Global Accelerator console at [ https://console\.aws\.amazon\.com/globalaccelerator/home](https://console.aws.amazon.com/globalaccelerator/home)\. 
 
 1. On the **accelerators** page, choose an accelerator\.
 
@@ -80,7 +80,7 @@ You can edit an endpoint configuration to change the weight\. For more informati
 
 ## To remove an endpoint
 
-1. Open the Global Accelerator console at [ https://us\-west\-2\.console\.aws\.amazon\.com/ec2/v2/home?region=us\-west\-2\#Global Accelerator:](https://us-west-2.console.aws.amazon.com/ec2/v2/home?region=us-west-2#GlobalAccelerator:)\. 
+1. Open the Global Accelerator console at [ https://console\.aws\.amazon\.com/globalaccelerator/home](https://console.aws.amazon.com/globalaccelerator/home)\. 
 
 1. On the **accelerators** page, choose an accelerator\.
 

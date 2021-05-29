@@ -94,7 +94,7 @@ For more information, see [Controlling Access to Resources](https://docs.aws.ama
 All resources in an account are owned by the account, regardless of who created those resources\. The AWS account root user is the account owner, and therefore has permission to perform any action on any resource in the account\.
 
 **Important**  
-We strongly recommend that you do not use the root user for your everyday tasks, even the administrative ones\. Instead, follow the [best practice of using the root user only to create your first IAM user](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#create-iam-users)\. Then securely lock away the root user credentials and use them to perform only a few account and service management tasks\. To view the tasks that require you to sign in as the root user, see [AWS Tasks That Require Root User](https://docs.aws.amazon.com/general/latest/gr/aws_tasks-that-require-root.html)\.
+We strongly recommend that you do not use the root user for your everyday tasks, even the administrative ones\. Instead, follow the [best practice of using the root user only to create your first IAM user](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#create-iam-users)\. Then securely lock away the root user credentials and use them to perform only a few account and service management tasks\. To view the tasks that require you to sign in as the root user, see [AWS tasks that require root user](https://docs.aws.amazon.com/general/latest/gr/aws_tasks-that-require-root.html)\.
 
 Entities \(users or roles\) in the AWS account must be granted access to create a resource\. But just because they create a resource doesn't mean they automatically have full access to that resource\. Administrators must explicitly grant permissions for each action\. Additionally, administrators can revoke those permissions at any time, as long as they have access to manage user and role permissions\.
 
@@ -252,7 +252,7 @@ Before you start with IAM, review the introductory information on [Identity and 
 
 1. Sign in to the [IAM console](https://console.aws.amazon.com/iam/) as the account owner by choosing **Root user** and entering your AWS account email address\. On the next page, enter your password\.
 **Note**  
-We strongly recommend that you adhere to the best practice of using the **Administrator** IAM user below and securely lock away the root user credentials\. Sign in as the root user only to perform a few [account and service management tasks](https://docs.aws.amazon.com/general/latest/gr/aws_tasks-that-require-root.html)\.
+We strongly recommend that you adhere to the best practice of using the **Administrator** IAM user that follows and securely lock away the root user credentials\. Sign in as the root user only to perform a few [account and service management tasks](https://docs.aws.amazon.com/general/latest/gr/aws_tasks-that-require-root.html)\.
 
 1. In the navigation pane, choose **Users** and then choose **Add user**\.
 
@@ -270,7 +270,7 @@ We strongly recommend that you adhere to the best practice of using the **Admini
 
 1. In the **Create group** dialog box, for **Group name** enter **Administrators**\.
 
-1. Choose **Filter policies**, and then select **AWS managed \-job function** to filter the table contents\.
+1. Choose **Filter policies**, and then select **AWS managed \- job function** to filter the table contents\.
 
 1. In the policy list, select the check box for **AdministratorAccess**\. Then choose **Create group**\.
 **Note**  

@@ -26,7 +26,7 @@ The steps in this section explain how to add, edit, or remove VPC subnet endpoin
 
 ## To add a VPC subnet endpoint
 
-1. Open the Global Accelerator console at [ https://us\-west\-2\.console\.aws\.amazon\.com/ec2/v2/home?region=us\-west\-2\#Global Accelerator:](https://us-west-2.console.aws.amazon.com/ec2/v2/home?region=us-west-2#GlobalAccelerator:)\. 
+1. Open the Global Accelerator console at [ https://console\.aws\.amazon\.com/globalaccelerator/home](https://console.aws.amazon.com/globalaccelerator/home)\. 
 
 1. On the **Accelerators** page, choose a custom routing accelerator\.
 
@@ -48,7 +48,7 @@ The steps in this section explain how to add, edit, or remove VPC subnet endpoin
 
 You can edit the VPC subnet port mapping for an endpoint to allow or deny traffic to specific EC2 instances and ports \(destination sockets\) in a subnet\. 
 
-1. Open the Global Accelerator console at [ https://us\-west\-2\.console\.aws\.amazon\.com/ec2/v2/home?region=us\-west\-2\#Global Accelerator:](https://us-west-2.console.aws.amazon.com/ec2/v2/home?region=us-west-2#GlobalAccelerator:)\. 
+1. Open the Global Accelerator console at [ https://console\.aws\.amazon\.com/globalaccelerator/home](https://console.aws.amazon.com/globalaccelerator/home)\. 
 
 1. On the **Accelerators** page, choose a custom routing accelerator\.
 
@@ -66,7 +66,7 @@ You can edit the VPC subnet port mapping for an endpoint to allow or deny traffi
 
 You can update an endpoint to allow or deny traffic to all destinations in the VPC subnet\. 
 
-1. Open the Global Accelerator console at [ https://us\-west\-2\.console\.aws\.amazon\.com/ec2/v2/home?region=us\-west\-2\#Global Accelerator:](https://us-west-2.console.aws.amazon.com/ec2/v2/home?region=us-west-2#GlobalAccelerator:)\. 
+1. Open the Global Accelerator console at [ https://console\.aws\.amazon\.com/globalaccelerator/home](https://console.aws.amazon.com/globalaccelerator/home)\. 
 
 1. On the **Accelerators** page, choose a custom routing accelerator\.
 
@@ -80,7 +80,7 @@ You can update an endpoint to allow or deny traffic to all destinations in the V
 
 ## To remove an endpoint
 
-1. Open the Global Accelerator console at [ https://us\-west\-2\.console\.aws\.amazon\.com/ec2/v2/home?region=us\-west\-2\#Global Accelerator:](https://us-west-2.console.aws.amazon.com/ec2/v2/home?region=us-west-2#GlobalAccelerator:)\. 
+1. Open the Global Accelerator console at [ https://console\.aws\.amazon\.com/globalaccelerator/home](https://console.aws.amazon.com/globalaccelerator/home)\. 
 
 1. On the **Accelerators** page, choose a custom routing accelerator\.
 
