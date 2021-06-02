@@ -91,7 +91,7 @@ To complete this task by using an API operation instead of the console, see [Cre
 
 1. Optionally, for **Traffic dial**, enter a number from 0 to 100 to set a percentage of traffic for this endpoint group\. The percentage is applied only to the traffic already directed to this endpoint group, not all listener traffic\. By default, the traffic dial for an endpoint group is set to 100 \(that is, 100%\)\. 
 
-1. Optionally, for custom health check values, choose **Configure health checks**\. When you configure health check settings, Global Accelerator uses the settings for health checks for EC2 instance and Elastic IP address endpoints\. For Network Load Balancer and Application Load Balancer endpoints, Global Accelerator uses the health check settings that you've already configured for the load balancers themselves\. For more information, see [Health check options](about-endpoint-groups-health-check-options.md)\. 
+1. Optionally, for custom health check values, choose **Configure health checks**\. When you configure health check settings, Global Accelerator uses the settings for health checks for EC2 instance and Elastic IP address endpoints\. For Network Load Balancer and Application Load Balancer endpoints, Global Accelerator uses the health check settings that you've already configured for the load balancers themselves\. For more information, see [Changing health check options](about-endpoint-groups-health-check-options.md)\. 
 
 1. Optionally, choose **Add endpoint group** to add additional endpoint groups for this listener or other listeners\.
 

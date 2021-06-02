@@ -8,10 +8,10 @@ You can define health check settings for Global Accelerator for each endpoint gr
 
 Global Accelerator continually monitors the health of all endpoints that are included in a standard endpoint group, and routes requests only to the active endpoints that are healthy\. If there aren't any healthy endpoints to route traffic to, Global Accelerator routes requests to all endpoints\.
 
-This section explains how to work with endpoint groups for standard accelerators on the AWS Global Accelerator console\. If you want to use API operations with AWS Global Accelerator, see the [ AWS Global Accelerator API Reference](https://docs.aws.amazon.com/global-accelerator/latest/api/Welcome.html)\.
+This section explains how to work with endpoint groups for standard accelerators on the AWS Global Accelerator console\. If you want to use API operations with Global Accelerator, see the [ AWS Global Accelerator API Reference](https://docs.aws.amazon.com/global-accelerator/latest/api/Welcome.html)\.
 
 **Topics**
 + [Adding, editing, or removing a standard endpoint group](about-endpoint-groups.create-endpoint-group.md)
 + [Adjusting traffic flow with traffic dials](about-endpoint-groups-traffic-dial.md)
-+ [Port overrides](about-endpoint-groups-port-override.md)
-+ [Health check options](about-endpoint-groups-health-check-options.md)
++ [Overriding listener ports](about-endpoint-groups-port-override.md)
++ [Changing health check options](about-endpoint-groups-health-check-options.md)

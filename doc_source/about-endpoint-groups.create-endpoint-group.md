@@ -8,7 +8,7 @@ This section explains how to work with standard endpoint groups on the AWS Globa
 
 1. Open the Global Accelerator console at [ https://console\.aws\.amazon\.com/globalaccelerator/home](https://console.aws.amazon.com/globalaccelerator/home)\. 
 
-1. On the **accelerators** page, choose an accelerator\.
+1. On the **Accelerators** page, choose an accelerator\.
 
 1. In the **Listeners** section, for **Listener ID**, choose the ID of the listener that you want to add an endpoint group to\.
 
@@ -18,9 +18,9 @@ This section explains how to work with standard endpoint groups on the AWS Globa
 
 1. Optionally, for **Traffic dial**, enter a number from 0 to 100 to set a percentage of traffic for this endpoint group\. The percentage is applied only to the traffic that is already directed to this endpoint group, not all listener traffic\. By default, the traffic dial is set to 100\.
 
-1. Optionally, to override the listener port used for routing traffic to endpoints and reroute traffic to specific ports on your endpoints, choose **Configure port overrides**\. For more information, see [Port overrides](about-endpoint-groups-port-override.md)\.
+1. Optionally, to override the listener port used for routing traffic to endpoints and reroute traffic to specific ports on your endpoints, choose **Configure port overrides**\. For more information, see [Overriding listener ports](about-endpoint-groups-port-override.md)\.
 
-1. Optionally, to specify custom health check values to be applied to EC2 instance and Elastic IP address endpoints, choose **Configure health checks**\. For more information, see [Health check options](about-endpoint-groups-health-check-options.md)\.
+1. Optionally, to specify custom health check values to be applied to EC2 instance and Elastic IP address endpoints, choose **Configure health checks**\. For more information, see [Changing health check options](about-endpoint-groups-health-check-options.md)\.
 
 1. Optionally, choose **Add endpoint group** to add additional endpoint groups for this listener or other listeners\.
 
@@ -30,7 +30,7 @@ This section explains how to work with standard endpoint groups on the AWS Globa
 
 1. Open the Global Accelerator console at [ https://console\.aws\.amazon\.com/globalaccelerator/home](https://console.aws.amazon.com/globalaccelerator/home)\. 
 
-1. On the **accelerators** page, choose an accelerator\.
+1. On the **Accelerators** page, choose an accelerator\.
 
 1. In the **Listeners** section, for **Listener ID**, choose the ID of the listener that the endpoint group is associated with\.
 
@@ -44,9 +44,9 @@ This section explains how to work with standard endpoint groups on the AWS Globa
 
 1. Open the Global Accelerator console at [ https://console\.aws\.amazon\.com/globalaccelerator/home](https://console.aws.amazon.com/globalaccelerator/home)\. 
 
-1. On the **accelerators** page, choose an accelerator\.
+1. On the **Accelerators** page, choose an accelerator\.
 
-1. In the **Listeners** section, choose a listener, and then choose **Remove**\.
+1. In the **Listeners** section, choose a listener\.
 
 1. In the **Endpoint groups** section, choose an endpoint group, and then choose **Remove**\.
 

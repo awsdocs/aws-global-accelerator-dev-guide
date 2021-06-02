@@ -15,7 +15,7 @@ For standard accelerators, Global Accelerator uses the AWS global network to rou
 
 Custom routing accelerators only support virtual private cloud \(VPC\) subnet endpoint types and route traffic to private IP addresses in that subnet\.
 
-For a list of the AWS Regions where Global Accelerator and other services are currently supported, see the [AWS Region Table](https://aws.amazon.com/about-aws/global-infrastructure/regional-product-services/)\.
+To determine if Global Accelerator or other services are currently supported in a specific AWS Region, see the [AWS Regional Services List](https://aws.amazon.com/about-aws/global-infrastructure/regional-product-services/)\.
 
 **Topics**
 + [AWS Global Accelerator components](introduction-components.md)
