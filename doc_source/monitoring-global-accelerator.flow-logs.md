@@ -4,9 +4,12 @@ Flow logs enable you to capture information about the IP address traffic going t
 
 Flow logs can help you with a number of tasks\. For example, you can troubleshoot why specific traffic is not reaching an endpoint, which in turn helps you diagnose overly restrictive security group rules\. You can also use flow logs as a security tool to monitor the traffic that is reaching your endpoints\.
 
-A flow log record represents a network flow in your flow log\. Each record captures the network flow for a specific 5\-tuple, for a specific capture window\. A 5\-tuple is a set of five different values that specify the source, destination, and protocol for an IP flow\. The capture window is a duration of time during which the flow logs service aggregates data before publishing flow log records\. The capture window is approximately 10 seconds, but can take up to 1 minute\.
+A flow log record represents a network flow in your flow log\. Each record captures the network flow for a specific 5\-tuple, for a specific capture window\. A 5\-tuple is a set of five different values that specify the source, destination, and protocol for an IP flow\. The capture window is a duration of time during which the flow logs service aggregates data before publishing flow log records\. The capture window is up to 1 minute\.
 
 CloudWatch Logs charges apply when using flow logs, even when logs are published directly to Amazon S3\. For more information, see *Deliver Logs to S3* at [Amazon CloudWatch Pricing](https://aws.amazon.com/cloudwatch/pricing/)\.
+
+**Tip**  
+Using Amazon Athena and Amazon QuickSight with your Global Accelerator flow log data can help you troubleshoot reachability issues for your application, identify security vulnerabilities, and get an overview of how users access your application\. To learn more, see the following AWS blog post: [ Analyzing and visualizing AWS Global Accelerator flow logs using Amazon Athena and Amazon QuickSight](https://aws.amazon.com/blogs/networking-and-content-delivery/analyzing-and-visualizing-aws-global-accelerator-flow-logs-using-amazon-athena-and-amazon-quicksight/)\.
 
 **Topics**
 + [Publishing flow logs to Amazon S3](#monitoring-global-accelerator.flow-logs-publishing-S3)
@@ -17,7 +20,7 @@ CloudWatch Logs charges apply when using flow logs, even when logs are published
 
 Flow logs for AWS Global Accelerator are published to Amazon S3 to an existing S3 bucket that you specify\. Flow log records are published to a series of log file objects that are stored in the bucket\. 
 
-To create an Amazon S3 bucket for use with flow logs, see [Create a Bucket](https://docs.aws.amazon.com/AmazonS3/latest/gsg/CreatingABucket.html) in the *Amazon Simple Storage Service Getting Started Guide*\.
+To create an Amazon S3 bucket for use with flow logs, see [Create a Bucket](https://docs.aws.amazon.com/AmazonS3/latest/gsg/CreatingABucket.html) in the *Amazon Simple Storage Service User Guide*\.
 
 ### Flow logs files<a name="monitoring-global-accelerator.flow-logs-publishing-S3.files"></a>
 
@@ -120,7 +123,7 @@ If the user creating the flow log owns the bucket, the service automatically att
 }
 ```
 
-If the user creating the flow log does not own the bucket, or does not have the `GetBucketPolicy` and `PutBucketPolicy` permissions for the bucket, the flow log creation fails\. In this case, the bucket owner must manually add the preceding policy to the bucket and specify the flow log creator's AWS account ID\. For more information, see [How Do I Add an S3 Bucket Policy?](https://docs.aws.amazon.com/AmazonS3/latest/gsg/add-bucket-policy.html) in the *Amazon Simple Storage Service Getting Started Guide*\. If the bucket receives flow logs from multiple accounts, add a `Resource` element entry to the `AWSLogDeliveryWrite` policy statement for each account\. 
+If the user creating the flow log does not own the bucket, or does not have the `GetBucketPolicy` and `PutBucketPolicy` permissions for the bucket, the flow log creation fails\. In this case, the bucket owner must manually add the preceding policy to the bucket and specify the flow log creator's AWS account ID\. For more information, see [How Do I Add an S3 Bucket Policy?](https://docs.aws.amazon.com/AmazonS3/latest/gsg/add-bucket-policy.html) in the *Amazon Simple Storage Service User Guide*\. If the bucket receives flow logs from multiple accounts, add a `Resource` element entry to the `AWSLogDeliveryWrite` policy statement for each account\. 
 
 For example, the following bucket policy allows AWS accounts 123123123123 and 456456456456 to publish flow logs to a folder named `flow-logs` in a bucket named `log-bucket`:
 
@@ -173,7 +176,7 @@ If you enabled server\-side encryption for your Amazon S3 bucket using AWS KMS\-
 
 ### Amazon S3 log file permissions<a name="monitoring-global-accelerator.flow-logs-publishing-S3.log-file-permissions"></a>
 
-In addition to the required bucket policies, Amazon S3 uses access control lists \(ACLs\) to manage access to the log files created by a flow log\. By default, the bucket owner has `FULL_CONTROL` permissions on each log file\. The log delivery owner, if different from the bucket owner, has no permissions\. The log delivery account has `READ` and `WRITE` permissions\. For more information, see [Access Control List \(ACL\) Overview](https://docs.aws.amazon.com/AmazonS3/latest/gsg/acl-overview.html) in the *Amazon Simple Storage Service Getting Started Guide*\.
+In addition to the required bucket policies, Amazon S3 uses access control lists \(ACLs\) to manage access to the log files created by a flow log\. By default, the bucket owner has `FULL_CONTROL` permissions on each log file\. The log delivery owner, if different from the bucket owner, has no permissions\. The log delivery account has `READ` and `WRITE` permissions\. For more information, see [Access Control List \(ACL\) Overview](https://docs.aws.amazon.com/AmazonS3/latest/gsg/acl-overview.html) in the *Amazon Simple Storage Service User Guide*\.
 
 ### Enable publishing flow logs to Amazon S3<a name="monitoring-global-accelerator.flow-logs-publishing-S3.enable"></a>
 

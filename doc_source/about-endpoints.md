@@ -8,8 +8,11 @@ Global Accelerator continually monitors the health of all endpoints that are inc
 
 Be aware of the following for specific types of Global Accelerator standard endpoints:
 
-**Load balancer endpoints**  
-+ An Application Load Balancer endpoint can be internet\-facing or internal\. A Network Load Balancer endpoint must be internet\-facing\.
+**Application Load Balancer endpoints**  
++ An Application Load Balancer endpoint can be internet\-facing or internal\. 
+
+**Network Load Balancer endpoints**  
++ A Network Load Balancer endpoint must be internet\-facing\. For Network Load Balancer endpoints, we recommend that you disable cross\-zone traffic for the load balancers to avoid connection collisions, which can result in increased TCP connection time\. For more information, see [ TCP Connection Delays](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/load-balancer-troubleshooting.html#tcp-delays) in the *Network Load Balancers User Guide*\.
 
 **Amazon EC2 instance endpoints**  
 + An EC2 instance endpoint \(for both standard and custom routing accelerators\) can't be one of the following types: C1, CC1, CC2, CG1, CG2, CR1, CS1, G1, G2, HI1, HS1, M1, M2, M3, or T1\.

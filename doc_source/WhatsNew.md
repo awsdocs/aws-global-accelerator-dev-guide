@@ -2,13 +2,16 @@
 
 The following entries describe important changes made to the AWS Global Accelerator documentation\.
 + **API version: latest**
-+ **Latest documentation update: **December 9, 2020
++ **Latest documentation update: **November 2, 2021
 
 
 ****  
 
 | Change | Description | Date | 
 | --- | --- | --- | 
+| Update to the Global Accelerator existing service\-linked role | Global Accelerator added new permissions, ec2:AssignIpv6Addresses and ec2:UnassignIpv6Addresses, to support IPv6 addresses\. For more information, see [https://docs.aws.amazon.com/global-accelerator/latest/dg/security-iam-awsmanpol-updates.html](https://docs.aws.amazon.com/global-accelerator/latest/dg/security-iam-awsmanpol-updates.html)\. | November 2, 2021 | 
+| Added new CloudWatch metrics | Global Accelerator has added two new CloudWatch metrics\. For more information, see [https://docs.aws.amazon.com/global-accelerator/latest/dg/cloudwatch-monitoring.html](https://docs.aws.amazon.com/global-accelerator/latest/dg/cloudwatch-monitoring.html)\. | October 28, 2021 | 
+| Update to the flow logs capture window | Global Accelerator has expanded the flow log capture window from 10 seconds to 60 seconds\. For more information, see [https://docs.aws.amazon.com/global-accelerator/latest/dg/monitoring-global-accelerator.flow-logs.html](https://docs.aws.amazon.com/global-accelerator/latest/dg/monitoring-global-accelerator.flow-logs.html)\. | July 30, 2021 | 
 | Update to the Global Accelerator existing service\-linked role | Global Accelerator added a new permission, ec2:DescribeRegions, to allow Global Accelerator to get AWS Region information to help diagnose errors\. For more information, see [https://docs.aws.amazon.com/global-accelerator/latest/dg/security-iam-awsmanpol-updates.html](https://docs.aws.amazon.com/global-accelerator/latest/dg/security-iam-awsmanpol-updates.html)\. | May 7, 2021 | 
 | Added custom routing accelerators | Global Accelerator introduced a new type of accelerator custom routing accelerators\. Custom routing accelerators work well for scenarios where you want to use custom application logic to direct one or more users to a specific destination and port among many, while still gaining the performance benefits of Global Accelerator\. For more information, see [https://docs.aws.amazon.com/global-accelerator/latest/dg/work-with-custom-routing-accelerators.html](https://docs.aws.amazon.com/global-accelerator/latest/dg/work-with-custom-routing-accelerators.html)\. | December 9, 2020 | 
 | Added port overrides support | Global Accelerator now supports overriding the listener port used for routing traffic to endpoints so you can reroute traffic to specific ports on your endpoints\. For more information, see [https://docs.aws.amazon.com/global-accelerator/latest/dg/about-endpoint-groups-port-override.html](https://docs.aws.amazon.com/global-accelerator/latest/dg/about-endpoint-groups-port-override.html)\. | October 21, 2020 | 

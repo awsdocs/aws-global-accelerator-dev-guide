@@ -20,6 +20,7 @@ The following are overall quotas for Global Accelerator\.
 | --- | --- | 
 | Accelerators per AWS account  | 20 You can [ request a quota increase](https://console.aws.amazon.com/servicequotas/home?region=us-east-1#!/services/globalaccelerator/quotas)\. | 
 | Listeners per accelerator  | 10 You can [ request a quota increase](https://console.aws.amazon.com/servicequotas/home?region=us-east-1#!/services/globalaccelerator/quotas)\. | 
+| Endpoint groups per accelerator, across all listeners | 42 | 
 | Port ranges per listener | 10 | 
 | Port overrides per endpoint group | 10 You can [ request a quota increase](https://console.aws.amazon.com/servicequotas/home?region=us-east-1#!/services/globalaccelerator/quotas)\. | 
 

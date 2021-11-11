@@ -48,7 +48,11 @@ The role permissions policy allows Global Accelerator to complete the following 
         },
         {
             "Effect": "Allow",
-            "Action": "ec2:DeleteSecurityGroup",
+            "Action": [
+                "ec2:DeleteSecurityGroup",
+                "ec2:AssignIpv6Addresses",
+                "ec2:UnassignIpv6Addresses"
+            ],
             "Resource": "*",
             "Condition": {
                 "StringEquals": {
@@ -112,14 +116,15 @@ If you have disabled and deleted your accelerators but Global Accelerator hasn't
 
 1. Watch the IAM console notifications to monitor the progress of the service\-linked role deletion\. Because the IAM service\-linked role deletion is asynchronous, after you submit the role for deletion, the deletion task can succeed or fail\. For more information, see [Deleting a service\-linked role](https://docs.aws.amazon.com/IAM/latest/UserGuide/using-service-linked-roles.html#delete-service-linked-role) in the *IAM User Guide*\.
 
-## Updates to the Global Accelerator service\-linked role \(an AWS managed policy\)<a name="security-iam-awsmanpol-updates"></a>
+## Updates to the policy for the Global Accelerator service\-linked role \(an AWS managed policy\)<a name="security-iam-awsmanpol-updates"></a>
 
-View details about updates to the service\-linked role  for since this service began tracking these changes\. For automatic alerts about changes to this page, subscribe to the RSS feed on the AWS Global Accelerator [Document history](WhatsNew.md) page\.
+View details about updates to `AWSGlobalAcceleratorSLRPolicy`, the AWS managed policy for the Global Accelerator service\-linked role\. The following table lists updates since this service began tracking changes to the policy\. For automatic alerts about changes to this page, subscribe to the RSS feed on the AWS Global Accelerator [Document history](WhatsNew.md) page\.
 
 
 | Change | Description | Date | 
 | --- | --- | --- | 
-|   [AWSServiceRoleForGlobalAccelerator](https://console.aws.amazon.com/iam/home#policies/arn:aws:iam::aws:policy/AWSServiceRoleForGlobalAccelerator) – Updated policy  |  Global Accelerator added a new permission to help Global Accelerator to diagnose errors\. Global Accelerator uses `ec2:DescribeRegions` to determine the AWS Region that a customer is in, which can help Global Accelerator to troubleshoot errors\.  | May 18, 2021 | 
+|   [AWSGlobalAcceleratorSLRPolicy](https://console.aws.amazon.com/iam/home#policies/arn:aws:iam::aws:policy/aws-service-role/AWSGlobalAcceleratorSLRPolicy) – Updated policy  |  Global Accelerator added new permissions to support IPv6 addresses\. Global Accelerator uses `ec2:AssignIpv6Addresses` to update the GlobalAccelerator ENI on a customer subnet with an IPv6 address for sending and receiving IPv6 traffic, and uses `UnassignIpv6Addresses` to remove the IPv6 address when it's no longer needed\.  | November 15, 2021 | 
+|   [AWSGlobalAcceleratorSLRPolicy](https://console.aws.amazon.com/iam/home#policies/arn:aws:iam::aws:policy/aws-service-role/AWSGlobalAcceleratorSLRPolicy) – Updated policy  |  Global Accelerator added a new permission to help Global Accelerator to diagnose errors\. Global Accelerator uses `ec2:DescribeRegions` to determine the AWS Region that a customer is in, which can help Global Accelerator to troubleshoot errors\.  | May 18, 2021 | 
 |  Global Accelerator started tracking changes  |  Global Accelerator started tracking changes for its AWS managed policies\.  | May 18, 2021 | 
 
 ## Supported Regions for Global Accelerator service\-linked roles<a name="slr-regions"></a>

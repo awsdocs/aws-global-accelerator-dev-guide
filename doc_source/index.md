@@ -66,7 +66,7 @@ Amazon's trademarks and trade dress may not be used in
    + [Flow logs in AWS Global Accelerator](monitoring-global-accelerator.flow-logs.md)
    + [Using Amazon CloudWatch with AWS Global Accelerator](cloudwatch-monitoring.md)
    + [Using AWS CloudTrail to log AWS Global Accelerator API calls](logging-using-cloudtrail.md)
-+ [AWS Global Accelerator security](security.md)
++ [Security in AWS Global Accelerator](security.md)
    + [Identity and access management for AWS Global Accelerator](auth-and-access-control.md)
       + [Service-linked role for Global Accelerator](using-service-linked-roles.md)
       + [Overview of access and authentication](auth_access_overview.md)
