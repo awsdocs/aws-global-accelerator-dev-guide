@@ -12,7 +12,7 @@ To learn more, see [How custom routing accelerators work in AWS Global Accelerat
 
 You work with an endpoint group for your custom routing accelerator on the AWS Global Accelerator console or by using an API operation\. You can add or remove VPC subnet endpoints from an endpoint group at any time\.
 
-This section explains how to work with endpoint groups for your custom routing accelerator on the AWS Global Accelerator console\. To learn about using API operations with Global Accelerator, see the[ AWS Global Accelerator API Reference](https://docs.aws.amazon.com/global-accelerator/latest/api/Welcome.html)\.
+This section explains how to work with endpoint groups for your custom routing accelerator on the AWS Global Accelerator console\. To learn about using API operations with Global Accelerator, see the[AWS Global Accelerator API Reference](https://docs.aws.amazon.com/global-accelerator/latest/api/Welcome.html)\.
 
 ## To add an endpoint group for a custom routing accelerator
 

@@ -15,7 +15,7 @@ You can view and configure your accelerator by [ navigating to Global Accelerato
 
 ## Pricing<a name="about-accelerators.elb-accelerator.pricing"></a>
 
-With AWS Global Accelerator, you pay only for what you use\. You are charged an hourly rate and data transfer costs for each accelerator in your account\. For more information, see [ AWS Global Accelerator Pricing](https://aws.amazon.com/global-accelerator/pricing)\.
+With AWS Global Accelerator, you pay only for what you use\. You are charged an hourly rate and data transfer costs for each accelerator in your account\. For more information, see [AWS Global Accelerator Pricing](https://aws.amazon.com/global-accelerator/pricing)\.
 
 ## Stop using the accelerator<a name="about-accelerators.elb-accelerator.deleting"></a>
 
@@ -23,6 +23,6 @@ If you'd like to stop routing traffic through Global Accelerator to your load ba
 
 1. Update your DNS configuration to point your traffic directly to the load balancer\.
 
-1. Delete the load balancer from the accelerator\. For more information, see *To remove an endpoint* in [Adding, editing, or removing a standard endpoint](about-endpoints.md#about-endpoints-adding-endpoints)\.
+1. Delete the load balancer from the accelerator\. For more information, see *To remove an endpoint* in [Adding, editing, or removing a standard endpoint](about-endpoints-adding-endpoints.md)\.
 
 1. Delete the accelerator\. For more information, see [ Deleting an accelerator](about-accelerators.deleting.md)\.

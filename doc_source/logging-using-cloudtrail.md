@@ -168,7 +168,7 @@ The following example shows a CloudTrail log entry that includes these Global Ac
           "enabled": true,
           "ipSets": [
             {
-              "ipFamily": "IPv4",
+              "ipAddressFamily": "IPv4",
               "ipAddresses": [
                 "192.0.2.213",
                 "192.0.2.200"

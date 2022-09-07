@@ -16,7 +16,7 @@ For example, if you want to send a tiny portion of your traffic to one endpoint 
 
 If there are no healthy endpoints in an endpoint group that have a weight greater than zero, Global Accelerator tries to failover to a healthy endpoint with a weight greater than zero in another endpoint group\. For this failover, Global Accelerator ignores the traffic dial setting\. So if, for example, an endpoint group has a traffic dial set to zero, Global Accelerator still includes that endpoint group in the failover attempt\.
 
-If Global Accelerator doesn't find a healthy endpoint with a weight greater than zero after trying three additional endpoint groups \(that is, three AWS Regions\), it routes traffic to a random endpoint in the endpoint group that is closest to the client\. That is, it *fails open*\.
+If Global Accelerator doesn't find a healthy endpoint with a weight greater than zero after trying the three closest endpoint groups \(that is, AWS Regions\), it routes traffic to a random endpoint in the endpoint group that is closest to the client\. That is, it *fails open*\.
 
 Note the following:
 + The endpoint group chosen for failover might be one that has a traffic dial set to zero\.

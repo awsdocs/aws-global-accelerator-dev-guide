@@ -12,9 +12,9 @@ To set up a standard accelerator, do the following:
 
 1. Add one or more endpoint groups, one for each AWS Region in which you have endpoint resources\.
 
-1. Add one or more endpoints to endpoint groups\. This isn't required, but traffic won't be routed if you don't have any endpoints\. Endpoints can be Network Load Balancers, Application Load Balancers, Amazon EC2 instances, or Elastic IP addresses\.
+1. Add one or more endpoints to the endpoint groups\. This isn't required, but traffic won't be routed if you don't have any endpoints\. Endpoints can be Network Load Balancers, Application Load Balancers, Amazon EC2 instances, or Elastic IP addresses\.
 
-The following sections step through working with standard accelerators, listeners, endpoint groups, and endpoints\.
+The following sections provide steps for adding standard accelerators, including listeners, endpoint groups, and endpoints\.
 
 **Topics**
 + [Standard accelerators in AWS Global Accelerator](about-accelerators.md)

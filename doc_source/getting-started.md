@@ -15,11 +15,11 @@ This chapter includes two tutorials: one for creating a standard accelerator and
 
 ## Getting started with a standard accelerator<a name="getting-started-standard"></a>
 
-This section provides steps for creating a standard accelerator that routes traffic to an optimal endpoint\.
+This section provides steps for creating a standard accelerator, which routes traffic to an optimal endpoint\.
 
 **Tasks**
 + [ Before you begin](#getting-started-before-you-begin)
-+ [ Step 1: Create an accelerator](#getting-started-accelerator)
++ [ Step 1: Create a standard accelerator](#getting-started-accelerator)
 + [Step 2: Add listeners](#getting-started-create-listeners)
 + [Step 3: Add endpoint groups](#getting-started-add-endpoint-groups)
 + [Step 4: Add endpoints](#getting-started-add-endpoints)
@@ -30,15 +30,15 @@ This section provides steps for creating a standard accelerator that routes traf
 
 Before you create an accelerator, create at least one resource that you can add as an endpoint to direct traffic to\. For example, create one of the following:
 + Launch at least one Amazon EC2 instance to add as an endpoint\. For more information, see [Create your EC2 resources and launch your EC2 instance](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/gs-step-one-create-ec2-resources.html) in the *Amazon EC2 User Guide for Linux Instances*\. 
-+ Optionally, create one or more Network Load Balancers or Application Load Balancers that includes EC2 instances\. For more information, see [Create a Network Load Balancer Application Load Balancer](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/create-network-load-balancer.html) in the *User Guide for Network Load Balancers*\.
++ Optionally, create one or more Network Load Balancers or Application Load Balancers that includes EC2 instances\. For more information, see [Create a Network Load Balancer](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/create-network-load-balancer.html) in the *User Guide for Network Load Balancers*\.
 
 When you create a resource to add to Global Accelerator, be aware of the following:
 + When you add an internal Application Load Balancer or an EC2 instance endpoint in Global Accelerator, you enable internet traffic to flow directly to and from the endpoint in virtual private clouds \(VPCs\) by targeting it in a private subnet\. The VPC that contains the load balancer or EC2 instance must have an [internet gateway](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Internet_Gateway.html) attached to it, to indicate that the VPC accepts internet traffic\. For more information, see [Secure VPC connections in AWS Global Accelerator](secure-vpc-connections.md)\.
 + Global Accelerator requires your router and firewall rules to allow inbound traffic from the IP addresses associated with Route 53 health checkers to complete health checks for EC2 instance or Elastic IP address endpoints\. You can find information about the IP address ranges associated with Amazon Route 53 health checkers in [Health Checks for Your Target Groups](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/route-53-ip-addresses.html) in the *Amazon Route 53 Developer Guide*\.
 
-### Step 1: Create an accelerator<a name="getting-started-accelerator"></a>
+### Step 1: Create a standard accelerator<a name="getting-started-accelerator"></a>
 
-To create your accelerator, you enter a name\. 
+When you create a standard accelerator, you can choose IPv4 or dual\-stack for the static IP addresses Global Accelerator assigns to your accelerator\.
 
 **Note**  
 To complete this task by using an API operation instead of the console, see [CreateAccelerator](https://docs.aws.amazon.com/global-accelerator/latest/api/API_CreateAccelerator.html) in the *AWS Global Accelerator API Reference*\.
@@ -50,6 +50,10 @@ To complete this task by using an API operation instead of the console, see [Cre
 1. Choose **Create accelerator**\.
 
 1. Provide a name for your accelerator\.
+
+1. For **Accelerator type**, select **Standard**\.
+
+1. For **IP address type**, select **IPv4** or **Dual\-stack**\.
 
 1. Optionally, add one or more tags to help you identify your Global Accelerator resources\.
 
@@ -158,7 +162,7 @@ Be aware of the following when you remove endpoints or endpoint groups, or delet
 
 ## Getting started with a custom routing accelerator<a name="getting-started-custom-routing"></a>
 
-This section provides steps for creating a custom routing accelerator that routes traffic deterministically to Amazon EC2 instance destinations in virtual private cloud \(VPC\) subnet endpoints\.
+This section provides steps for creating a custom routing accelerator, which routes traffic deterministically to Amazon EC2 instance destinations in virtual private cloud \(VPC\) subnet endpoints\.
 
 **Tasks**
 + [ Before you begin](#getting-started-before-you-begin-custom)

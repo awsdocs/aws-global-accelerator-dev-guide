@@ -25,8 +25,8 @@ Support for Global Accelerator is available in several forms\.
 ## Tips from the Amazon Web Services Blog<a name="resources-aws-blog-tips"></a>
 
 The AWS Blog has a number of posts to help you use AWS services\. For example, see the following blog posts about Global Accelerator:
-+ [ AWS Global Accelerator for Availability and Performance](https://aws.amazon.com/blogs/startups/how-to-accelerate-your-wordpress-site-with-amazon-cloudfront/)
++ [AWS Global Accelerator for Availability and Performance](https://aws.amazon.com/blogs/startups/how-to-accelerate-your-wordpress-site-with-amazon-cloudfront/)
 + [ Traffic management with AWS Global Accelerator](https://aws.amazon.com/blogs/networking-and-content-delivery/traffic-management-with-aws-global-accelerator/)
 + [ Analyzing and visualizing AWS Global Accelerator flow logs using Amazon Athena and Amazon QuickSight](https://aws.amazon.com/blogs/networking-and-content-delivery/analyzing-and-visualizing-aws-global-accelerator-flow-logs-using-amazon-athena-and-amazon-quicksight/)
 
-For a complete list of AWS Global Accelerator blogs, see [ AWS Global Accelerator](https://aws.amazon.com/blogs/networking-and-content-delivery/category/networking-content-delivery/aws-global-accelerator/) in the Networking & Content Delivery category of AWS blog posts\.
+For a complete list of AWS Global Accelerator blogs, see [AWS Global Accelerator](https://aws.amazon.com/blogs/networking-and-content-delivery/category/networking-content-delivery/aws-global-accelerator/) in the Networking & Content Delivery category of AWS blog posts\.

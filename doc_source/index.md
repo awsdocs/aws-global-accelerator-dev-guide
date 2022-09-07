@@ -4,13 +4,13 @@
 *****Copyright &copy; Amazon Web Services, Inc. and/or its affiliates. All rights reserved.*****
 
 -----
-Amazon's trademarks and trade dress may not be used in 
-     connection with any product or service that is not Amazon's, 
-     in any manner that is likely to cause confusion among customers, 
-     or in any manner that disparages or discredits Amazon. All other 
-     trademarks not owned by Amazon are the property of their respective
-     owners, who may or may not be affiliated with, connected to, or 
-     sponsored by Amazon.
+Amazon's trademarks and trade dress may not be used in
+connection with any product or service that is not Amazon's,
+in any manner that is likely to cause confusion among customers,
+or in any manner that disparages or discredits Amazon. All other
+trademarks not owned by Amazon are the property of their respective
+owners, who may or may not be affiliated with, connected to, or
+sponsored by Amazon.
 
 -----
 ## Contents
@@ -42,6 +42,7 @@ Amazon's trademarks and trade dress may not be used in
       + [Overriding listener ports](about-endpoint-groups-port-override.md)
       + [Changing health check options](about-endpoint-groups-health-check-options.md)
    + [Endpoints for standard accelerators in AWS Global Accelerator](about-endpoints.md)
+      + [Adding, editing, or removing a standard endpoint](about-endpoints-adding-endpoints.md)
       + [Endpoint weights](about-endpoints-endpoint-weights.md)
       + [Adding endpoints with client IP address preservation](about-endpoints.sipp-caveats.md)
       + [Transitioning endpoints to use client IP address preservation](about-endpoints.transition-to-IP-preservation.md)
@@ -53,7 +54,7 @@ Amazon's trademarks and trade dress may not be used in
    + [Endpoint groups for custom routing accelerators in AWS Global Accelerator](about-custom-routing-endpoint-groups.md)
    + [VPC subnet endpoints for custom routing accelerators in AWS Global Accelerator](about-custom-routing-endpoints.md)
 + [DNS addressing and custom domains in AWS Global Accelerator](dns-addressing-custom-domains.md)
-   + [Support for DNS addressing in Global Accelerator](dns-addressing-custom-domains.dns-addressing.md)
+   + [Support for DNS addressing in AWS Global Accelerator](dns-addressing-custom-domains.dns-addressing.md)
    + [Route custom domain traffic to your accelerator](dns-addressing-custom-domains.mapping-your-custom-domain.md)
    + [Bring your own IP addresses (BYOIP) in AWS Global Accelerator](using-byoip.md)
 + [Preserve client IP addresses in AWS Global Accelerator](preserve-client-ip-address.md)

@@ -1,6 +1,6 @@
 # Location and IP address ranges of Global Accelerator edge servers<a name="introduction-ip-ranges"></a>
 
-For a list of Global Accelerator edge server locations, see *Global Edge Network* on the [ AWS Global Accelerator features](https://aws.amazon.com/global-accelerator/features/) page\.
+For a list of Global Accelerator edge server locations, see *Global Edge Network* on the [AWS Global Accelerator features](https://aws.amazon.com/global-accelerator/features/) page\.
 
 AWS publishes its current IP address ranges in JSON format\. To view the current ranges, download [ ip\-ranges\.json](https://ip-ranges.amazonaws.com/ip-ranges.json)\. For more information, see [AWS IP address ranges](https://docs.aws.amazon.com/general/latest/gr/aws-ip-ranges.html) in the *Amazon Web Services General Reference*\.
 

@@ -2,13 +2,14 @@
 
 The following entries describe important changes made to the AWS Global Accelerator documentation\.
 + **API version: latest**
-+ **Latest documentation update: **November 2, 2021
++ **Latest documentation update: **July 27, 2022
 
 
 ****  
 
 | Change | Description | Date | 
 | --- | --- | --- | 
+| Updates for dual\-stack accelerators | Global Accelerator now supports dual\-stack accelerators\. For IPv4, Global Accelerator provides two static IPv4 addresses\. For dual\-stack, Global Accelerator provides a total of four addresses: two static IPv4 addresses and two static IPv6 addresses\. For more information, see [https://docs.aws.amazon.com/global-accelerator/latest/dg/what-is-global-accelerator.html](https://docs.aws.amazon.com/global-accelerator/latest/dg/what-is-global-accelerator.html)\. | July 27, 2022 | 
 | Update to the Global Accelerator existing service\-linked role | Global Accelerator added new permissions, ec2:AssignIpv6Addresses and ec2:UnassignIpv6Addresses, to support IPv6 addresses\. For more information, see [https://docs.aws.amazon.com/global-accelerator/latest/dg/security-iam-awsmanpol-updates.html](https://docs.aws.amazon.com/global-accelerator/latest/dg/security-iam-awsmanpol-updates.html)\. | November 2, 2021 | 
 | Added new CloudWatch metrics | Global Accelerator has added two new CloudWatch metrics\. For more information, see [https://docs.aws.amazon.com/global-accelerator/latest/dg/cloudwatch-monitoring.html](https://docs.aws.amazon.com/global-accelerator/latest/dg/cloudwatch-monitoring.html)\. | October 28, 2021 | 
 | Update to the flow logs capture window | Global Accelerator has expanded the flow log capture window from 10 seconds to 60 seconds\. For more information, see [https://docs.aws.amazon.com/global-accelerator/latest/dg/monitoring-global-accelerator.flow-logs.html](https://docs.aws.amazon.com/global-accelerator/latest/dg/monitoring-global-accelerator.flow-logs.html)\. | July 30, 2021 | 

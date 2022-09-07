@@ -2,9 +2,9 @@
 
 This section lists common AWS Global Accelerator actions that you can use with Global Accelerator resources, with links to relevant documentation\.
 
-**Actions to use with standard resources**
+**Actions to use with standard accelerators**
 
-The following table lists common Global Accelerator actions that you can use with Global Accelerator standard accelerators, with links to relevant documentation\.
+The following table lists common Global Accelerator actions that you can use with standard accelerators, with links to relevant documentation\.
 
 
 | Action | Using the Global Accelerator Console | Using the Global Accelerator API | 
@@ -13,11 +13,11 @@ The following table lists common Global Accelerator actions that you can use wit
 | Create a listener for a standard accelerator | See [Listeners for standard accelerators in AWS Global Accelerator](about-listeners.md) | See [https://docs.aws.amazon.com/global-accelerator/latest/api/API_CreateListener.html](https://docs.aws.amazon.com/global-accelerator/latest/api/API_CreateListener.html) | 
 | Create a endpoint group for a standard accelerator | See [Endpoint groups for standard accelerators in AWS Global Accelerator](about-endpoint-groups.md) | See [https://docs.aws.amazon.com/global-accelerator/latest/api/API_CreateEndpointGroup.html](https://docs.aws.amazon.com/global-accelerator/latest/api/API_CreateEndpointGroup.html) | 
 | Update a standard accelerator | See [Standard accelerators in AWS Global Accelerator](about-accelerators.md) |  See [https://docs.aws.amazon.com/global-accelerator/latest/api/API_UpdateAccelerator.html](https://docs.aws.amazon.com/global-accelerator/latest/api/API_UpdateAccelerator.html)  | 
-| List your accelerators | See [Viewing your accelerators](about-accelerators.viewing.md) | See [https://docs.aws.amazon.com/global-accelerator/latest/api/API_ListAccelerators.html](https://docs.aws.amazon.com/global-accelerator/latest/api/API_ListAccelerators.html)  | 
+| List standard accelerators | See [Viewing your accelerators](about-accelerators.viewing.md) | See [https://docs.aws.amazon.com/global-accelerator/latest/api/API_ListAccelerators.html](https://docs.aws.amazon.com/global-accelerator/latest/api/API_ListAccelerators.html)  | 
 | Get all information about an accelerator | See [Viewing your accelerators](about-accelerators.viewing.md) |  See [https://docs.aws.amazon.com/global-accelerator/latest/api/API_DescribeAccelerator.html](https://docs.aws.amazon.com/global-accelerator/latest/api/API_DescribeAccelerator.html)  | 
 | Delete an accelerator | See [ Creating or updating a standard accelerator](about-accelerators.creating-editing.md) | See [https://docs.aws.amazon.com/global-accelerator/latest/api/API_DeleteAccelerator.html](https://docs.aws.amazon.com/global-accelerator/latest/api/API_DeleteAccelerator.html) | 
 
-**Actions to use with custom routing resources**
+**Actions to use with custom routing accelerators**
 
 The following table lists common Global Accelerator actions that you can use with custom routing accelerators, with links to relevant documentation\.
 

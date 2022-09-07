@@ -12,6 +12,8 @@ This section explains how to create or update standard accelerators on the conso
 
 1. For **Accelerator type**, select **Standard**\.
 
+1. For **Address type**, select **IPv4** or **Dual\-stack**\.
+
 1. Optionally, if you brought your own IP address ranges to AWS \(BYOIP\), you can specify a static IP address for your accelerator, one from each address pool\. Make this choice for each of the two static IP addresses for your accelerator\.
    + For each static IP address, choose the IP address pool to use\.
 **Note**  
@@ -28,6 +30,13 @@ You must choose a different IP address pool for each static IP address\. This re
 
 1. In the list of accelerators, choose one, and then choose **Edit**\.
 
-1. On the **Edit accelerator** page, make any changes that you like\. For example, you can disable the accelerator so that it no longer accepts or routes traffic, or so that you can delete it\. Or, if the accelerator is disabled, you can enable it\.
+1. On the **Edit accelerator** page, make any changes that you like\. For example, you can do the following:
+   + You can disable the accelerator so that it no longer accepts or routes traffic, or so that you can delete it\.
+   + If the accelerator is disabled, you can enable it\.
+   + If the IP address type is IPv4, you can change it to dual\-stack, or if it's dual\-stack, you can change it to IPv4\.
+**Note**  
+If you make changes to the IP address type, be aware of the following:  
+Only an accelerator that has dual\-stack endpoints can be changed to an IP address type of dual\-stack\.
+If you change the IP address type for an accelerator from dual\-stack to IPv4, Global Accelerator saves the IPv6 IP addresses that are assigned to the accelerator\. This means that if you change the IP address type for the accelerator back to dual\-stack, the original IPv6 static IP addresses are restored for it\. 
 
 1. Choose **Save changes**\.

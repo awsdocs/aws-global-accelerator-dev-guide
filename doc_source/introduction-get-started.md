@@ -6,7 +6,9 @@ To get started using Global Accelerator, you follow these general steps:
 
 1. **Choose the type of accelerator that you want to create: **A standard accelerator or a custom routing accelerator\.
 
-1. **Configure the initial setup for Global Accelerator:** Provide a name for your accelerator\. Then configure one or more listeners to process inbound connections from clients, based on the protocol and port \(or port range\) that you specify\.
+1. **Configure the initial setup for Global Accelerator:** Provide a name for your accelerator, then choose the type of accelerator and the address type\.
+
+1. **Configure one or more listeners for your accelerator:** Listeners process inbound connections from clients, based on the protocol and port \(or port range\) that you specify\.
 
 1. **Configure regional endpoint groups for your accelerator:** You can select one or more regional endpoint groups to add to your listener\. The listener routes requests to the endpoints that you've added to an endpoint group\. 
 

@@ -9,7 +9,7 @@ Before you begin to route traffic to endpoints that preserve the client IP addre
 
 Client IP address preservation is available only in specific AWS Regions\. For more information, see [Supported AWS Regions for client IP address preservation](preserve-client-ip-address.regions.md)\. 
 
-This section explains how to work with endpoint groups on the AWS Global Accelerator console\. If you want to use API operations with Global Accelerator, see the [ AWS Global Accelerator API Reference](https://docs.aws.amazon.com/global-accelerator/latest/api/Welcome.html)\.
+This section explains how to work with endpoint groups on the AWS Global Accelerator console\. If you want to use API operations with Global Accelerator, see the [AWS Global Accelerator API Reference](https://docs.aws.amazon.com/global-accelerator/latest/api/Welcome.html)\.
 
 After you move a small amount of traffic to the new endpoint with client IP address preservation, test to make sure that your configuration is working as you expect it to\. Then gradually increase the proportion of traffic to the new endpoint by adjusting the weights on the corresponding endpoints\.
 
@@ -19,7 +19,7 @@ To transition to endpoints that preserve client IP addresses, start by following
 
 1. Open the Global Accelerator console at [ https://console\.aws\.amazon\.com/globalaccelerator/home](https://console.aws.amazon.com/globalaccelerator/home)\. 
 
-1. On the **accelerators** page, choose an accelerator\.
+1. On the Accelerators page, choose an accelerator\.
 
 1. In the **Listeners** section, choose a listener\.
 

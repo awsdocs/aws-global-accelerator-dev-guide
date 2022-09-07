@@ -13,6 +13,9 @@ You can view the port mapping list for a custom routing accelerator programmatic
 **VPC subnet size**  
 VPC subnets that you add to a custom routing accelerator must be a minimum of /28 and a maximum of /17\.
 
+**IP address type**  
+Custom routing accelerators support only the IPv4 IP address type\.
+
 **Listener port ranges**  
 You must specify enough listener ports, by specifying listener port ranges, to accommodate the number of destinations included in the subnets that you plan to add to your custom routing accelerator\. The range that you specify when you create a listener determines how many listener port and destination IP address combinations that you can use with your custom routing accelerator\. For maximum flexibility and to reduce the possibility of getting an error that you don't have enough listener ports available, we recommend that you specify a large port range\.   
 Global Accelerator allocates port ranges in blocks when you add a subnet to a custom routing accelerator\. We recommend that you allocate listener port ranges linearly and make the ranges large enough to support the number of destination ports that you intend to have\. That is, the number of ports you should allocate should be at least the subnet size times the number of destination ports and protocols \(destination configurations\) that you will have in the subnet\.   

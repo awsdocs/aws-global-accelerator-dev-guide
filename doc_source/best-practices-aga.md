@@ -20,8 +20,10 @@ When Global Accelerator determines that an elastic network interface is not bein
 
 **Security groups created by Global Accelerator**  
 Review the following information and best practices when you work with Global Accelerator and security groups\.  
-+ Global Accelerator creates security groups that are associated with its elastic network interfaces\. Although the system doesn't prevent you from doing so, you shouldn't edit any of the security group settings for these groups\.
 + Global Accelerator doesn't delete security groups that it creates\. However, Global Accelerator does delete an elastic network interface if it isn't being used by any of the endpoints in accelerators in your account\.
 + You can use the security groups created by Global Accelerator as a source group in other security groups that you maintain, but Global Accelerator only forwards traffic to the targets that you specify in your VPC\.
 + If you modify the security group rules created by Global Accelerator, the endpoint might become unhealthy\. If that happens, contact [AWS Support](https://console.aws.amazon.com/support/home) for assistance\. 
 + Global Accelerator creates a specific security group for each VPC\. Elastic network interfaces that are created for the endpoints within a specific VPC all use the same security group, no matter which subnet an elastic network interface is associated with\.
+
+**Important**  
+Global Accelerator creates security groups that are associated with its elastic network interfaces\. Although the system doesn't prevent you from doing so, you shouldn't edit any of the security group settings for these groups\.

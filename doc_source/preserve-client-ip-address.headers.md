@@ -19,3 +19,9 @@ The following example shows an `X-Forwarded-For` request header for a client wit
 ```
 X-Forwarded-For: 203.0.113.7
 ```
+
+The following example shows an `X-Forwarded-For` request header for a client with an IPv6 address of 2001:DB8::21f:5bff:febf:ce22:8a2e\.
+
+```
+X-Forwarded-For: 2001:DB8::21f:5bff:febf:ce22:8a2e
+```

@@ -232,14 +232,14 @@ The following table describes the fields of a flow log record\.
 | `version` | The flow logs version\. | 
 | `aws_account_id` | The AWS account ID for the flow log\. | 
 | `accelerator_id` | The ID of the accelerator for which the traffic is recorded\. | 
-| `client_ip` | The source IPv4 address\. | 
+| `client_ip` | The source IPv4 or IPv6 address\. | 
 | `client_port` | The source port\. | 
 | `accelerator_ip` | The accelerator's IP address\. | 
 | `accelerator_port` | The accelerator's port\. | 
 | `endpoint_ip` | The destination IP address of the traffic\. | 
 | `endpoint_port` | The destination port of the traffic\. | 
 | `protocol` | The IANA protocol number of the traffic\. For more information, see [ Assigned Internet Protocol Numbers](https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml)\. | 
-| `ip_address_type` | IPv4\. | 
+| `ip_address_type` | IPv4 or IPv6\. | 
 | `packets` | The number of packets transferred during the capture window\. | 
 | `bytes` | The number of bytes transferred during the capture window\. | 
 | `start_time` | The time, in Unix seconds, of the start of the capture window\. | 
