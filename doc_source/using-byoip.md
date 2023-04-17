@@ -2,7 +2,7 @@
 
 AWS Global Accelerator uses static IP addresses as entry points for your accelerators\. These IP addresses are anycast from AWS edge locations\. By default, Global Accelerator provides static IP addresses from the [Amazon IP address pool](https://docs.aws.amazon.com/general/latest/gr/aws-ip-ranges.html)\. Instead of using the IP addresses that Global Accelerator provides, you can configure these entry points to be IPv4 addresses from your own address ranges\. This topic explains how to use your own IP address ranges with Global Accelerator\.
 
-You can bring part or all of your public IPv4 address ranges from your on\-premises network to your AWS account to use with Global Accelerator\. You continue to own the address ranges, but AWS advertises them on the internet\. 
+You can bring part or all of your public IPv4 address ranges from your on\-premises network to your AWS account to use with Global Accelerator\. You continue to own the address ranges, but AWS advertises them on the internet\. BYOIP with IPv6 is not supported at this time\.
 
 You can't use the IP addresses that you bring to AWS for one AWS service with another service\. The steps in this chapter describe how to bring your own IP address range for use in AWS Global Accelerator only\. For steps to bring your own IP address range for use in Amazon EC2, see [Bring your own IP addresses \(BYOIP\)](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-byoip.html) in the Amazon EC2 User Guide\.
 
