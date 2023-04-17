@@ -2,13 +2,16 @@
 
 The following entries describe important changes made to the AWS Global Accelerator documentation\.
 + **API version: latest**
-+ **Latest documentation update: **July 27, 2022
++ **Latest documentation update: **February 13, 2023
 
 
 ****  
 
 | Change | Description | Date | 
 | --- | --- | --- | 
+| Adds custom routing accelerator quotas | Adds custom routing accelerator quotas\. Global Accelerator also has quotas for standard accelerators\. For more information, see [Quotas for AWS Global Accelerator](https://docs.aws.amazon.com/global-accelerator/latest/dg/limits-global-accelerator.html)\. | February 13, 2023 | 
+| Updates the IAM guidance in the guide | Updated guide to align with the IAM best practices\. For more information, see [Security best practices in IAM](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html)\. | February 10, 2023 | 
+| Updates for AddEndpoints and RemoveEndpoints | Global Accelerator now supports adding and removing endpoints separately from using the UpdateEndpointGroup API operation, by using the new AddEndpoints and RemoveEndpoints API operations\. For more information, see [https://docs.aws.amazon.com/global-accelerator/latest/dg/global-accelerator-actions.html](https://docs.aws.amazon.com/global-accelerator/latest/dg/global-accelerator-actions.html)\. | October 20, 2022 | 
 | Updates for dual\-stack accelerators | Global Accelerator now supports dual\-stack accelerators\. For IPv4, Global Accelerator provides two static IPv4 addresses\. For dual\-stack, Global Accelerator provides a total of four addresses: two static IPv4 addresses and two static IPv6 addresses\. For more information, see [https://docs.aws.amazon.com/global-accelerator/latest/dg/what-is-global-accelerator.html](https://docs.aws.amazon.com/global-accelerator/latest/dg/what-is-global-accelerator.html)\. | July 27, 2022 | 
 | Update to the Global Accelerator existing service\-linked role | Global Accelerator added new permissions, ec2:AssignIpv6Addresses and ec2:UnassignIpv6Addresses, to support IPv6 addresses\. For more information, see [https://docs.aws.amazon.com/global-accelerator/latest/dg/security-iam-awsmanpol-updates.html](https://docs.aws.amazon.com/global-accelerator/latest/dg/security-iam-awsmanpol-updates.html)\. | November 2, 2021 | 
 | Added new CloudWatch metrics | Global Accelerator has added two new CloudWatch metrics\. For more information, see [https://docs.aws.amazon.com/global-accelerator/latest/dg/cloudwatch-monitoring.html](https://docs.aws.amazon.com/global-accelerator/latest/dg/cloudwatch-monitoring.html)\. | October 28, 2021 | 

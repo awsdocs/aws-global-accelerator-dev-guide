@@ -9,6 +9,7 @@ Global Accelerator does not support client IP address preservation for Network L
 
 When you plan for adding client IP address preservation, be aware of the following:
 + Before you add and begin to route traffic to endpoints that preserve the client IP address, make sure that all your required security configurations, for example, security groups, are updated to include the user client IP address on allow lists\. 
++ You might see client IP addresses in AWS WAF, instead of Global Accelerator IP addresses\. Client IP addresses appear in AWS WAF when you configure Global Accelerator for client IP address preservation and you enable AWS WAF to block connections from your Application Load Balancers that don't come from Global Accelerator\.
 + Client IP address preservation is supported only in specific AWS Regions\. For more information, see [Supported AWS Regions for client IP address preservation](preserve-client-ip-address.regions.md)\.
 
 **Topics**

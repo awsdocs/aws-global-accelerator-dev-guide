@@ -9,7 +9,7 @@ Security is a shared responsibility between AWS and you\. The [shared responsibi
 This documentation helps you understand how to apply the shared responsibility model when using Global Accelerator\. The following topics show you how to configure Global Accelerator to meet your security and compliance objectives\. You also learn how to use other AWS services that help you to monitor and secure your Global Accelerator resources\. 
 
 **Topics**
-+ [Identity and access management for AWS Global Accelerator](auth-and-access-control.md)
++ [Identity and Access Management for AWS Global Accelerator](security-iam.md)
 + [Secure VPC connections in AWS Global Accelerator](secure-vpc-connections.md)
 + [Logging and monitoring in AWS Global Accelerator](logging-and-monitoring.md)
 + [Compliance validation for AWS Global Accelerator](compliance-validation.md)

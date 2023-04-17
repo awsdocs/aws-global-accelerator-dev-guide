@@ -8,7 +8,9 @@ To set up a standard accelerator, do the following:
 
 1. Create an accelerator, and choose the standard accelerator option\.
 
-1. Add a listener with a specific set of ports or port range, and choose the protocol to accept: TCP, UDP, or both\.
+1. For **Address type**, select **IPv4** or **Dual\-stack**\.
+
+1. Add a listener with a specific set of ports or port range, and choose the protocol to accept: TCP or UDP\.
 
 1. Add one or more endpoint groups, one for each AWS Region in which you have endpoint resources\.
 

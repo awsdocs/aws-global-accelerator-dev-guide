@@ -14,14 +14,18 @@ Be aware of the following for specific types of Global Accelerator standard endp
 **Application Load Balancer endpoints**  
 + An Application Load Balancer endpoint can be internet\-facing or internal\. 
 + Application Load Balancers can be added as dual\-stack endpoints\. 
++ Global Accelerator only supports Application Load Balancers running inside an AWS Region\. Global Accelerator does not support an Application Load Balancer running as an endpoint in a Local Zone\.
 
 **Network Load Balancer endpoints**  
-+ A Network Load Balancer endpoint must be internet\-facing\. For Network Load Balancer endpoints, we recommend that you disable cross\-zone traffic for the load balancers to avoid connection collisions, which can result in increased TCP connection time\. For more information, see [ TCP Connection Delays](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/load-balancer-troubleshooting.html#tcp-delays) in the *Network Load Balancers User Guide*\.
++ A Network Load Balancer endpoint must be internet\-facing\. For Network Load Balancer endpoints, we recommend that you disable cross\-zone traffic for the load balancers to avoid connection collisions, which can result in increased TCP connection time\. For more information, see [ TCP Connection Delays](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/load-balancer-troubleshooting.html#tcp-delays) in the *User Guide for Network Load Balancers*\.
++ Global Accelerator only supports Network Load Balancers running inside an AWS Region\. Global Accelerator does not support a Network Load Balancer running as an endpoint in a Local Zone\.
 + Network Load Balancers cannot be added as dual\-stack endpoints\. 
 
 **Amazon EC2 instance endpoints**  
 + An EC2 instance endpoint can't be one of the following types: C1, CC1, CC2, CG1, CG2, CR1, CS1, G1, G2, HI1, HS1, M1, M2, M3, or T1\.
 + EC2 instances are supported as endpoints in only some AWS Regions\. For a list of supported Regions, see [Supported AWS Regions for client IP address preservation](preserve-client-ip-address.regions.md)\.
+
+  Global Accelerator only supports EC2 instances inside an AWS Region\. Global Accelerator does not support routing to an Elastic IP address as an endpoint in a Local Zone\.
 + We recommend that you remove an EC2 instance from Global Accelerator endpoint groups before you terminate the instance\. If you terminate an EC2 instance before you remove it from an endpoint group in Global Accelerator, and then you create another instance in the same VPC with the same private IP address, and health checks pass, Global Accelerator will route traffic to the new endpoint\. 
 + EC2 instances cannot be added as dual\-stack endpoints\. 
 
@@ -30,5 +34,6 @@ For all endpoints, when you configure resources as endpoints behind Global Accel
 **Topics**
 + [Adding, editing, or removing a standard endpoint](about-endpoints-adding-endpoints.md)
 + [Endpoint weights](about-endpoints-endpoint-weights.md)
++ [Avoiding connection collisions that result in TCP connection time delays](about-endpoints.avoid-connection-collisions.md)
 + [Adding endpoints with client IP address preservation](about-endpoints.sipp-caveats.md)
 + [Transitioning endpoints to use client IP address preservation](about-endpoints.transition-to-IP-preservation.md)

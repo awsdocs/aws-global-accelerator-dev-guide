@@ -18,9 +18,11 @@ The following are overall quotas for Global Accelerator\.
 
 | Entity | Quota | 
 | --- | --- | 
-| Accelerators per AWS account  | 20 You can [ request a quota increase](https://console.aws.amazon.com/servicequotas/home?region=us-east-1#!/services/globalaccelerator/quotas)\. | 
+| Standard accelerators per AWS account  | 20 You can [ request a quota increase](https://console.aws.amazon.com/servicequotas/home?region=us-east-1#!/services/globalaccelerator/quotas)\. | 
+| Custom routing accelerators per AWS account  | 10 You can [ request a quota increase](https://console.aws.amazon.com/servicequotas/home?region=us-east-1#!/services/globalaccelerator/quotas)\. | 
 | Listeners per accelerator  | 10 You can [ request a quota increase](https://console.aws.amazon.com/servicequotas/home?region=us-east-1#!/services/globalaccelerator/quotas)\. | 
 | Endpoint groups per accelerator, across all listeners | 42 | 
+| AWS Regions that Global Accelerator can point to, across all listeners and endpoint groups | 42 If your accelerator has one listener, you can point to all Global Accelerator supported Regions with your accelerator's endpoint group configuration\.  Note that the maximum number of Regions that you can reference in an accelerator using endpoint groups decreases proportionally as you increase the number of listeners\. Your \(total \# of listeners\) x \(\# of endpoint groups\) must not exceed 42\. | 
 | Port ranges per listener | 10 | 
 | Port overrides per endpoint group | 10 You can [ request a quota increase](https://console.aws.amazon.com/servicequotas/home?region=us-east-1#!/services/globalaccelerator/quotas)\. | 
 
@@ -35,7 +37,7 @@ The following are Global Accelerator quotas that apply to the number of endpoint
 | --- | --- | --- | 
 | Endpoint groups with more than one endpoint type  | Number of endpoints in an endpoint group containing more than one endpoint type\. | 10 | 
 | Endpoint groups with just Application Load Balancers  | Number of Application Load Balancers in an endpoint group containing only Application Load Balancer endpoints\. | 10 | 
-| Endpoint groups with just Network Load Balancers  | Number of Network Load Balancers in an endpoint group containing only Network Load Balancer endpoints\. | 10 | 
+| Endpoint groups with just Network Load Balancers  | Number of Network Load Balancers in an endpoint group containing only Network Load Balancer endpoints\. | 10 You can [ request a quota increase](https://console.aws.amazon.com/servicequotas/home?region=us-east-1#!/services/globalaccelerator/quotas)\. | 
 | Endpoint groups with just Amazon EC2 instances  | Number of EC2 instances in an endpoint group containing only EC2 instance endpoints\. | 10 You can [ request a quota increase](https://console.aws.amazon.com/servicequotas/home?region=us-east-1#!/services/globalaccelerator/quotas)\. | 
 | Endpoint groups with just Elastic IP addresses  | Number of Elastic IP addresses in an endpoint group containing only Elastic IP address endpoints\. | 10 You can [ request a quota increase](https://console.aws.amazon.com/servicequotas/home?region=us-east-1#!/services/globalaccelerator/quotas)\. | 
 | Endpoint groups with just Amazon Virtual Private Cloud subnets  | Number of Amazon VPC subnets in an endpoint group containing only subnet endpoints\. | 10 You can [ request a quota increase](https://console.aws.amazon.com/servicequotas/home?region=us-east-1#!/services/globalaccelerator/quotas)\. | 

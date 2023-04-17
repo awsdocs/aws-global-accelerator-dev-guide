@@ -9,7 +9,7 @@ Global Accelerator is a global service that supports endpoints in multiple AWS R
 By default, Global Accelerator provides you with static IP addresses that you associate with your accelerator\. The static IP addresses are anycast from the AWS edge network\. For IPv4, Global Accelerator provides two static IPv4 addresses\. For dual\-stack, Global Accelerator provides a total of four addresses: two static IPv4 addresses and two static IPv6 addresses\. For IPv4, instead of using the addresses that Global Accelerator provides, you can configure these entry points to be IPv4 addresses from your own IP address ranges that you bring to Global Accelerator \(BYOIP\)\. 
 
 **Important**  
-The static IP addresses remain assigned to your accelerator for as long as it exists, even if you disable the accelerator and it no longer accepts or routes traffic\. However, when you *delete* an accelerator, you lose the static IP addresses that are assigned to it, so you can no longer route traffic by using them\. You can use IAM policies, like tag\-based permissions with Global Accelerator, to limit the users who have permissions to delete an accelerator\. For more information, see [ Tag\-based policies](auth-and-access-control.md#access-control-manage-access-tag-policies)\.
+The static IP addresses remain assigned to your accelerator for as long as it exists, even if you disable the accelerator and it no longer accepts or routes traffic\. However, when you *delete* an accelerator, you lose the static IP addresses that are assigned to it, so you can no longer route traffic by using them\. You can use IAM policies, like tag\-based permissions with Global Accelerator, to limit the users who have permissions to delete an accelerator\. For more information, see [ABAC with Global Accelerator](security_iam_service-with-iam.md#security_iam_service-with-iam-tags)\.
 
 For standard accelerators, Global Accelerator uses the AWS global network to route traffic to the optimal regional endpoint based on health, client location, and policies that you configure, which increases the availability of your applications\. Endpoints for standard accelerators can be Network Load Balancers, Application Load Balancers, Amazon EC2 instances, or Elastic IP addresses that are located in one AWS Region or multiple Regions\. The service reacts instantly to changes in health or configuration to ensure that internet traffic from clients is always directed to healthy endpoints\.
 
@@ -19,7 +19,7 @@ Custom routing accelerators only support virtual private cloud \(VPC\) subnet en
 + [AWS Global Accelerator components](introduction-components.md)
 + [How AWS Global Accelerator works](introduction-how-it-works.md)
 + [Types of accelerators](introduction-accelerator-types.md)
-+ [Location and IP address ranges of Global Accelerator edge servers](introduction-ip-ranges.md)
++ [Location and IP address ranges of Global Accelerator Edge servers](introduction-ip-ranges.md)
 + [AWS Global Accelerator use cases](introduction-benefits-of-migrating.md)
 + [AWS Global Accelerator Speed Comparison Tool](introduction-speed-comparison-tool.md)
 + [How to get started with AWS Global Accelerator](introduction-get-started.md)

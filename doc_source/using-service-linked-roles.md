@@ -1,32 +1,33 @@
 # Service\-linked role for Global Accelerator<a name="using-service-linked-roles"></a>
 
-AWS Global Accelerator uses an AWS Identity and Access Management \(IAM\)[ service\-linked role](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_terms-and-concepts.html#iam-term-service-linked-role)\. A service\-linked role is a unique type of IAM role that is linked directly to a service\. Service\-linked roles are predefined by the service and include all of the permissions that the service requires to call other AWS services on your behalf\.
+AWS Global Accelerator uses an AWS Identity and Access Management \(IAM\)[ service\-linked role](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_terms-and-concepts.html#iam-term-service-linked-role)\. A service\-linked role is a unique type of IAM role that is linked directly to Global Accelerator\. The service\-linked role is predefined by Global Accelerator and includes all the permissions that the service requires to call other AWS services on your behalf\. 
 
-Global Accelerator uses the following IAM service\-linked role:
-+ **AWSServiceRoleForGlobalAccelerator**–Global Accelerator uses this role to allow Global Accelerator to create and manage resources required for client IP address preservation\.
+A service\-linked role makes setting up Global Accelerator easier because you don’t have to manually add the necessary permissions\. Global Accelerator defines the permissions of its service\-linked role, and unless defined otherwise, only Global Accelerator can assume its role\. The defined permissions include the trust policy and the permissions policy, and that permissions policy cannot be attached to any other IAM entity\.
 
-Global Accelerator automatically creates a role named AWSServiceRoleForGlobalAccelerator when the role is first required to support a Global Accelerator API operation\. The AWSServiceRoleForGlobalAccelerator role allows Global Accelerator create and manage resources necessary for client IP address preservation\. This role is required for using accelerators in Global Accelerator\. The ARN for the AWSServiceRoleForGlobalAccelerator role looks like this:
+You can delete a service\-linked role only after first deleting its related resources\. This protects your Global Accelerator resources because you can't inadvertently remove permission to access the resources\.
 
-`arn:aws:iam::123456789012:role/aws-service-role/globalaccelerator.amazonaws.com/AWSServiceRoleForGlobalAccelerator`
-
-A service\-linked role makes setting up and using Global Accelerator easier because you don’t have to manually add the necessary permissions\. Global Accelerator defines the permissions of its service\-linked role, and only Global Accelerator can assume the roles\. The defined permissions include the trust policy and the permissions policy\. The permissions policy cannot be attached to any other IAM entity\.
-
-You must remove any associated Global Accelerator resources before you can delete a service\-linked role\. This helps protect your Global Accelerator resources by making sure that you don't remove a service\-linked role that is still required to access active resources\.
-
-For information about other services that support service\-linked roles, see [AWS services that work with IAM](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.html) and look for the services that have **Yes **in the **Service\-linked role** column\.
+For information about other services that support service\-linked roles, see [AWS services that work with IAM](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.html) and look for the services that have **Yes **in the **Service\-linked role** column\. Choose a **Yes** with a link to view the service\-linked role documentation for that service\.
 
 ## Service\-linked role permissions for Global Accelerator<a name="slr-permissions"></a>
 
-Global Accelerator uses a service\-linked role named **AWSServiceRoleForGlobalAccelerator**\. The following sections describe the permissions for the role\.
+AWS Global Accelerator uses a service\-linked role named **AWSServiceRoleForGlobalAccelerator**\.
+
+Global Accelerator automatically creates a role named AWSServiceRoleForGlobalAccelerator when the role is first required to support a Global Accelerator API operation\. The AWSServiceRoleForGlobalAccelerator role allows Global Accelerator to create and manage resources necessary for client IP address preservation\. This role is required for using accelerators in Global Accelerator\. The ARN for the AWSServiceRoleForGlobalAccelerator role looks like this:
+
+`arn:aws:iam::123456789012:role/aws-service-role/globalaccelerator.amazonaws.com/AWSServiceRoleForGlobalAccelerator`
+
+The following sections describe the permissions for the role\.
 
 ### Service\-linked role permissions<a name="slr-permissions-aga"></a>
 
-This service\-linked role allows Global Accelerator to manage EC2 Elastic Network Interfaces and security groups, and to help diagnose errors\.
+Global Accelerator uses the service\-linked role named **AWSServiceRoleForGlobalAccelerator** to access resources and configurations to check readiness\.
+
+This service\-linked role uses the managed policy [AWSServiceRoleForGlobalAccelerator](https://console.aws.amazon.com/iam/home#policies/arn:aws:iam::aws:policy/AWSServiceRoleForGlobalAccelerator)\. 
 
 The AWSServiceRoleForGlobalAccelerator service\-linked role trusts the following service to assume the role:
 + `globalaccelerator.amazonaws.com`
 
-The role permissions policy allows Global Accelerator to complete the following actions on the specified resources, as shown in the policy:
+The role permissions policy allows Global Accelerator to complete the following actions on the specified resources:
 
 ```
 {
@@ -116,16 +117,9 @@ If you have disabled and deleted your accelerators but Global Accelerator hasn't
 
 1. Watch the IAM console notifications to monitor the progress of the service\-linked role deletion\. Because the IAM service\-linked role deletion is asynchronous, after you submit the role for deletion, the deletion task can succeed or fail\. For more information, see [Deleting a service\-linked role](https://docs.aws.amazon.com/IAM/latest/UserGuide/using-service-linked-roles.html#delete-service-linked-role) in the *IAM User Guide*\.
 
-## Updates to the policy for the Global Accelerator service\-linked role \(an AWS managed policy\)<a name="security-iam-awsmanpol-updates"></a>
+## Updates to the policy for the Global Accelerator service\-linked role<a name="security-iam-awsmanpol-updates"></a>
 
-View details about updates to `AWSGlobalAcceleratorSLRPolicy`, the AWS managed policy for the Global Accelerator service\-linked role\. The following table lists updates since this service began tracking changes to the policy\. For automatic alerts about changes to this page, subscribe to the RSS feed on the AWS Global Accelerator [Document history](WhatsNew.md) page\.
-
-
-| Change | Description | Date | 
-| --- | --- | --- | 
-|   [AWSGlobalAcceleratorSLRPolicy](https://console.aws.amazon.com/iam/home#policies/arn:aws:iam::aws:policy/aws-service-role/AWSGlobalAcceleratorSLRPolicy) – Updated policy  |  Global Accelerator added new permissions to support IPv6 addresses\. Global Accelerator uses `ec2:AssignIpv6Addresses` to update the GlobalAccelerator ENI on a customer subnet with an IPv6 address for sending and receiving IPv6 traffic, and uses `UnassignIpv6Addresses` to remove the IPv6 address when it's no longer needed\.  | November 15, 2021 | 
-|   [AWSGlobalAcceleratorSLRPolicy](https://console.aws.amazon.com/iam/home#policies/arn:aws:iam::aws:policy/aws-service-role/AWSGlobalAcceleratorSLRPolicy) – Updated policy  |  Global Accelerator added a new permission to help Global Accelerator to diagnose errors\. Global Accelerator uses `ec2:DescribeRegions` to determine the AWS Region that a customer is in, which can help Global Accelerator to troubleshoot errors\.  | May 18, 2021 | 
-|  Global Accelerator started tracking changes  |  Global Accelerator started tracking changes for its AWS managed policies\.  | May 18, 2021 | 
+For updates to `AWSGlobalAcceleratorSLRPolicy`, the AWS managed policy for the Global Accelerator service\-linked role, see the [AWS managed policies updates table](security-iam-awsmanpol-aga.md#security-iam-awsmanpol-globalaccelerator-updates)\. You can also subscribe to automatic RSS alerts on the AWS Global Accelerator [Document history](WhatsNew.md) page\.
 
 ## Supported Regions for Global Accelerator service\-linked roles<a name="slr-regions"></a>
 

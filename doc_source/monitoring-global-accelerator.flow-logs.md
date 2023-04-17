@@ -6,10 +6,10 @@ Flow logs can help you with a number of tasks\. For example, you can troubleshoo
 
 A flow log record represents a network flow in your flow log\. Each record captures the network flow for a specific 5\-tuple, for a specific capture window\. A 5\-tuple is a set of five different values that specify the source, destination, and protocol for an IP flow\. The capture window is a duration of time during which the flow logs service aggregates data before publishing flow log records\. The capture window is up to 1 minute\.
 
-CloudWatch Logs charges apply when using flow logs, even when logs are published directly to Amazon S3\. For more information, see *Deliver Logs to S3* at [Amazon CloudWatch Pricing](https://aws.amazon.com/cloudwatch/pricing/)\.
+CloudWatch Logs charges apply when using flow logs, even when logs are published directly to Amazon S3\. For more information, see *Vended Logs* under the *Logs* tab at [Amazon CloudWatch Pricing](http://aws.amazon.com/cloudwatch/pricing/)\.
 
 **Tip**  
-Using Amazon Athena and Amazon QuickSight with your Global Accelerator flow log data can help you troubleshoot reachability issues for your application, identify security vulnerabilities, and get an overview of how users access your application\. To learn more, see the following AWS blog post: [ Analyzing and visualizing AWS Global Accelerator flow logs using Amazon Athena and Amazon QuickSight](https://aws.amazon.com/blogs/networking-and-content-delivery/analyzing-and-visualizing-aws-global-accelerator-flow-logs-using-amazon-athena-and-amazon-quicksight/)\.
+Using Amazon Athena and Amazon QuickSight with your Global Accelerator flow log data can help you troubleshoot reachability issues for your application, identify security vulnerabilities, and get an overview of how users access your application\. To learn more, see the following AWS blog post: [ Analyzing and visualizing AWS Global Accelerator flow logs using Amazon Athena and Amazon QuickSight](http://aws.amazon.com/blogs/networking-and-content-delivery/analyzing-and-visualizing-aws-global-accelerator-flow-logs-using-amazon-athena-and-amazon-quicksight/)\.
 
 **Topics**
 + [Publishing flow logs to Amazon S3](#monitoring-global-accelerator.flow-logs-publishing-S3)
@@ -20,7 +20,7 @@ Using Amazon Athena and Amazon QuickSight with your Global Accelerator flow log 
 
 Flow logs for AWS Global Accelerator are published to Amazon S3 to an existing S3 bucket that you specify\. Flow log records are published to a series of log file objects that are stored in the bucket\. 
 
-To create an Amazon S3 bucket for use with flow logs, see [Create a Bucket](https://docs.aws.amazon.com/AmazonS3/latest/gsg/CreatingABucket.html) in the *Amazon Simple Storage Service User Guide*\.
+To create an Amazon S3 bucket for use with flow logs, see [Create your first S3 bucket](https://docs.aws.amazon.com/AmazonS3/latest/gsg/CreatingABucket.html) in the *Amazon Simple Storage Service User Guide*\.
 
 ### Flow logs files<a name="monitoring-global-accelerator.flow-logs-publishing-S3.files"></a>
 
@@ -58,7 +58,7 @@ A single flow log file contains interleaved entries with multiple 5\-tuple recor
 
 ### IAM roles for publishing flow logs to Amazon S3<a name="monitoring-global-accelerator.flow-logs-publishing-S3.roles"></a>
 
-An IAM principal, such as an IAM user, must have sufficient permissions to publish flow logs to the Amazon S3 bucket\. The IAM policy must include the following permissions:
+An IAM principal, such as an IAM role or user, must have sufficient permissions to publish flow logs to the Amazon S3 bucket\. The IAM policy must include the following permissions:
 
 ```
 {
@@ -123,7 +123,7 @@ If the user creating the flow log owns the bucket, the service automatically att
 }
 ```
 
-If the user creating the flow log does not own the bucket, or does not have the `GetBucketPolicy` and `PutBucketPolicy` permissions for the bucket, the flow log creation fails\. In this case, the bucket owner must manually add the preceding policy to the bucket and specify the flow log creator's AWS account ID\. For more information, see [How Do I Add an S3 Bucket Policy?](https://docs.aws.amazon.com/AmazonS3/latest/gsg/add-bucket-policy.html) in the *Amazon Simple Storage Service User Guide*\. If the bucket receives flow logs from multiple accounts, add a `Resource` element entry to the `AWSLogDeliveryWrite` policy statement for each account\. 
+If the user creating the flow log does not own the bucket, or does not have the `GetBucketPolicy` and `PutBucketPolicy` permissions for the bucket, the flow log creation fails\. In this case, the bucket owner must manually add the preceding policy to the bucket and specify the flow log creator's AWS account ID\. For more information, see [Adding a bucket policy by using the Amazon S3 console ](https://docs.aws.amazon.com/AmazonS3/latest/gsg/add-bucket-policy.html) in the *Amazon Simple Storage Service User Guide*\. If the bucket receives flow logs from multiple accounts, add a `Resource` element entry to the `AWSLogDeliveryWrite` policy statement for each account\. 
 
 For example, the following bucket policy allows AWS accounts 123123123123 and 456456456456 to publish flow logs to a folder named `flow-logs` in a bucket named `log-bucket`:
 
@@ -158,7 +158,7 @@ We recommend that you grant the `AWSLogDeliveryAclCheck` and `AWSLogDeliveryWrit
 
 ### Required CMK key policy for use with SSE\-KMS buckets<a name="monitoring-global-accelerator.flow-logs-publishing-S3.encrypt-kms"></a>
 
-If you enabled server\-side encryption for your Amazon S3 bucket using AWS KMS\-managed keys \(SSE\-KMS\) with a customer\-managed customer master key \(CMK\), you must add the following to the key policy for your CMK so that flow logs can write log files to the bucket:
+If you enabled server\-side encryption for your Amazon S3 bucket using AWS KMS\-managed keys \(SSE\-KMS\) with a customer\-managed CMK, you must add the following to the key policy for your CMK so that flow logs can write log files to the bucket:
 
 ```
 {
@@ -176,7 +176,7 @@ If you enabled server\-side encryption for your Amazon S3 bucket using AWS KMS\-
 
 ### Amazon S3 log file permissions<a name="monitoring-global-accelerator.flow-logs-publishing-S3.log-file-permissions"></a>
 
-In addition to the required bucket policies, Amazon S3 uses access control lists \(ACLs\) to manage access to the log files created by a flow log\. By default, the bucket owner has `FULL_CONTROL` permissions on each log file\. The log delivery owner, if different from the bucket owner, has no permissions\. The log delivery account has `READ` and `WRITE` permissions\. For more information, see [Access Control List \(ACL\) Overview](https://docs.aws.amazon.com/AmazonS3/latest/gsg/acl-overview.html) in the *Amazon Simple Storage Service User Guide*\.
+In addition to the required bucket policies, Amazon S3 uses access control lists \(ACLs\) to manage access to the log files created by a flow log\. By default, the bucket owner has `FULL_CONTROL` permissions on each log file\. The log delivery owner, if different from the bucket owner, has no permissions\. The log delivery account has `READ` and `WRITE` permissions\. For more information, see [Access control list \(ACL\) overview](https://docs.aws.amazon.com/AmazonS3/latest/gsg/acl-overview.html) in the *Amazon Simple Storage Service User Guide*\.
 
 ### Enable publishing flow logs to Amazon S3<a name="monitoring-global-accelerator.flow-logs-publishing-S3.enable"></a>
 
@@ -246,8 +246,8 @@ The following table describes the fields of a flow log record\.
 | `end_time` | The time, in Unix seconds, of the end of the capture window\. | 
 | `action` | The action associated with the traffic: [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/global-accelerator/latest/dg/monitoring-global-accelerator.flow-logs.html)  | 
 | `log-status` | The logging status of the flow log: [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/global-accelerator/latest/dg/monitoring-global-accelerator.flow-logs.html)  | 
-| `globalaccelerator_source_ip` | The IP address used by the Global Accelerator network interface\. | 
-| `globalaccelerator_source_port` | The port used by the Global Accelerator network interface\. | 
+| `globalaccelerator_source_ip` | The IP address used by the Global Accelerator network interface\. If client IP address preservation is enabled, this value is set to \- \(hyphen\)\. For more information, see [Preserve client IP addresses in AWS Global Accelerator](preserve-client-ip-address.md)\. | 
+| `globalaccelerator_source_port` | The port used by the Global Accelerator network interface\. If client IP address preservation is enabled, this value is set to 0 \(zero\)\. For more information, see [Preserve client IP addresses in AWS Global Accelerator](preserve-client-ip-address.md)\. | 
 | `endpoint_region` | The AWS Region where the endpoint is located\. | 
 | `globalaccelerator_region` | The edge location \(point of presence\) that served the request\. Each edge location has a three\-letter code and an arbitrarily assigned number, for example, DFW3\. The three\-letter code typically corresponds with the International Air Transport Association airport code for an airport near the edge location\. \(These abbreviations might change in the future\.\) | 
 | `direction` | The direction of the traffic\. Denotes traffic coming into the Global Accelerator network \(`INGRESS`\) or returning to the client \(`EGRESS`\)\. | 

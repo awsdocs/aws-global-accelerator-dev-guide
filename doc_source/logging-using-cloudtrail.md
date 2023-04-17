@@ -17,17 +17,21 @@ For an ongoing record of events in your AWS account, including events for Global
 All Global Accelerator actions are logged by CloudTrail and are documented in the [AWS Global Accelerator API Reference](https://docs.aws.amazon.com/global-accelerator/latest/api/Welcome.html)\. For example, calls to the  `CreateAccelerator`, `ListAccelerators` and `UpdateAccelerator` operations generate entries in the CloudTrail log files\. 
 
 Every event or log entry contains information about who generated the request\. The identity information helps you determine the following: 
-+ Whether the request was made with root or IAM user credentials
++ Whether the request was made with root or AWS Identity and Access Management \(IAM\) user credentials
 + Whether the request was made with temporary security credentials for a role or federated user
 + Whether the request was made by another AWS service
 
 For more information, see the [CloudTrail userIdentity Element](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-event-reference-user-identity.html)\.
 
+## Viewing Global Accelerator events in event history<a name="amazon-aga-events-in-cloudtrail-event-history"></a>
+
+CloudTrail lets you view recent events in **Event history**\. To view events for Global Accelerator API requests, you must choose **US West \(Oregon\)** in the Region selector at the top of the console\. For more information, see [Viewing events with CloudTrail event history](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/view-cloudtrail-events.html) in the *AWS CloudTrail User Guide*\.
+
 ## Understanding Global Accelerator log file entries<a name="understanding-global-accelerator-entries"></a>
 
-A trail is a configuration that enables delivery of events as log files to an Amazon S3 bucket that you specify\. Each JSON\-formatted CloudTrail log file can contain one or more log entries\. A log entry represents a single request from any source and includes information about the requested action, including any parameters, the date and time of the action, and so on\. The log entries are not guaranteed to be in any particular order; they are not an ordered stack trace of API calls\.
+A trail is a configuration that enables delivery of events as log files to an Amazon S3 bucket that you specify\. Each JSON\-formatted CloudTrail log file contains one or more log entries\. A log entry represents a single request from any source and includes information about the requested action, including any parameters, the date and time of the action, and so on\. CloudTrail log files aren't an ordered stack trace of the public API calls, so they don't appear in any specific order\.
 
-The following example shows a CloudTrail log entry that includes these Global Accelerator actions:
+The following example shows a CloudTrail log entry that includes the following Global Accelerator actions:
 + Listing the accelerators for an account: `eventName` is `ListAccelerators`\.
 + Creating a listener: `eventName` is `CreateListener`\.
 + Updating a listener: `eventName` is `UpdateListener`\.

@@ -15,3 +15,6 @@ Now, say you have 100 requests coming to your accelerator, with 50 from the East
 + The first 25 requests on each coast \(50 requests in total\) are served from their nearby endpoint group\. That is, 25 requests are directed to the endpoint group in `us-west-2` and 25 are directed to the endpoint group in `us-east-1`\.
 + The next 50 requests are directed to the opposite Regions\. That is, the next 25 requests from the East Coast are served by `us-west-2`, and the next 25 requests from the West Coast are served by `us-east-1`\.
 The result in this scenario is that both endpoint groups serve the same amount of traffic\. However, each one receives a mix of traffic from both Regions\.
+
+**Load sharing multi\-Region architectures**  
+You can configure the traffic dial and endpoint weights to implement complex scenarios as well, to configure load sharing between application endpoints\. With these Global Accelerator features, you can deploy and run applications in multi\-Region architectures, including active\-active and active\-standby setups\. For more information and detailed examples, see the following blog post: [ Deploying multi\-Region applications in AWS using AWS Global Accelerator](http://aws.amazon.com/blogs/networking-and-content-delivery/deploying-multi-region-applications-in-aws-using-aws-global-accelerator/)

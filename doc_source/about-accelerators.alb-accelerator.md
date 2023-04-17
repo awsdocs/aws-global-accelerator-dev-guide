@@ -3,7 +3,7 @@
 When you create an Application Load Balancer in the AWS Management Console, you can optionally [ add an accelerator at the same time](https://docs.aws.amazon.com/elasticloadbalancing/latest/application/create-application-load-balancer.html)\. Elastic Load Balancing and Global Accelerator work together to transparently add the accelerator for you\. The accelerator is created in your account, with the load balancer as an endpoint\. Using an accelerator provides static IP addresses and improves the availability and performance of your applications\. \(Learn more about accelerators by reading [What is AWS Global Accelerator?](what-is-global-accelerator.md)\.\)
 
 **Important**  
-To create an accelerator, you must have the correct permissions in place\. For more information, see [Permissions required for console access, authentication management, and access control](auth-and-access-control.md#auth_access_required-permissions)\.
+To create an accelerator, you must have the correct permissions in place\. For more information, see [Identity\-based policy examples for AWS Global Accelerator](security_iam_id-based-policy-examples.md)\.
 
 ## Configure and view your accelerator<a name="about-accelerators.elb-accelerator.config"></a>
 

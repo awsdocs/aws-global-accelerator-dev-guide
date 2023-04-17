@@ -145,7 +145,7 @@ The following is an example of provisioning an address range\.
 
 ```
 aws globalaccelerator provision-byoip-cidr 
-    --cidr 203.0.113.25/24
+    --cidr 203.0.113.0/24
     --cidr-authorization-context Message="$text_message",Signature="$signed_message"
 ```
 
@@ -223,7 +223,7 @@ The following is an example of requesting Global Accelerator to withdraw an addr
 
 ```
 aws globalaccelerator withdraw-byoip-cidr 
-    --cidr 203.0.113.25/24
+    --cidr 203.0.113.0/24
 ```
 
 ## Deprovision the address range<a name="using-byoip.deprovision"></a>

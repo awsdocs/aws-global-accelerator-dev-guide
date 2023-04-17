@@ -30,13 +30,24 @@ You must choose a different IP address pool for each static IP address\. This re
 
 1. In the list of accelerators, choose one, and then choose **Edit**\.
 
-1. On the **Edit accelerator** page, make any changes that you like\. For example, you can do the following:
-   + You can disable the accelerator so that it no longer accepts or routes traffic, or so that you can delete it\.
-   + If the accelerator is disabled, you can enable it\.
-   + If the IP address type is IPv4, you can change it to dual\-stack, or if it's dual\-stack, you can change it to IPv4\.
-**Note**  
-If you make changes to the IP address type, be aware of the following:  
-Only an accelerator that has dual\-stack endpoints can be changed to an IP address type of dual\-stack\.
-If you change the IP address type for an accelerator from dual\-stack to IPv4, Global Accelerator saves the IPv6 IP addresses that are assigned to the accelerator\. This means that if you change the IP address type for the accelerator back to dual\-stack, the original IPv6 static IP addresses are restored for it\. 
+1. On the **Edit accelerator** page, make changes, such as the following:
+   + Change the name of the accelerator\.
+   + Disable the accelerator so that it no longer accepts or routes traffic, or so that you can delete it\. 
+   + Enable the accelerator, if it is disabled\.
+   + Update the IP address type\. If it's set to IPv4, change it to dual\-stack\. Or if it's dual\-stack, change it to IPv4\.
+   + Update tags\.
 
 1. Choose **Save changes**\.
+
+If you disable an accelerator, be aware of the following:
++ Static IP addresses remain assigned to your accelerator even if you disable the accelerator and it no longer accepts or routes traffic\. Your accelerator retains the same static IP addresses for as long as the accelerator exists\.
++ If you delete the accelerator, however, you lose the static IP addresses that are assigned to it\. At that time, you can no longer route traffic by using the addresses\.
+
+If you make changes to the IP address type, be aware of the following:
++ Only an accelerator that has dual\-stack endpoints can be changed to an IP address type of dual\-stack\.
++ If you change the IP address type for an accelerator from dual\-stack to IPv4, Global Accelerator saves the IPv6 IP addresses that are assigned to the accelerator\. This means that if you change the IP address type for the accelerator back to dual\-stack, the original IPv6 static IP addresses are restored for the accelerator\. 
+
+If you want to change other functionality for your accelerator, such as adding or removing endpoints, updating traffic dials, or adjusting endpoint weights, see the specific sections that cover those topics, such as the following:
++ [Adding, editing, or removing a standard listener](about-listeners.creating-listeners.md)
++ [ Adding, editing, or removing a standard endpoint group](about-endpoint-groups.create-endpoint-group.md)
++ [Adding, editing, or removing a standard endpoint](about-endpoints-adding-endpoints.md)

@@ -4,7 +4,7 @@ Tags are words or phrases \(metadata\) that you use to identify and organize you
 
 The following are two examples of how it can be useful to work with tags in Global Accelerator:
 + Use tags to track billing information in different categories\. To do this, apply tags to accelerators or other AWS resources \(such as Network Load Balancers, Application Load Balancers, or Amazon EC2 instances\) and activate the tags\. Then AWS generates a cost allocation report as a comma\-separated value \(CSV file\) with your usage and costs aggregated by your active tags\. You can apply tags that represent business categories \(such as cost centers, application names, or owners\) to organize your costs across multiple services\. For more information, see [Using Cost Allocation Tags](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html) in the *AWS Billing User Guide*\.
-+ Use tags to enforce tag\-based permissions for accelerators\. To do this, create IAM policies that specify tags and tag values to allow or disallow actions\. For more information, see [ Tag\-based policies](auth-and-access-control.md#access-control-manage-access-tag-policies)\.
++ Use tags to enforce tag\-based permissions for accelerators\. To do this, create IAM policies that specify tags and tag values to allow or disallow actions\. For more information, see [ABAC with Global Accelerator](security_iam_service-with-iam.md#security_iam_service-with-iam-tags)\.
 
 For usage conventions and links to other resources about tagging, see [Tagging AWS resources](https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html) in the *AWS General Reference*\. For tips on using tags, see [ Tagging Best Practices: AWS Resource Tagging Strategy](https://d1.awsstatic.com/whitepapers/aws-tagging-best-practices.pdf) in the *AWS Whitepapers* blog\.
 
@@ -20,7 +20,7 @@ You can add and update tags by using the AWS console, AWS CLI, or Global Acceler
 
 AWS Global Accelerator supports tagging for accelerators\.
 
-Global Accelerator supports the tag\-based access control feature of AWS Identity and Access Management \(IAM\)\. For more information, see [ Tag\-based policies](auth-and-access-control.md#access-control-manage-access-tag-policies)\.
+Global Accelerator supports the tag\-based access control feature of AWS Identity and Access Management \(IAM\)\. For more information, see [ABAC with Global Accelerator](security_iam_service-with-iam.md#security_iam_service-with-iam-tags)\.
 
 ## Adding, editing, and deleting tags in Global Accelerator<a name="tagging-add-edit-delete"></a>
 

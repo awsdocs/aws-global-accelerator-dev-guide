@@ -15,14 +15,13 @@ With some endpoint types \([in some AWS Regions](preserve-client-ip-address.regi
 
 Global Accelerator terminates TCP connections from clients at AWS edge locations and, almost concurrently, establishes a new TCP connection with your endpoints\. This gives clients faster response times \(lower latency\) and increased throughput\.
 
-In standard accelerators, Global Accelerator continuously monitors the health of all endpoints, and instantly begins directing traffic to another available endpoint when it determines that an active endpoint is unhealthy\. This allows you to create a high\-availability architecture for your applications on AWS\. Health checks aren't used with custom routing accelerators and there is no failover, because you specify the destination to route traffic to\.
+In standard accelerators, Global Accelerator continuously monitors the health of all endpoints, and instantly begins directing traffic for all new connections to another available endpoint when it determines that an active endpoint is unhealthy\. This allows you to create a high\-availability architecture for your applications on AWS\. Health checks aren't used with custom routing accelerators and there is no failover, because you specify the destination to route traffic to\.
 
 When you add an accelerator, security groups and AWS WAF rules that you have already configured continue to work as they did before you added the accelerator\.
 
 If you want fine\-grained control over your global traffic, you can configure weights for your endpoints in a standard accelerator\. You can also increase \(dial up\) or decrease \(dial down\) the percentage of traffic to a particular endpoint group, for example, for performance testing or stack upgrades\. 
 
 Be aware of the following when you use Global Accelerator:
-+ **IP address advertising:** AWS Direct Connect does not advertise IP address prefixes for AWS Global Accelerator over a public virtual interface\. We recommend that you do not advertise IP addresses that you use to communicate with Global Accelerator over your AWS Direct Connect public virtual interface\. If you advertise IP addresses that you use to communicate with Global Accelerator over your AWS Direct Connect public virtual interface, it will result in an asymmetric traffic flow: your traffic toward Global Accelerator goes to Global Accelerator over the internet, but return traffic coming to your on\-premises network comes over your AWS Direct Connect public virtual interface\.
 + **IP fragmentation:** IP packets that are too large to fit into a standard Ethernet frame \(1500\+ bytes\) when transmitted across the internet or other large networks are fragmented by intermediate routers and sent individually\. The TCP protocol does not require IP fragmentation because clients and endpoints automatically negotiate a smaller Maximum Segment Size \(MSS\)\. However, the UDP protocol requires IP fragmentation\. When packets are fragmented, Global Accelerator forwards UDP fragments to the configured endpoint, which reassembles the original IP packet\. Global Accelerator drops TCP fragments at the edge, because they are not supported by the AWS network\.
 + **Cross\-account resources:** When you add a resource as an endpoint in Global Accelerator, the resource cannot belong to another AWS account\.
 
@@ -40,7 +39,7 @@ The Global Accelerator idle timeout for a network connection depends on the type
 + The timeout is 340 seconds for TCP connections\.
 + The timeout is 30 seconds for UDP connections\.
 
-Global Accelerator continues to direct traffic to an endpoint until the idle timeout is met, even if the endpoint is marked as unhealthy\. Global Accelerator selects a new endpoint, if needed, only when a new connection starts or after an idle timeout\.
+Global Accelerator continues to direct traffic for established connections to an endpoint until the idle timeout is met, even if the endpoint is marked as unhealthy\. Global Accelerator selects a new endpoint, if needed, only when a new connection starts or after an idle timeout\.
 
 ## Static IP addresses in AWS Global Accelerator<a name="about-static-ip-addresses"></a>
 
@@ -52,7 +51,7 @@ If you like, you can associate your own custom domain name with the static IP ad
 
 Global Accelerator provides the static IP addresses for you from the Amazon pool of IP addresses, unless you bring your own IP address range to AWS, and then specify the static IP addresses from that pool\. \(For more information, see [Bring your own IP addresses \(BYOIP\) in AWS Global Accelerator](using-byoip.md)\.\) To create an accelerator on the console, the first step is to prompt Global Accelerator to provision the static IP addresses by entering a name for your accelerator or choose your own static IP addresses\. To see the steps for creating an accelerator, see [Getting started with AWS Global Accelerator](getting-started.md)\.
 
-The static IP addresses remain assigned to your accelerator for as long as it exists, even if you disable the accelerator and it no longer accepts or routes traffic\. However, when you *delete* an accelerator, you lose the static IP addresses that are assigned to it, so you can no longer route traffic by using them\. You can use IAM policies like tag\-based permissions with Global Accelerator to limit the users who have permissions to delete an accelerator\. For more information, see [ Tag\-based policies](auth-and-access-control.md#access-control-manage-access-tag-policies)\.
+The static IP addresses remain assigned to your accelerator for as long as it exists, even if you disable the accelerator and it no longer accepts or routes traffic\. However, when you *delete* an accelerator, you lose the static IP addresses that are assigned to it, so you can no longer route traffic by using them\. You can use IAM policies like tag\-based permissions with Global Accelerator to limit the users who have permissions to delete an accelerator\. For more information, see [ABAC with Global Accelerator](security_iam_service-with-iam.md#security_iam_service-with-iam-tags)\.
 
 ## Traffic flow management with traffic dials and endpoint weights<a name="introduction-traffic-dials-weights"></a>
 
